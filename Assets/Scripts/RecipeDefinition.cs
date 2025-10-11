@@ -4,7 +4,7 @@ using UnityEngine;
 public class RecipeDefinition : ScriptableObject
 {
     public string recipeName;
-    [TextArea] public string flavorText;
-    public string[] targetTags;      // tags it’s “meant” for (used in scoring later)
+    [TextArea] public string descriptionText;
+    [TextArea] public string recipeText;
     public CraftStepDefinition[] steps;     // ordered steps
 }

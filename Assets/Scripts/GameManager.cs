@@ -5,9 +5,9 @@ public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result 
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] UIManager UI;
+    public static GameManager Instance { get; private set; }
     [SerializeField] List<ChildProfile> childQueue;
-    [SerializeField] List<RecipeDefinition> allRecipes;
+    [SerializeField] List<ChildProfile> visitedChild;
     [SerializeField] CraftingManager crafting;
     [SerializeField] Evaluator evaluator;
 
@@ -18,6 +18,17 @@ public class GameManager : MonoBehaviour
     RecipeDefinition selectedRecipe;
     //CraftResult craftResult;
     EvalResult evalResult;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     void Start()
     {
@@ -30,20 +41,19 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case LoopState.Arrival:
-                currentChild = childQueue[childIndex % childQueue.Count];
-                UI.ShowDoor(currentChild, onContinue: () => { state = LoopState.Examine; Advance(); });
+                RandomlySelectChild();
+                UIManager.Instance.ShowDoor();
                 break;
 
             case LoopState.Examine:
-                UI.ShowExamine(currentChild, onContinue: () => { state = LoopState.SelectRecipe; Advance(); });
+                UIManager.Instance.ShowVisitor();
                 break;
 
-            /*case LoopState.SelectRecipe:
-                var candidates = FilterRecipesFor(currentChild, allRecipes); // simple: return all for Day 1
-                ui.ShowRecipes(candidates, onPick: (r) => { selectedRecipe = r; state = LoopState.Craft; Advance(); });
+            case LoopState.SelectRecipe:
+                UIManager.Instance.DisplayRecipe();
                 break;
 
-            case LoopState.Craft:
+            /*case LoopState.Craft:
                 ui.ShowCraft();
                 crafting.Run(selectedRecipe, onDone: (cr) => { craftResult = cr; state = LoopState.Evaluate; Advance(); });
                 break;
@@ -64,5 +74,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void RandomlySelectChild()
+    {
+        int randomIndex = Random.Range(0, childQueue.Count);
+        while (visitedChild.Contains(childQueue[randomIndex]))
+        {
+            randomIndex = Random.Range(0, childQueue.Count);
+        }
+        
+        visitedChild.Add(childQueue[randomIndex]);
+        currentChild = childQueue[randomIndex];
+    }
+
+    public void ChangeGameState(LoopState newState)
+    {
+        state = newState;
+        Advance();
+    }
+
+    public ChildProfile GetCurrentChild()
+    {
+        return currentChild;
+    }
     //List<RecipeDef> FilterRecipesFor(ChildProfile c, List<RecipeDef> all) => all; // Day1: no filtering
 }

@@ -1,52 +1,98 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Panels")]
+    [SerializeField] private GameObject ArrivalPanel;
+    [SerializeField] private GameObject ExaminationPanel;
+    [SerializeField] private GameObject RecipePanel;
+    [SerializeField] private GameObject CraftingPanel;
+    [SerializeField] private GameObject ResultPanel;
+
+    [Header("Prefabs")]
+    [SerializeField] private GameObject ChildPrefab;
+    [SerializeField] private ChildUIUpdate childUI;
+    [SerializeField] private RecipeUI RecipeUI;
+
+    [Header("Buttons")]
+    [SerializeField] private Button ProceedToExamineButton;
+    [SerializeField] private Button ProceedToRecipeButton;
+    [SerializeField] private Button ProceedToCraftingButton;
+    [SerializeField] private Button ProceedToResultButton;
+    [SerializeField] private Button ProceedToArrivalButton;
+
+
+    public static UIManager Instance { get; private set; }
     public GameObject door, recipes, craft, result;
     public TextMeshProUGUI doorText, examineText, resultText;
     public Transform recipeListParent;
     public GameObject recipeButtonPrefab;
+    private bool isExaminePressed;
 
     System.Action onDoorContinue, onExamineContinue, onResultNext;
     System.Action<RecipeDefinition> onPickRecipe;
 
-    public void ShowDoor(ChildProfile c, System.Action onContinue)
+    void Awake()
     {
-        HideAll(); door.SetActive(true);
-        doorText.text = $"{c.childName} knocks.\nDesire? (hidden)\nInsecurity? (hidden)";
-        onDoorContinue = onContinue;
-        // Hook to button OnClick → CallDoorContinue();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
-    public void CallDoorContinue() => onDoorContinue?.Invoke();
-
-    public void ShowExamine(ChildProfile c, System.Action onContinue)
+    public void Start()
     {
-        HideAll(); door.SetActive(true); // reuse or separate an Examine panel
-        doorText.text = $"{c.childName}\nDesire: {c.desire}\nFear: {c.insecurity}";
-        onExamineContinue = onContinue;
+        ProceedToExamineButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Examine));
+        ProceedToRecipeButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.SelectRecipe));
+        ProceedToCraftingButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Craft));
+        ProceedToResultButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Result));
+        //ProceedToArrivalButton.onClick.AddListener(() => OnContinueClicked(LoopState.Examine));
     }
-    public void CallExamineContinue() => onExamineContinue?.Invoke();
 
-    public void ShowRecipes(List<RecipeDefinition> options, System.Action<RecipeDefinition> onPick)
+    public void ShowDoor()
     {
-        HideAll(); recipes.SetActive(true);
-        onPickRecipe = onPick;
-        // Clear children then instantiate buttons; each button .onClick → Pick(recipe)
+        // TODO: show arrival panel and play animation
+        // temp
+        // TODO: door must be opened when there's a show door animation - trick or treat text display - player opens the door
+        ArrivalPanel.SetActive(true);
     }
-    public void Pick(RecipeDefinition r) => onPickRecipe?.Invoke(r);
 
-    public void ShowCraft() { HideAll(); craft.SetActive(true); }
-
-    public void ShowResult(ChildProfile c, RecipeDefinition r, EvalResult e, System.Action onNext)
+    public void OnExamineButtonPressed()
     {
-        HideAll(); result.SetActive(true);
-        resultText.text = $"{c.childName} got {r.recipeName}\n{e.summary}";
-        onResultNext = onNext;
-    }
-    public void CallNext() => onResultNext?.Invoke();
+        isExaminePressed = !isExaminePressed;
 
-    void HideAll() { door.SetActive(false); recipes.SetActive(false); craft.SetActive(false); result.SetActive(false); }
+        if (isExaminePressed)
+        {
+            childUI.OnNormal();
+        }
+        else
+        {
+            childUI.OnExamined();
+        }
+    }
+
+    public void ShowVisitor()
+    {
+        ExaminationPanel.SetActive(true);
+        childUI.InitializeChild();
+    }
+
+    public void DisplayRecipe()
+    {
+        RecipePanel.SetActive(true);
+        RecipeUI.Initialize();
+    }
+
+    public void StartCraft()
+    {
+        CraftingPanel.SetActive(true);
+        // TODO: start crafting process
+    }
+
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 public class ChildProfile : ScriptableObject
 {
     public string childName;
+    [TextArea] public string greeting;        // “Wants to confess to Tiffany”
     [TextArea] public string desire;        // “Wants to confess to Tiffany”
     [TextArea] public string insecurity;    // “Not athletic like Brandon”
-    public string[] tags;                   // e.g., "love","athletic","envy"
+    [TextArea] public string farewell;    // “Not athletic like Brandon”
+    
 }
