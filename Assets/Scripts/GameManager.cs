@@ -5,7 +5,7 @@ public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result 
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] UIManager ui;
+    [SerializeField] UIManager UI;
     [SerializeField] List<ChildProfile> childQueue;
     [SerializeField] List<RecipeDefinition> allRecipes;
     [SerializeField] CraftingManager crafting;
@@ -31,11 +31,11 @@ public class GameManager : MonoBehaviour
         {
             case LoopState.Arrival:
                 currentChild = childQueue[childIndex % childQueue.Count];
-                ui.ShowDoor(currentChild, onContinue: () => { state = LoopState.Examine; Advance(); });
+                UI.ShowDoor(currentChild, onContinue: () => { state = LoopState.Examine; Advance(); });
                 break;
 
             case LoopState.Examine:
-                ui.ShowExamine(currentChild, onContinue: () => { state = LoopState.SelectRecipe; Advance(); });
+                UI.ShowExamine(currentChild, onContinue: () => { state = LoopState.SelectRecipe; Advance(); });
                 break;
 
             /*case LoopState.SelectRecipe:

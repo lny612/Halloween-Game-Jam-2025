@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject door, recipes, craft, result;
-    public TMPro.TextMeshProUGUI doorText, examineText, resultText;
+    public TextMeshProUGUI doorText, examineText, resultText;
     public Transform recipeListParent;
     public GameObject recipeButtonPrefab;
 
