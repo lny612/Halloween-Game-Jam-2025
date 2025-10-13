@@ -5841,6 +5841,7 @@ MonoBehaviour:
   RecipeSteps: {fileID: 662354530}
   backButton: {fileID: 1917597767}
   nextButton: {fileID: 35211596}
+  recipeDataContainer: {fileID: 11400000, guid: 6b11f40f9d1720743a2eb96ba5e6eb0c, type: 2}
 --- !u!1 &902445216
 GameObject:
   m_ObjectHideFlags: 0

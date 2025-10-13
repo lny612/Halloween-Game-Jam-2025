@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviour
         ProceedToRecipeButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.SelectRecipe));
         ProceedToCraftingButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Craft));
         ProceedToResultButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Result));
+        ProceedToArrivalButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Arrival));
         //ProceedToArrivalButton.onClick.AddListener(() => OnContinueClicked(LoopState.Examine));
     }
 
@@ -93,6 +94,11 @@ public class UIManager : MonoBehaviour
     {
         CraftingPanel.SetActive(true);
         // TODO: start crafting process
+    }
+
+    public void ShowResult()
+    {
+        ResultPanel.SetActive(true);
     }
 
 }

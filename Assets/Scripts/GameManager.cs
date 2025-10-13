@@ -40,42 +40,38 @@ public class GameManager : MonoBehaviour
 
     public void Advance()
     {
+
+        UIManager.Instance.CloseAllPanels();
+
         switch (state)
         {
             case LoopState.Arrival:
                 RandomlySelectChild();
-                UIManager.Instance.CloseAllPanels();
                 UIManager.Instance.ShowDoor();
                 break;
 
             case LoopState.Examine:
-                UIManager.Instance.CloseAllPanels();
+                
                 UIManager.Instance.ShowVisitor();
                 break;
 
             case LoopState.SelectRecipe:
-                UIManager.Instance.CloseAllPanels();
                 UIManager.Instance.DisplayRecipe();
                 break;
 
             case LoopState.Craft:
-                UIManager.Instance.CloseAllPanels();
                 UIManager.Instance.StartCraft();
                 break;
 
-            /*case LoopState.Evaluate:
-                evalResult = evaluator.Score(currentChild, selectedRecipe, craftResult);
+            case LoopState.Evaluate:
+                //evalResult = evaluator.Score(currentChild, selectedRecipe, craftResult);
                 state = LoopState.Result;
                 Advance();
                 break;
 
             case LoopState.Result:
-                ui.ShowResult(currentChild, selectedRecipe, evalResult, onNext: () => {
-                    childIndex++;
-                    state = LoopState.Arrival;
-                    Advance();
-                });
-                break;*/
+                UIManager.Instance.ShowResult();
+                break;
         }
     }
 
