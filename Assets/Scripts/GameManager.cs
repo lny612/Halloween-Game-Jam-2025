@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result }
+public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result, Ending}
 
 public class GameManager : MonoBehaviour
 {
@@ -11,14 +11,16 @@ public class GameManager : MonoBehaviour
     //[SerializeField] CraftingManager crafting;
     //[SerializeField] Evaluator evaluator;
 
+    [Header("Private variables")]
     private List<ChildProfile> childQueue;
-    int childIndex = 0;
-    LoopState state;
-
-    ChildProfile currentChild;
-    RecipeDataContainer selectedRecipe;
+    private int childIndex = 0;
+    private LoopState state;
+    private ChildProfile currentChild;
+    private RecipeDataContainer selectedRecipe;
     //CraftResult craftResult;
-    EvalResult evalResult;
+    private EvalResult evalResult;
+    private int _roundNumber = 1;
+    private int _currentRound = 0;
 
     void Awake()
     {
@@ -46,8 +48,17 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case LoopState.Arrival:
-                RandomlySelectChild();
-                UIManager.Instance.ShowDoor();
+                if(_currentRound < _roundNumber)
+                {
+                    _currentRound++;
+                    RandomlySelectChild();
+                    UIManager.Instance.ShowDoor();
+                }
+                else
+                {
+                    ChangeGameState(LoopState.Ending);
+                }
+
                 break;
 
             case LoopState.Examine:
@@ -65,12 +76,15 @@ public class GameManager : MonoBehaviour
 
             case LoopState.Evaluate:
                 //evalResult = evaluator.Score(currentChild, selectedRecipe, craftResult);
-                state = LoopState.Result;
-                Advance();
+                ChangeGameState(LoopState.Result);
                 break;
 
             case LoopState.Result:
                 UIManager.Instance.ShowResult();
+                break;
+
+            case LoopState.Ending:
+                UIManager.Instance.ShowEnding();
                 break;
         }
     }

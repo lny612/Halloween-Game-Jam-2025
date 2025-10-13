@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject RecipePanel;
     [SerializeField] private GameObject CraftingPanel;
     [SerializeField] private GameObject ResultPanel;
+    [SerializeField] private GameObject EndingPanel;
 
     [Header("Prefabs")]
     [SerializeField] private ChildUIUpdate childUI;
@@ -99,6 +100,11 @@ public class UIManager : MonoBehaviour
     public void ShowResult()
     {
         ResultPanel.SetActive(true);
+    }
+
+    public void ShowEnding()
+    {
+        EndingPanel.SetActive(true);
     }
 
 }
