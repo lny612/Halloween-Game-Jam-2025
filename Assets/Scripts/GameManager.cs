@@ -6,16 +6,17 @@ public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    [SerializeField] List<ChildProfile> childQueue;
+    [SerializeField] private ChildProfileContainer childProfileContainer;
     [SerializeField] List<ChildProfile> visitedChild;
-    [SerializeField] CraftingManager crafting;
-    [SerializeField] Evaluator evaluator;
+    //[SerializeField] CraftingManager crafting;
+    //[SerializeField] Evaluator evaluator;
 
+    private List<ChildProfile> childQueue;
     int childIndex = 0;
     LoopState state;
 
     ChildProfile currentChild;
-    RecipeDefinition selectedRecipe;
+    RecipeDataContainer selectedRecipe;
     //CraftResult craftResult;
     EvalResult evalResult;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         state = LoopState.Arrival;
+        childQueue = childProfileContainer.childProfileList;
         Advance();
     }
 
@@ -42,23 +44,26 @@ public class GameManager : MonoBehaviour
         {
             case LoopState.Arrival:
                 RandomlySelectChild();
+                UIManager.Instance.CloseAllPanels();
                 UIManager.Instance.ShowDoor();
                 break;
 
             case LoopState.Examine:
+                UIManager.Instance.CloseAllPanels();
                 UIManager.Instance.ShowVisitor();
                 break;
 
             case LoopState.SelectRecipe:
+                UIManager.Instance.CloseAllPanels();
                 UIManager.Instance.DisplayRecipe();
                 break;
 
-            /*case LoopState.Craft:
-                ui.ShowCraft();
-                crafting.Run(selectedRecipe, onDone: (cr) => { craftResult = cr; state = LoopState.Evaluate; Advance(); });
+            case LoopState.Craft:
+                UIManager.Instance.CloseAllPanels();
+                UIManager.Instance.StartCraft();
                 break;
 
-            case LoopState.Evaluate:
+            /*case LoopState.Evaluate:
                 evalResult = evaluator.Score(currentChild, selectedRecipe, craftResult);
                 state = LoopState.Result;
                 Advance();

@@ -13,7 +13,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject ResultPanel;
 
     [Header("Prefabs")]
-    [SerializeField] private GameObject ChildPrefab;
     [SerializeField] private ChildUIUpdate childUI;
     [SerializeField] private RecipeUI RecipeUI;
 
@@ -26,14 +25,7 @@ public class UIManager : MonoBehaviour
 
 
     public static UIManager Instance { get; private set; }
-    public GameObject door, recipes, craft, result;
-    public TextMeshProUGUI doorText, examineText, resultText;
-    public Transform recipeListParent;
-    public GameObject recipeButtonPrefab;
     private bool isExaminePressed;
-
-    System.Action onDoorContinue, onExamineContinue, onResultNext;
-    System.Action<RecipeDefinition> onPickRecipe;
 
     void Awake()
     {
@@ -63,6 +55,14 @@ public class UIManager : MonoBehaviour
         ArrivalPanel.SetActive(true);
     }
 
+    public void CloseAllPanels()
+    {
+        ArrivalPanel.SetActive(false);
+        ExaminationPanel.SetActive(false);
+        RecipePanel.SetActive(false);
+        CraftingPanel.SetActive(false);
+        ResultPanel.SetActive(false);
+    }
     public void OnExamineButtonPressed()
     {
         isExaminePressed = !isExaminePressed;

@@ -10,8 +10,8 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI RecipeSteps;
     [SerializeField] private Button backButton;
     [SerializeField] private Button nextButton;
+    [SerializeField] private RecipeDataContainer recipeDataContainer;
 
-    [SerializeField] List<RecipeDefinition> allRecipes;
     private int currentPage = 0;
     public void Initialize()
     {
@@ -20,20 +20,21 @@ public class RecipeUI : MonoBehaviour
 
     public void SetInformation(int page)
     {
-        Name.text = allRecipes[page].recipeName;
-        Description.text = allRecipes[page].descriptionText;
-        RecipeSteps.text = allRecipes[page].recipeText;
+        var currentRecipe = recipeDataContainer.recipeList[page];
+        Name.text = currentRecipe.recipeName;
+        Description.text = currentRecipe.descriptionText;
+        RecipeSteps.text = currentRecipe.recipeText;
     }
 
     public void OnNextButtonPressed()
     {
-        if (currentPage < allRecipes.Count - 1)
+        if (currentPage < recipeDataContainer.recipeList.Count - 1)
         {
             currentPage++;
             SetInformation(currentPage);
         }
 
-        else if (currentPage == allRecipes.Count - 1)
+        else if (currentPage == recipeDataContainer.recipeList.Count - 1)
         {
             nextButton.interactable = false;
         }

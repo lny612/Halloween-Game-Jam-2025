@@ -1,7 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-[CreateAssetMenu(menuName = "Child/ChildProfile")]
-public class ChildProfile : ScriptableObject
+[CreateAssetMenu(fileName = "ChildProfileContainer", menuName = "Child/ChildProfile")]
+public class ChildProfileContainer : ScriptableObject
+{
+    public List<ChildProfile> childProfileList;
+}
+[System.Serializable]
+public class ChildProfile
 {
     public string childName;
     [TextArea] public string greeting;        // “Wants to confess to Tiffany”
