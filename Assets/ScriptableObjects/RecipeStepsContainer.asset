@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: RecipeStepsContainer
   m_EditorClassIdentifier: 
   recipeList:
-  - recipeName: b
-    descriptionText: b
-    recipeText: b
-    steps: []
+  - recipeName: Horse Leg Candy
+    descriptionText: A candy that grants the speed of a horse.
+    recipeText: Boil, add water, stir, add sugar, stir, essence...
+    steps:
+    - {fileID: 11400000, guid: ff05f5249bc6ed6449ba2200e2aa007c, type: 2}
+    - {fileID: 11400000, guid: ee405cd397156ea439e29fbb048929b8, type: 2}
+    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: ee405cd397156ea439e29fbb048929b8, type: 2}
+    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 94c08484a21550546b394f2e277b6d03, type: 2}
+    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}

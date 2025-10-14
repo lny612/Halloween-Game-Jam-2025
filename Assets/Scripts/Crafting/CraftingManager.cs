@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CraftingManager : MonoBehaviour
 {
     [Header("Data")]
-    public RecipeDef activeRecipe;
+    public RecipeDefinition activeRecipe;
 
     [Header("References")]
     [Tooltip("Parent with HorizontalLayoutGroup that will hold one StepSlotUI per step.")]
@@ -15,8 +15,8 @@ public class CraftingManager : MonoBehaviour
     public StepSlotUI stepSlotPrefab;
 
     [Header("Controllers")]
-    public StirController stirController;             // hook UI panel for stirring
-    public ScalePourController scalePourController;   // hook UI panel for pouring
+    public StirManager stirController;             // hook UI panel for stirring
+    public ScalePourManager scalePourController;   // hook UI panel for pouring
 
     [Header("Events")]
     public UnityEvent onAllStepsFinished;             // recipe sequence done
@@ -30,7 +30,7 @@ public class CraftingManager : MonoBehaviour
         if (activeRecipe != null) BeginRecipe(activeRecipe);
     }
 
-    public void BeginRecipe(RecipeDef recipe)
+    public void BeginRecipe(RecipeDefinition recipe)
     {
         if (recipe == null) { Debug.LogError("CraftingManager: No recipe!"); return; }
 
@@ -44,7 +44,7 @@ public class CraftingManager : MonoBehaviour
         foreach (var step in activeRecipe.steps)
         {
             var slot = Instantiate(stepSlotPrefab, conveyorParent);
-            slot.Setup(step.icon, step.stepName, step.timeLimit);
+            slot.Setup(step.icon, step.instruction, step.timeLimit);
             _slots.Add(slot);
         }
 
@@ -69,9 +69,9 @@ public class CraftingManager : MonoBehaviour
             slot.ShowNeutral();
 
             // Start the appropriate sub-minigame
-            switch (step.type)
+            switch (step.stepType)
             {
-                case StepType.AddIngredient:
+                case StepType.Add:
                     scalePourController.gameObject.SetActive(true);
                     scalePourController.Begin(step.ingredientName,
                                               step.targetAmount,
@@ -97,7 +97,7 @@ public class CraftingManager : MonoBehaviour
                 slot.SetFill(tNorm);
 
                 // Check completion
-                if (step.type == StepType.AddIngredient)
+                if (step.stepType == StepType.Add)
                 {
                     if (scalePourController.IsComplete)
                     {
@@ -105,7 +105,7 @@ public class CraftingManager : MonoBehaviour
                         break;
                     }
                 }
-                else if (step.type == StepType.Stir)
+                else if (step.stepType == StepType.Stir)
                 {
                     if (stirController.IsComplete)
                     {
@@ -118,12 +118,12 @@ public class CraftingManager : MonoBehaviour
             }
 
             // Time ended: if not completed, finalize with fail (ScalePour/Stir handle internal scoring too)
-            if (step.type == StepType.AddIngredient && !scalePourController.IsComplete)
+            if (step.stepType == StepType.Add && !scalePourController.IsComplete)
             {
                 scalePourController.ForceFinish(false);
                 success = false;
             }
-            else if (step.type == StepType.Stir && !stirController.IsComplete)
+            else if (step.stepType == StepType.Stir && !stirController.IsComplete)
             {
                 stirController.ForceFinish(false);
                 success = false;

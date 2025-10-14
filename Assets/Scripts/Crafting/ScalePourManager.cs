@@ -4,9 +4,9 @@ using TMPro;
 public class ScalePourManager : MonoBehaviour
 {
     [Header("UI")]
-    public TMP_Text title;
-    public TMP_Text amountText;
-    public TMP_Text hintText;
+    public TextMeshProUGUI title;
+    public TextMeshProUGUI amountText;
+    public TextMeshProUGUI hintText;
 
     [Header("Input")]
     public KeyCode pourKey = KeyCode.Space;

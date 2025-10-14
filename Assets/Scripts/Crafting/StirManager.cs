@@ -4,8 +4,8 @@ using TMPro;
 public class StirManager : MonoBehaviour
 {
     [Header("UI")]
-    public TMP_Text prompt;
-    public TMP_Text progressText;
+    public TextMeshProUGUI prompt;
+    public TextMeshProUGUI progressText;
 
     [Header("Input")]
     public KeyCode stirKey = KeyCode.Space;

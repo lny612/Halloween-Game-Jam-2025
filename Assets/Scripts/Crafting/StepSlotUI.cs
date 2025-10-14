@@ -8,7 +8,7 @@ public class StepSlotUI : MonoBehaviour
     public Image timeFill;
     public GameObject tick;
     public GameObject cross;
-    public TMP_Text label; // optional
+    public TextMeshProUGUI label; // optional
 
     public void Setup(Sprite stepIcon, string stepName, float timeLimit)
     {
