@@ -43,7 +43,7 @@ public class UIManager : MonoBehaviour
     {
         ProceedToExamineButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Examine));
         ProceedToRecipeButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.SelectRecipe));
-        ProceedToCraftingButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Craft));
+        //ProceedToCraftingButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Craft));
         ProceedToResultButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Result));
         ProceedToArrivalButton.onClick.AddListener(() => GameManager.Instance.ChangeGameState(LoopState.Arrival));
         //ProceedToArrivalButton.onClick.AddListener(() => OnContinueClicked(LoopState.Examine));

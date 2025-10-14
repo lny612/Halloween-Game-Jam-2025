@@ -9,25 +9,31 @@ public class CraftingManager : MonoBehaviour
     public RecipeDefinition activeRecipe;
 
     [Header("References")]
-    [Tooltip("Parent with HorizontalLayoutGroup that will hold one StepSlotUI per step.")]
+    [Tooltip("Parent with HorizontalLayoutGroup that will hold one StepSlotUI per step")]
     public Transform conveyorParent;
-    [Tooltip("Prefab with StepSlotUI component (icon, fill, tick/X).")]
+    [Tooltip("Prefab with StepSlotUI component")]
     public StepSlotUI stepSlotPrefab;
 
     [Header("Controllers")]
-    public StirManager stirController;             // hook UI panel for stirring
-    public ScalePourManager scalePourController;   // hook UI panel for pouring
+    public StirManager stirManager;             // hook UI panel for stirring
+    public ScalePourManager scalePourManager;   // hook UI panel for pouring
 
     [Header("Events")]
     public UnityEvent onAllStepsFinished;             // recipe sequence done
 
+    public static CraftingManager Instance { get; private set; }
     private List<StepSlotUI> _slots = new List<StepSlotUI>();
     private bool _running;
 
-    void Start()
+    void Awake()
     {
-        // You can call BeginRecipe(activeRecipe) from GameLoop, or auto-start if assigned:
-        if (activeRecipe != null) BeginRecipe(activeRecipe);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
     public void BeginRecipe(RecipeDefinition recipe)
@@ -72,8 +78,8 @@ public class CraftingManager : MonoBehaviour
             switch (step.stepType)
             {
                 case StepType.Add:
-                    scalePourController.gameObject.SetActive(true);
-                    scalePourController.Begin(step.ingredientName,
+                    scalePourManager.gameObject.SetActive(true);
+                    scalePourManager.Begin(step.ingredientName,
                                               step.targetAmount,
                                               step.unit,
                                               step.tolerance,
@@ -82,14 +88,14 @@ public class CraftingManager : MonoBehaviour
                     break;
 
                 case StepType.Stir:
-                    stirController.gameObject.SetActive(true);
-                    stirController.Begin(step.stirRequiredCount,
+                    stirManager.gameObject.SetActive(true);
+                    stirManager.Begin(step.stirRequiredCount,
                                          step.stirMinInterval,
                                          step.timeLimit);
                     break;
             }
 
-            // While the step time runs, animate the slot’s fill (left?right), and poll sub-controller result
+            // While the step time runs, animate the slot’s fill, and poll sub-controller result
             while (elapsed < step.timeLimit)
             {
                 elapsed += Time.deltaTime;
@@ -99,17 +105,17 @@ public class CraftingManager : MonoBehaviour
                 // Check completion
                 if (step.stepType == StepType.Add)
                 {
-                    if (scalePourController.IsComplete)
+                    if (scalePourManager.IsComplete)
                     {
-                        success = scalePourController.WasSuccessful;
+                        success = scalePourManager.WasSuccessful;
                         break;
                     }
                 }
                 else if (step.stepType == StepType.Stir)
                 {
-                    if (stirController.IsComplete)
+                    if (stirManager.IsComplete)
                     {
-                        success = stirController.WasSuccessful;
+                        success = stirManager.WasSuccessful;
                         break;
                     }
                 }
@@ -118,20 +124,20 @@ public class CraftingManager : MonoBehaviour
             }
 
             // Time ended: if not completed, finalize with fail (ScalePour/Stir handle internal scoring too)
-            if (step.stepType == StepType.Add && !scalePourController.IsComplete)
+            if (step.stepType == StepType.Add && !scalePourManager.IsComplete)
             {
-                scalePourController.ForceFinish(false);
+                scalePourManager.ForceFinish(false);
                 success = false;
             }
-            else if (step.stepType == StepType.Stir && !stirController.IsComplete)
+            else if (step.stepType == StepType.Stir && !stirManager.IsComplete)
             {
-                stirController.ForceFinish(false);
+                stirManager.ForceFinish(false);
                 success = false;
             }
 
             // Close sub-panels
-            scalePourController.gameObject.SetActive(false);
-            stirController.gameObject.SetActive(false);
+            scalePourManager.gameObject.SetActive(false);
+            stirManager.gameObject.SetActive(false);
 
             // Tick / X and freeze slot
             if (success) slot.ShowTick();

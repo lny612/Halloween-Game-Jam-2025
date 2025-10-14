@@ -45,7 +45,6 @@ public class CauldronBoilMinigame : MonoBehaviour
 
     [Header("Input")]
     public KeyCode heatKey = KeyCode.Space;
-    public bool useMouse0 = true;
 
     [Header("Events")]
     public UnityEvent onCandyPerfect;
@@ -101,7 +100,7 @@ public class CauldronBoilMinigame : MonoBehaviour
         elapsed += dt;
 
         // 1) Heat control
-        bool heating = (Input.GetKey(heatKey)) || (useMouse0 && Input.GetMouseButton(0));
+        bool heating = (Input.GetKey(heatKey));
         float accel = heating ? heatRiseAcceleration : -coolingGravity;
         markerVelocity += accel * dt;
         markerVelocity = Mathf.Lerp(markerVelocity,

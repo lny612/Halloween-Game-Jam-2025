@@ -10,6 +10,7 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI RecipeSteps;
     [SerializeField] private Button backButton;
     [SerializeField] private Button nextButton;
+    [SerializeField] private Button startCraftButton;
     [SerializeField] private RecipeDataContainer recipeDataContainer;
 
     private int currentPage = 0;
@@ -63,5 +64,11 @@ public class RecipeUI : MonoBehaviour
             nextButton.interactable = true;
 
         }
+    }
+
+    public void OnRecipeSelectButtonPressed()
+    {
+        GameManager.Instance.SetRecipe(recipeDataContainer.recipeList[currentPage]);
+        GameManager.Instance.ChangeGameState(LoopState.Craft);
     }
 }

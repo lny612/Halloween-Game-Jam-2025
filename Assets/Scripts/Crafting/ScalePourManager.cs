@@ -9,9 +9,9 @@ public class ScalePourManager : MonoBehaviour
     public TextMeshProUGUI hintText;
 
     [Header("Input")]
-    public KeyCode pourKey = KeyCode.Space;
-    public bool useMouse0 = true;
-    public KeyCode confirmKey = KeyCode.Return;
+    [Tooltip("Hold Left Mouse to pour, Right Mouse to confirm")]
+    public int pourMouseButton = 0;  // 0 = Left Mouse
+    public int confirmMouseButton = 1; // 1 = Right Mouse
 
     // State
     private string _ingredient;
@@ -43,23 +43,25 @@ public class ScalePourManager : MonoBehaviour
 
         if (title) title.text = $"Add {_ingredient}";
         UpdateUI();
-        if (hintText) hintText.text = $"Hold Space/Click to pour, Enter to confirm\nTarget: {_target}{_unit} (±{_tolerance})";
+
+        if (hintText)
+            hintText.text = $"Hold LEFT Click to pour, RIGHT Click to confirm\nTarget: {_target}{_unit} (±{_tolerance})";
     }
 
     void Update()
     {
         if (IsComplete) return;
 
-        // Pour
-        bool pouring = Input.GetKey(pourKey) || (useMouse0 && Input.GetMouseButton(0));
+        // Pour with left mouse hold
+        bool pouring = Input.GetMouseButton(pourMouseButton);
         if (pouring)
         {
             _currentAmount += _rate * Time.deltaTime;
             UpdateUI();
         }
 
-        // Confirm
-        if (Input.GetKeyDown(confirmKey))
+        // Confirm with right mouse click
+        if (Input.GetMouseButtonDown(confirmMouseButton))
         {
             float error = Mathf.Abs(_currentAmount - _target);
             WasSuccessful = error <= _tolerance;
@@ -67,7 +69,7 @@ public class ScalePourManager : MonoBehaviour
             return;
         }
 
-        // Timeout → auto-complete as fail/success based on tolerance
+        // Timeout → auto-complete as fail/success
         if (Time.time - _startTime >= _timeLimit)
         {
             float error = Mathf.Abs(_currentAmount - _target);

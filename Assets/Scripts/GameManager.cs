@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private int childIndex = 0;
     private LoopState state;
     private ChildProfile currentChild;
-    private RecipeDataContainer selectedRecipe;
+    private RecipeDefinition _currentRecipe;
     //CraftResult craftResult;
     private EvalResult evalResult;
     private int _roundNumber = 1;
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
             case LoopState.Craft:
                 UIManager.Instance.StartCraft();
+                CraftingManager.Instance.BeginRecipe(_currentRecipe);
                 break;
 
             case LoopState.Evaluate:
@@ -107,6 +108,10 @@ public class GameManager : MonoBehaviour
         Advance();
     }
 
+    public void SetRecipe(RecipeDefinition selectedRecipe)
+    {
+        _currentRecipe = selectedRecipe;
+    }
     public ChildProfile GetCurrentChild()
     {
         return currentChild;

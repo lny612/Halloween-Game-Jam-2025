@@ -4,12 +4,11 @@ using TMPro;
 public class StirManager : MonoBehaviour
 {
     [Header("UI")]
-    public TextMeshProUGUI prompt;
-    public TextMeshProUGUI progressText;
+    public TMP_Text prompt;
+    public TMP_Text progressText;
 
     [Header("Input")]
-    public KeyCode stirKey = KeyCode.Space;
-    public bool useMouse0 = true;
+    public bool useMouse0 = true; // mouse only
 
     // State
     private int _targetStirs;
@@ -42,8 +41,8 @@ public class StirManager : MonoBehaviour
     {
         if (IsComplete) return;
 
-        // input
-        bool pressed = Input.GetKeyDown(stirKey) || (useMouse0 && Input.GetMouseButtonDown(0));
+        // MOUSE0 taps only
+        bool pressed = useMouse0 && Input.GetMouseButtonDown(0);
         if (pressed)
         {
             float now = Time.time;
