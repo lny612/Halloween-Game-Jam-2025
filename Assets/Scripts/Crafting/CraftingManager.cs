@@ -79,7 +79,7 @@ public class CraftingManager : MonoBehaviour
             {
                 case StepType.Add:
                     scalePourManager.gameObject.SetActive(true);
-                    scalePourManager.Begin(step.ingredientName,
+                    scalePourManager.BeginForIngredient(step.ingredientName,
                                               step.targetAmount,
                                               step.unit,
                                               step.tolerance,
