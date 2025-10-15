@@ -79,12 +79,7 @@ public class CraftingManager : MonoBehaviour
             {
                 case StepType.Add:
                     scalePourManager.gameObject.SetActive(true);
-                    scalePourManager.BeginForIngredient(step.ingredientName,
-                                              step.targetAmount,
-                                              step.unit,
-                                              step.tolerance,
-                                              step.pourRatePerSecond,
-                                              step.timeLimit);
+                    scalePourManager.InitializeCurrentRecipeStep(step);
                     break;
 
                 case StepType.Stir:
