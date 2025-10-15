@@ -77,16 +77,16 @@ public class CraftingManager : MonoBehaviour
             // Start the appropriate sub-minigame
             switch (step.stepType)
             {
-                case StepType.Add:
+                case StepType.Add when step is AddIngredientStep addIngredientStep:
+                    scalePourManager.InitializeCurrentRecipeStep(addIngredientStep);
                     scalePourManager.gameObject.SetActive(true);
-                    scalePourManager.InitializeCurrentRecipeStep(step);
                     break;
 
-                case StepType.Stir:
+                case StepType.Stir when step is StirStep stirStep:
                     stirManager.gameObject.SetActive(true);
-                    stirManager.Begin(step.stirRequiredCount,
-                                         step.stirMinInterval,
-                                         step.timeLimit);
+                    stirManager.Begin(stirStep.stirRequiredCount,
+                                      stirStep.stirMinInterval,
+                                      stirStep.timeLimit);
                     break;
             }
 

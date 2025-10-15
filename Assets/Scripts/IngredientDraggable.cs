@@ -2,184 +2,109 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/// <summary>
-/// Integrated cellar draggable + bottle shaker with hover-to-start:
-/// - In normal mode (shakerMode = false): behaves like ghost-drag cellar icon.
-/// - In shaker mode (shakerMode = true):
-///     * Drag the actual bottle.
-///     * As soon as the bottle mouth ENTERS the cauldron zone (still holding LMB),
-///       ScalePourManager.BeginForIngredient(..., owner: this) is called automatically.
-///     * When it LEAVES the zone (still holding), DisarmWithoutFinish(this) is called (no evaluation).
-///     * On mouse-up anywhere: stop particles, report zero speed, disarm if needed,
-///       snap bottle back to its start position, exit shaker mode.
-/// </summary>
 public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [Header("Ingredient Data")]
-    public string ingredientName = "Iris Sugar";
-    public float pourRatePerSecond = 150f; // seeds ScalePourManager.basePourPerSecond
-
-    [Header("Manager")]
+    [Header("Scripts")]
     public ScalePourManager scalePourManager;
+    public CauldronDropZone cauldronDropZone;
 
-    [Header("Drag Visuals (Cellar Mode)")]
-    public Canvas canvas;              // assign your UI Canvas
-    public Image ghostImagePrefab;     // optional: drag ghost
+    [Header("UI")]
+    public Canvas canvas;
+    public RectTransform bottleRT;
+    public RectTransform cauldronZone;
+    public ParticleSystem pourParticles;
 
-    [Header("Bottle Shaker (Pour Mode)")]
-    public RectTransform bottleRT;           // actual bottle rect (defaults to own RT)
-    public RectTransform cauldronZone;       // hit area over the cauldron (RectTransform)
-    public ParticleSystem pourParticles;     // particle system at bottle mouth
-    [Tooltip("Local offset from bottle center to mouth (pixels). Tune for your sprite.")]
-    public Vector2 mouthLocalOffset = new Vector2(0f, 50f);
-
-    [Header("Shake → Pour Tuning")]
-    [Tooltip("Pixels/sec of vertical motion that equals speed = 1.0")]
+    [Header("Shaking")]
     public float pixelsPerSecondForUnitSpeed = 500f;
-    [Tooltip("Min normalized speed to start emitting/pouring")]
     public float minShakeSpeed = 0.15f;
-    [Tooltip("Clamp of normalized shake speed")]
     public float maxShakeSpeed = 3f;
-    [Range(0f, 1f)]
-    [Tooltip("Smoothing for speed spikes (higher = snappier)")]
-    public float speedLerp = 0.25f;
-    
+    [Range(0f, 1f)] public float speedLerp = 0.25f;
 
-    // --- Runtime ---
+    // runtime
     private RectTransform _rt;
     private CanvasGroup _group;
-    private Image _ghostInstance;
-    private bool _dragging;
-    private bool _shakerMode;                  // false = cellar ghost drag; true = bottle shaker
     private Camera _uiCam;
-
-    // Shaker state
     private Vector2 _lastLocalPos;
     private float _lastTime;
     private float _filteredVSpeed;
-    private bool _wasOverCauldron;
-    private Vector2 _startAnchoredPos;         // snap-back target
-
-    // Hook to manager (speed → poured amount)
+    private Vector2 _startAnchoredPos;
     private Vector2 localNow;
 
     void Awake()
     {
         _rt = GetComponent<RectTransform>();
-        _group = GetComponent<CanvasGroup>();
-        if (_group == null) _group = gameObject.AddComponent<CanvasGroup>();
+        _group = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
         if (!bottleRT) bottleRT = _rt;
-
+        if (!canvas) canvas = GetComponentInParent<Canvas>();
+        _startAnchoredPos = bottleRT.anchoredPosition;
         if (pourParticles) SetParticleEmission(0f);
-        _startAnchoredPos = bottleRT.anchoredPosition; // remember starting pos for snap-back
     }
 
-    /// <summary>
-    /// Switch between cellar ghost dragging and bottle shaking.
-    /// Call this when opening the pouring panel / arming the bottle.
-    /// </summary>
-    /*public void SetShakerMode(bool enabled,  RectTransform cauldron = null)
+    public void SetShakerMode(bool enabled, RectTransform cauldron = null, object _ = null)
     {
-        _shakerMode = enabled;
-        if (cauldron != null) cauldronZone = cauldron;
-
-        // Reset shaker state
+        if (cauldron) cauldronZone = cauldron;
         _filteredVSpeed = 0f;
-        _dragging = false;
-        _wasOverCauldron = false;
         if (pourParticles) SetParticleEmission(0f);
-
-        // In shaker mode we move the actual bottle; disable ghost if any
-        if (_ghostInstance) { Destroy(_ghostInstance.gameObject); _ghostInstance = null; }
-
-        // Ensure Image is raycastable for dragging
         var img = GetComponent<Image>();
         if (img) img.raycastTarget = true;
-    }*/
-
-    // ---------------- Drag Interfaces ----------------
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         _uiCam = eventData.pressEventCamera;
+        _group.blocksRaycasts = false;
 
-        if (!_shakerMode)
-        {
-            // Cellar mode: ghost drag & allow drop zones to receive
-            _group.blocksRaycasts = false;
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                bottleRT.parent as RectTransform, eventData.position, _uiCam, out _lastLocalPos))
+            return;
 
-            if (ghostImagePrefab != null && canvas != null)
-            {
-                _ghostInstance = Instantiate(ghostImagePrefab, canvas.transform);
-                _ghostInstance.sprite = GetComponent<Image>()?.sprite;
-                _ghostInstance.raycastTarget = false;
-            }
-        }
-        else
-        {
-            // Shaker mode: drag the actual bottle and prep speed calc
-            _dragging = true;
+        _lastTime = Time.unscaledTime;
+        _filteredVSpeed = 0f;
 
-            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    bottleRT.parent as RectTransform, eventData.position, _uiCam, out _lastLocalPos))
-                return;
-
-            _lastTime = Time.unscaledTime;
-            _filteredVSpeed = 0f;
-            _wasOverCauldron = false;
-
-            if (pourParticles) pourParticles.Play(true);
-        }
+        if (pourParticles) pourParticles.Play(true);
+        Debug.Log("[Draggable] BeginDrag");
     }
-    
+
     public void OnDrag(PointerEventData eventData)
     {
-        if (!_shakerMode)
-        {
-            // Cellar mode: move ghost, or self as fallback
-            if (_ghostInstance != null)
-            {
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    canvas.transform as RectTransform, eventData.position, _uiCam, out var localPos);
-                _ghostInstance.rectTransform.anchoredPosition = localPos;
-            }
-            else
-            {
-                _rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
-            }
+        // pointer → local
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                bottleRT.parent as RectTransform, eventData.position, _uiCam, out localNow))
             return;
-        }
 
-        StartShakerMode(eventData);
-
-    }
-    public void StartShakerMode(PointerEventData eventData)
-    {
-
-        // Shaker mode: drag actual bottle and compute vertical shake speed
-        if (!_dragging || eventData.button != PointerEventData.InputButton.Left) return;
-
-        CauldronDropZone cauldronDropZone = cauldronZone.gameObject.GetComponent<CauldronDropZone>();
-        if (!cauldronDropZone.isArmed()) return;
-
-        // Move bottle with pointer
+        // move UI
         bottleRT.anchoredPosition = localNow;
 
-        // Vertical speed (px/s)
+        // arm/disarm by UI overlap
+        bool overlap = RectOverlaps(bottleRT, cauldronZone, _uiCam);
+        if (overlap && !cauldronDropZone.isArmed()) cauldronDropZone.Arm(this);
+        else if (!overlap && cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
+
+        if (!cauldronDropZone.isArmed()) return;
+
+        StartShakerMode();
+    }
+
+    private void StartShakerMode()
+    {
+        // vertical speed in px/s
         float dt = Mathf.Max(0.0001f, Time.unscaledTime - _lastTime);
         float vSpeedPxPerSec = Mathf.Abs(localNow.y - _lastLocalPos.y) / dt;
 
-        // Normalize & smooth
+        // normalize + smooth
         float normSpeed = vSpeedPxPerSec / Mathf.Max(1f, pixelsPerSecondForUnitSpeed);
         _filteredVSpeed = Mathf.Lerp(_filteredVSpeed, normSpeed, speedLerp);
 
-        // Particles & tilt (only when actually over cauldron and shaking enough)
-        float emitStrength = (cauldronDropZone.isArmed() && _filteredVSpeed >= minShakeSpeed)
-            ? Mathf.Clamp(_filteredVSpeed, 0f, maxShakeSpeed) : 0f;
+        // particles rate + tilt
+        float emitStrength = (_filteredVSpeed >= minShakeSpeed) ? Mathf.Clamp(_filteredVSpeed, 0f, maxShakeSpeed) : 0f;
         SetParticleEmission(emitStrength);
 
-        // Report shake every frame (manager ignores if not armed)
-        if (scalePourManager) scalePourManager.OnShakeUpdate(_filteredVSpeed, cauldronDropZone.isArmed());
+        // gauge update + log
+        if (scalePourManager)
+        {
+            scalePourManager.OnShakeUpdate(_filteredVSpeed, true);
+            Debug.Log($"[Shaker] speed={_filteredVSpeed:0.00} → gauge tick");
+        }
 
         _lastLocalPos = localNow;
         _lastTime = Time.unscaledTime;
@@ -187,30 +112,36 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        /*if (!_shakerMode)
-        {
-            // Cellar mode: restore raycasts and clean ghost
-            _group.blocksRaycasts = true;
-            if (_ghostInstance != null) Destroy(_ghostInstance.gameObject);
-            return;
-        }
+        _group.blocksRaycasts = true;
 
-        // Shaker mode: on mouse-up, stop emission & zero speed, possibly disarm
-        _dragging = false;
         _filteredVSpeed = 0f;
         SetParticleEmission(0f);
         if (scalePourManager) scalePourManager.OnShakeUpdate(0f, false);
 
-        // If we were over cauldron, disarm (no finish)
-        if (scalePourManager && _wasOverCauldron)
-            scalePourManager.DisarmWithoutFinish(this);
-
-        // Snap bottle back to its original position and exit shaker mode
+        if (cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
         bottleRT.anchoredPosition = _startAnchoredPos;
-        SetShakerMode(false, null, null);*/
+
+        Debug.Log("[Draggable] EndDrag");
     }
 
-    // ---------------- Helpers ----------------
+    // --- helpers ---
+    private static bool RectOverlaps(RectTransform a, RectTransform b, Camera cam)
+    {
+        if (!a || !b) return false;
+        Vector3[] ac = new Vector3[4]; Vector3[] bc = new Vector3[4];
+        a.GetWorldCorners(ac); b.GetWorldCorners(bc);
+
+        var aMin = RectTransformUtility.WorldToScreenPoint(cam, ac[0]);
+        var aMax = RectTransformUtility.WorldToScreenPoint(cam, ac[2]);
+        var bMin = RectTransformUtility.WorldToScreenPoint(cam, bc[0]);
+        var bMax = RectTransformUtility.WorldToScreenPoint(cam, bc[2]);
+
+        Rect ra = Rect.MinMaxRect(Mathf.Min(aMin.x, aMax.x), Mathf.Min(aMin.y, aMax.y),
+                                  Mathf.Max(aMin.x, aMax.x), Mathf.Max(aMin.y, aMax.y));
+        Rect rb = Rect.MinMaxRect(Mathf.Min(bMin.x, bMax.x), Mathf.Min(bMin.y, bMax.y),
+                                  Mathf.Max(bMin.x, bMax.x), Mathf.Max(bMin.y, bMax.y));
+        return ra.Overlaps(rb);
+    }
 
     private void SetParticleEmission(float strength)
     {
@@ -219,7 +150,6 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         float rate = Mathf.Lerp(0f, 200f, Mathf.Clamp01(strength / Mathf.Max(0.001f, maxShakeSpeed)));
         em.rateOverTime = rate;
 
-        // Juice: tilt bottle based on strength
         var rot = bottleRT.localEulerAngles;
         rot.z = Mathf.Lerp(0f, -12f, Mathf.Clamp01(strength));
         bottleRT.localEulerAngles = rot;

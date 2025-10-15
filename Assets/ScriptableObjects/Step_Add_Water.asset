@@ -9,17 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2296e672ac53f347950d55db8a994e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 945acf70f4825ad479b8e77b4842aea6, type: 3}
   m_Name: Step_Add_Water
   m_EditorClassIdentifier: 
-  instruction: Add 200ml of water
+  instruction: Add 200ml of Pure Water
   icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
   timeLimit: 10
-  ingredientName: Fresh Water
+  ingredientName: Pure Water
   ingredientType: 0
   targetAmount: 200
   unit: ml
-  pourRatePerSecond: 100
-  tolerance: 5
-  stirRequiredCount: 0
-  stirMinInterval: 0
+  tolerance: 10

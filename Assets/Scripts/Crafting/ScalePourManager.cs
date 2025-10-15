@@ -18,7 +18,6 @@ public class ScalePourManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI title;         // "Add Iris Sugar"
     public TextMeshProUGUI amountText;    // "87/100 g"
-    public TextMeshProUGUI hintText;      // instruction text
     public Image amountFill;              // horizontal fill bar (0..1), optional
 
     [Header("Pour Model")]
@@ -72,8 +71,10 @@ public class ScalePourManager : MonoBehaviour
     /// Intended to be called immediately when the bottle enters the cauldron zone (no mouse-up required).
     /// </summary>
 
-    public void InitializeCurrentRecipeStep(RecipeStep currentRecipeStep)
+    public void InitializeCurrentRecipeStep(AddIngredientStep currentRecipeStep)
     {
+        // The detailed instruction of the CURRENT recipe to follow
+        _ingredient = currentRecipeStep.ingredientName;
         _target = currentRecipeStep.targetAmount;
         _unit = currentRecipeStep.unit;
         _tolerance = Mathf.Abs(currentRecipeStep.tolerance);
@@ -82,29 +83,20 @@ public class ScalePourManager : MonoBehaviour
         IsComplete = false;
         WasSuccessful = false;
 
-        //Set Detailed Step
-        if (title) title.text = $"Add {_ingredient}";
-        if (hintText)
-        {
-            string confirmHint = (confirmMouseButton >= 0) ? "Right-Click to confirm." : "";
-            hintText.text = $"Drag bottle over the cauldron.\nShake it UP↕DOWN to pour. {confirmHint}\nTarget: {_target}{_unit} (±{_tolerance})";
-        }
-
-        UpdateUI();
+        // TODO: temp code - to delete
+        title.text = $"Add {_ingredient}";
+        amountText.text = $"0/{_target} {_unit}";
     }
 
     public void BeginForIngredient(IngredientDraggable ingredient)
     {
         _ingredient = ingredient.name;
-        
-        // recipe-specific baseline (so different ingredients feel different)
-        basePourPerSecond = Mathf.Max(1f, ingredient.pourRatePerSecond);
 
+        // recipe-specific baseline (so different ingredients feel different)
+        //basePourPerSecond = Mathf.Max(1f, ingredient.pourRatePerSecond);
+        basePourPerSecond = Mathf.Max(1f, 10f);
         _currentAmount = 0f;
-        _startTime = Time.time;
-        _armed = true;
-        _overCauldron = false;
-        _currentShakeSpeed = 0f;
+        
     }
 
     /// <summary>

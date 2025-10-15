@@ -17,10 +17,10 @@ MonoBehaviour:
     descriptionText: A candy that grants the speed of a horse.
     recipeText: Boil, add water, stir, add sugar, stir, essence...
     steps:
-    - {fileID: 11400000, guid: ff05f5249bc6ed6449ba2200e2aa007c, type: 2}
-    - {fileID: 11400000, guid: ee405cd397156ea439e29fbb048929b8, type: 2}
+    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
+    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: ee405cd397156ea439e29fbb048929b8, type: 2}
+    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 94c08484a21550546b394f2e277b6d03, type: 2}
+    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
