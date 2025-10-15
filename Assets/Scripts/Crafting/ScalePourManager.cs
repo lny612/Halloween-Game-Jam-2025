@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using NUnit.Framework.Constraints;
 
 /// <summary>
-/// Scale / pouring manager that:
-/// - Is armed by BeginForIngredient(...) (called as soon as bottle mouth enters the cauldron zone).
-/// - Receives shake updates from IngredientDraggable via OnShakeUpdate(speed, overCauldron).
-/// - Converts shake speed into poured amount per second (optionally only when over the cauldron).
-/// - Can be disarmed without finishing when the bottle leaves the zone (hover-out).
-/// - Finishes on right-click confirm, timeout, or auto-stop window.
-/// UI: title, amountText, hintText, amountFill.
+/// Scale / pouring manager (UI-only):
+/// - Arm via BeginForIngredient(owner) when bottle enters cauldron zone.
+/// - Receive normalized shake speed via OnShakeUpdate(speed, overCauldron).
+/// - Adds poured amount each frame proportional to speed.
+/// - Optional auto-stop window, manual confirm, and timeout.
 /// </summary>
 public class ScalePourManager : MonoBehaviour
 {
@@ -21,13 +17,13 @@ public class ScalePourManager : MonoBehaviour
     public Image amountFill;              // horizontal fill bar (0..1), optional
 
     [Header("Pour Model")]
-    [Tooltip("Base ml/g per second at shake speed = 1.0 (recipe’s pourRatePerSecond seeds this).")]
+    [Tooltip("Base ml/g per second at shake speed = 1.0.")]
     public float basePourPerSecond = 80f;
 
     [Tooltip("Curve on shake speed (1 = linear, >1 rewards hard shakes, <1 flattens).")]
     public float speedPower = 1.0f;
 
-    [Tooltip("If true, only add amount when IngredientDraggable reports bottle mouth over the cauldron.")]
+    [Tooltip("If true, only add amount when bottle is over cauldron.")]
     public bool requireOverCauldron = true;
 
     [Header("Confirm / Timeout")]
@@ -37,43 +33,36 @@ public class ScalePourManager : MonoBehaviour
     public float autoStopWhenAtTargetWithin = 0f; // e.g., 0.5
 
     // --------- Runtime state ---------
-    private string _ingredient;
-    private float _target;
-    private string _unit;
-    private float _tolerance;
-    private float _timeLimit;
+    private string _ingredient = "";
+    private float _target = 0f;
+    private string _unit = "ml";
+    private float _tolerance = 0f;
+    private float _timeLimit = 0f;
 
     private float _currentAmount;
     private float _startTime;
 
     private bool _armed;
     private bool _overCauldron;
-    private float _currentShakeSpeed; // normalized shake speed reported by IngredientDraggable
+    private float _currentShakeSpeed; // normalized [0,∞)
 
-    // Track which ingredient armed us (so only that one can disarm)
     private IngredientDraggable _owner;
 
     public bool IsComplete { get; private set; }
     public bool WasSuccessful { get; private set; }
     public bool IsArmed => _armed;
 
-    // -------------------------------------------
-    //  SHAKE FEED (called every drag frame by the bottle)
-    // -------------------------------------------
+    // Called by the draggable each drag frame
     public void OnShakeUpdate(float shakeSpeed, bool overCauldron)
     {
         if (!_armed || IsComplete) return;
         _currentShakeSpeed = shakeSpeed;
         _overCauldron = overCauldron;
     }
-    /// <summary>
-    /// Start this pour step for the given ingredient, and remember who armed us.
-    /// Intended to be called immediately when the bottle enters the cauldron zone (no mouse-up required).
-    /// </summary>
 
+    /// <summary> Seed this step from the recipe definition (target, unit, tolerance, etc.). </summary>
     public void InitializeCurrentRecipeStep(AddIngredientStep currentRecipeStep)
     {
-        // The detailed instruction of the CURRENT recipe to follow
         _ingredient = currentRecipeStep.ingredientName;
         _target = currentRecipeStep.targetAmount;
         _unit = currentRecipeStep.unit;
@@ -82,39 +71,36 @@ public class ScalePourManager : MonoBehaviour
 
         IsComplete = false;
         WasSuccessful = false;
-
-        // TODO: temp code - to delete
-        title.text = $"Add {_ingredient}";
-        amountText.text = $"0/{_target} {_unit}";
-    }
-
-    public void BeginForIngredient(IngredientDraggable ingredient)
-    {
-        _ingredient = ingredient.name;
-
-        // recipe-specific baseline (so different ingredients feel different)
-        //basePourPerSecond = Mathf.Max(1f, ingredient.pourRatePerSecond);
-        basePourPerSecond = Mathf.Max(1f, 10f);
         _currentAmount = 0f;
-        
+
+        if (title) title.text = $"Add {_ingredient}";
+        if (amountText) amountText.text = $"0/{_target} {_unit}";
+        UpdateUI();
     }
 
     /// <summary>
-    /// Stop/pause the step without evaluating success/fail.
-    /// Use when the bottle LEAVES the cauldron zone while still holding LMB.
-    /// Only the owner that armed the manager can disarm it.
+    /// Arm pouring as soon as the bottle enters the zone (UI overlap).
     /// </summary>
+    public void BeginForIngredient(IngredientDraggable ingredient)
+    {
+        _owner = ingredient;
+        _armed = true;
+        _startTime = Time.time;
+        // If you want per-ingredient baseline, set basePourPerSecond here.
+        Debug.Log($"[ScalePour] ARMED by {(_owner ? _owner.name : "NULL")}, target={_target}{_unit}, tol=±{_tolerance}");
+        UpdateUI();
+    }
+
+    /// <summary> Disarm (hover-out) without finish. </summary>
     public void DisarmWithoutFinish(IngredientDraggable requester)
     {
-        if (_owner != null && requester != _owner) return; // ignore strangers
-
+        if (_owner != null && requester != _owner) return;
         _armed = false;
         _owner = null;
         _currentShakeSpeed = 0f;
         _overCauldron = false;
-        // Keep UI if you want the player to see current progress, or hide it:
-        // gameObject.SetActive(false);
         UpdateUI();
+        Debug.Log("[ScalePour] DISARM (no finish)");
     }
 
     public void ForceFinish(bool success)
@@ -124,11 +110,11 @@ public class ScalePourManager : MonoBehaviour
         _armed = false;
         _owner = null;
         UpdateUI();
+        Debug.Log($"[ScalePour] FORCE FINISH → success={success}");
     }
 
     void OnEnable()
     {
-        // reset session state when enabled
         _currentShakeSpeed = 0f;
         _overCauldron = false;
     }
@@ -137,16 +123,19 @@ public class ScalePourManager : MonoBehaviour
     {
         if (!_armed || IsComplete) return;
 
-        // Convert shake speed -> poured amount (per second)
+        // Integrate poured amount ~ speed each frame
         if (_currentShakeSpeed > 0f && (!requireOverCauldron || _overCauldron))
         {
             float speedFactor = Mathf.Pow(_currentShakeSpeed, Mathf.Max(0.2f, speedPower));
             float pourPerSec = basePourPerSecond * speedFactor;
+            float delta = pourPerSec * Time.deltaTime;
 
-            _currentAmount += pourPerSec * Time.deltaTime;
+            _currentAmount = Mathf.Max(0f, _currentAmount + delta);
             UpdateUI();
 
-            // Optional auto-stop if close enough
+            Debug.Log($"[ScalePour] +{delta:0.00} {_unit} (speed={_currentShakeSpeed:0.00}, rate={pourPerSec:0.0}/s) → {_currentAmount:0.00}/{_target:0.00} {_unit}");
+
+            // Optional auto-stop
             if (autoStopWhenAtTargetWithin > 0f)
             {
                 float err = Mathf.Abs(_currentAmount - _target);
@@ -158,7 +147,7 @@ public class ScalePourManager : MonoBehaviour
             }
         }
 
-        // Manual confirm: Right Mouse
+        // Manual confirm
         if (confirmMouseButton >= 0 && Input.GetMouseButtonDown(confirmMouseButton))
         {
             CompleteByTolerance();
@@ -180,6 +169,7 @@ public class ScalePourManager : MonoBehaviour
         _armed = false;
         _owner = null;
         UpdateUI();
+        Debug.Log($"[ScalePour] COMPLETE → success={WasSuccessful}, final={_currentAmount:0.00}/{_target:0.00} {_unit} (±{_tolerance})");
     }
 
     private void UpdateUI()
@@ -202,5 +192,8 @@ public class ScalePourManager : MonoBehaviour
             amountFill.color = ok ? new Color(0.6f, 1f, 0.6f, 1f)
                                   : new Color(1f, 0.85f, 0.45f, 1f);
         }
+
+        if (title && !string.IsNullOrEmpty(_ingredient))
+            title.text = $"Add {_ingredient}";
     }
 }
