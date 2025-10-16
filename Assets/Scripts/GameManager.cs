@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result, Ending}
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     private EvalResult evalResult;
     private int _roundNumber = 1;
     private int _currentRound = 0;
+    public enum CandyGrade { Burnt, Sticky, Sweet, Deluxe, Divine };
+    public List<CandyGrade> resultCandyGrades;
+
 
     void Awake()
     {
@@ -48,7 +52,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case LoopState.Arrival:
-                if(_currentRound < _roundNumber)
+                if (_currentRound < _roundNumber)
                 {
                     _currentRound++;
                     RandomlySelectChild();
@@ -62,7 +66,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case LoopState.Examine:
-                
+
                 UIManager.Instance.ShowVisitor();
                 break;
 
@@ -97,7 +101,7 @@ public class GameManager : MonoBehaviour
         {
             randomIndex = Random.Range(0, childQueue.Count);
         }
-        
+
         visitedChild.Add(childQueue[randomIndex]);
         currentChild = childQueue[randomIndex];
     }
@@ -116,5 +120,34 @@ public class GameManager : MonoBehaviour
     {
         return currentChild;
     }
-    //List<RecipeDef> FilterRecipesFor(ChildProfile c, List<RecipeDef> all) => all; // Day1: no filtering
+
+    public CandyGrade DetermineRank(int successRatio)
+    {
+        if (successRatio >= 1.0f)
+        {
+            resultCandyGrades.Add(CandyGrade.Divine);
+            return CandyGrade.Divine;
+        }
+        else if (successRatio >= 0.75f)
+        {
+            resultCandyGrades.Add(CandyGrade.Deluxe);
+            return CandyGrade.Deluxe;
+        }
+        else if (successRatio >= 0.5f)
+        {
+            resultCandyGrades.Add(CandyGrade.Sweet);
+            return CandyGrade.Sweet;
+        }
+
+        else if (successRatio >= 0.25f)
+        {
+            resultCandyGrades.Add(CandyGrade.Sticky);
+            return CandyGrade.Sticky;
+        }
+        else
+        {
+            resultCandyGrades.Add(CandyGrade.Burnt);
+            return CandyGrade.Burnt;
+        }
+    }
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,6 +19,7 @@ public class CraftingManager : MonoBehaviour
     [Header("Controllers")]
     public StirManager stirManager;
     public ScalePourManager scalePourManager;
+    public CraftingResultUI craftingResultUI;
 
     [Header("Events")]
     public UnityEvent onAllStepsFinished;
@@ -29,7 +32,7 @@ public class CraftingManager : MonoBehaviour
     private List<StepSlotUI> _slots = new List<StepSlotUI>();
     private bool _running;
     private Vector3 _initialConveyorPos;
-
+    private int successCount = 0;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -82,6 +85,9 @@ public class CraftingManager : MonoBehaviour
             _slots.Add(slot);
         }
 
+        // Close Result UI
+        craftingResultUI.gameObject.SetActive(false);   
+
         // Run sequence
         if (!_running) StartCoroutine(RunRecipe());
     }
@@ -89,6 +95,7 @@ public class CraftingManager : MonoBehaviour
     private IEnumerator RunRecipe()
     {
         _running = true;
+        successCount = 0;
 
         for (int i = 0; i < activeRecipe.steps.Length; i++)
         {
@@ -150,8 +157,16 @@ public class CraftingManager : MonoBehaviour
             scalePourManager.gameObject.SetActive(false);
             stirManager.gameObject.SetActive(false);
 
-            if (success) slot.ShowTick();
-            else slot.ShowCross();
+            if (success)
+            {
+                slot.ShowTick();
+                successCount++;
+            }
+            else 
+            {
+                slot.ShowCross();
+            } 
+
             slot.SetFill(1f);
 
             yield return new WaitForSeconds(0.25f);
@@ -159,5 +174,12 @@ public class CraftingManager : MonoBehaviour
 
         _running = false;
         onAllStepsFinished?.Invoke();
+    }
+
+    public void OnAllStepsFinished()
+    {
+        var resultCandyGrade = GameManager.Instance.DetermineRank(successCount / activeRecipe.steps.Length);
+        craftingResultUI.SetResult(resultCandyGrade, activeRecipe);
+        craftingResultUI.gameObject.SetActive(true);
     }
 }
