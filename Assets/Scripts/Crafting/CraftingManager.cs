@@ -15,15 +15,20 @@ public class CraftingManager : MonoBehaviour
     public StepSlotUI stepSlotPrefab;
 
     [Header("Controllers")]
-    public StirManager stirManager;             // hook UI panel for stirring
-    public ScalePourManager scalePourManager;   // hook UI panel for pouring
+    public StirManager stirManager;
+    public ScalePourManager scalePourManager;
 
     [Header("Events")]
-    public UnityEvent onAllStepsFinished;             // recipe sequence done
+    public UnityEvent onAllStepsFinished;
+
+    [Header("Conveyor Movement")]
+    [Tooltip("Units per second to move the conveyor left while crafting runs.")]
+    public float conveyorMoveSpeed = 20f;
 
     public static CraftingManager Instance { get; private set; }
     private List<StepSlotUI> _slots = new List<StepSlotUI>();
     private bool _running;
+    private Vector3 _initialConveyorPos;
 
     void Awake()
     {
@@ -32,13 +37,36 @@ public class CraftingManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
+    }
+
+    void Start()
+    {
+        if (conveyorParent != null)
+            _initialConveyorPos = conveyorParent.localPosition;
+    }
+
+    void Update()
+    {
+        if (_running && conveyorParent != null)
+        {
+            Vector3 pos = conveyorParent.localPosition;
+            pos.x -= conveyorMoveSpeed * Time.deltaTime; // move left
+            conveyorParent.localPosition = pos;
+        }
     }
 
     public void BeginRecipe(RecipeDefinition recipe)
     {
-        if (recipe == null) { Debug.LogError("CraftingManager: No recipe!"); return; }
+        if (recipe == null)
+        {
+            Debug.LogError("CraftingManager: No recipe!");
+            return;
+        }
+
+        // Reset position
+        if (conveyorParent != null)
+            conveyorParent.localPosition = _initialConveyorPos;
 
         // Clear old
         foreach (Transform t in conveyorParent) Destroy(t.gameObject);
@@ -68,13 +96,11 @@ public class CraftingManager : MonoBehaviour
             StepSlotUI slot = _slots[i];
 
             slot.SetActive(true);
-
             bool success = false;
             float elapsed = 0f;
             slot.SetFill(0f);
             slot.ShowNeutral();
 
-            // Start the appropriate sub-minigame
             switch (step.stepType)
             {
                 case StepType.Add when step is AddIngredientStep addIngredientStep:
@@ -90,35 +116,26 @@ public class CraftingManager : MonoBehaviour
                     break;
             }
 
-            // While the step time runs, animate the slot’s fill, and poll sub-controller result
             while (elapsed < step.timeLimit)
             {
                 elapsed += Time.deltaTime;
                 float tNorm = Mathf.Clamp01(elapsed / step.timeLimit);
                 slot.SetFill(tNorm);
 
-                // Check completion
-                if (step.stepType == StepType.Add)
+                if (step.stepType == StepType.Add && scalePourManager.IsComplete)
                 {
-                    if (scalePourManager.IsComplete)
-                    {
-                        success = scalePourManager.WasSuccessful;
-                        break;
-                    }
+                    success = scalePourManager.WasSuccessful;
+                    break;
                 }
-                else if (step.stepType == StepType.Stir)
+                else if (step.stepType == StepType.Stir && stirManager.IsComplete)
                 {
-                    if (stirManager.IsComplete)
-                    {
-                        success = stirManager.WasSuccessful;
-                        break;
-                    }
+                    success = stirManager.WasSuccessful;
+                    break;
                 }
 
                 yield return null;
             }
 
-            // Time ended: if not completed, finalize with fail (ScalePour/Stir handle internal scoring too)
             if (step.stepType == StepType.Add && !scalePourManager.IsComplete)
             {
                 scalePourManager.ForceFinish(false);
@@ -130,16 +147,13 @@ public class CraftingManager : MonoBehaviour
                 success = false;
             }
 
-            // Close sub-panels
             scalePourManager.gameObject.SetActive(false);
             stirManager.gameObject.SetActive(false);
 
-            // Tick / X and freeze slot
             if (success) slot.ShowTick();
             else slot.ShowCross();
             slot.SetFill(1f);
 
-            // short beat between steps
             yield return new WaitForSeconds(0.25f);
         }
 
