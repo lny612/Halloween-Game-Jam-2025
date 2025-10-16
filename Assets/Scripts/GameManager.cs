@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result, Ending}
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -22,7 +20,6 @@ public class GameManager : MonoBehaviour
     private EvalResult evalResult;
     private int _roundNumber = 1;
     private int _currentRound = 0;
-    public enum CandyGrade { Burnt, Sticky, Sweet, Deluxe, Divine };
     public List<CandyGrade> resultCandyGrades;
 
 
@@ -121,7 +118,7 @@ public class GameManager : MonoBehaviour
         return currentChild;
     }
 
-    public CandyGrade DetermineRank(int successRatio)
+    public CandyGrade DetermineRank(float successRatio)
     {
         if (successRatio >= 1.0f)
         {

@@ -596,7 +596,7 @@ MonoBehaviour:
   stepSlotPrefab: {fileID: 8559408846909141089, guid: cade30c9a2b83d94d815201dab6fdddf, type: 3}
   stirManager: {fileID: 1552188861}
   scalePourManager: {fileID: 1192838608}
-  craftingResultUI: {fileID: 0}
+  craftingResultUI: {fileID: 1523402642}
   onAllStepsFinished:
     m_PersistentCalls:
       m_Calls: []
@@ -5810,6 +5810,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
+  ingredientSubtype: 6
 --- !u!225 &933141334
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -9477,13 +9478,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1523402641}
+  - component: {fileID: 1523402642}
   m_Layer: 5
   m_Name: Result
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523402641
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9504,6 +9506,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1523402642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523402640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f595c1ff0245b4483af8c1a145063b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candyGrade: {fileID: 217976611}
+  candyName: {fileID: 1270620227}
+  candyImage: {fileID: 7467270}
 --- !u!1 &1552188857
 GameObject:
   m_ObjectHideFlags: 0

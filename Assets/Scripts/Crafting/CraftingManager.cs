@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor.Search;
@@ -86,10 +86,11 @@ public class CraftingManager : MonoBehaviour
         }
 
         // Close Result UI
-        craftingResultUI.gameObject.SetActive(false);   
+        craftingResultUI.gameObject.SetActive(false);
 
         // Run sequence
         if (!_running) StartCoroutine(RunRecipe());
+
     }
 
     private IEnumerator RunRecipe()
@@ -123,6 +124,7 @@ public class CraftingManager : MonoBehaviour
                     break;
             }
 
+            // run timer
             while (elapsed < step.timeLimit)
             {
                 elapsed += Time.deltaTime;
@@ -143,41 +145,55 @@ public class CraftingManager : MonoBehaviour
                 yield return null;
             }
 
-            if (step.stepType == StepType.Add && !scalePourManager.IsComplete)
+            // time ended → finalize appropriately
+            if (step.stepType == StepType.Add)
             {
-                scalePourManager.ForceFinish(false);
-                success = false;
+                if (!scalePourManager.IsComplete)
+                {
+                    // evaluate by tolerance instead of auto-failing
+                    scalePourManager.CompleteByTolerance();
+                }
+                success = scalePourManager.WasSuccessful;
             }
-            else if (step.stepType == StepType.Stir && !stirManager.IsComplete)
+            else if (step.stepType == StepType.Stir)
             {
-                stirManager.ForceFinish(false);
-                success = false;
+                if (!stirManager.IsComplete)
+                {
+                    // keep your existing behavior (or add a similar tolerance finish if you have one)
+                    stirManager.ForceFinish(false);
+                }
+                success = stirManager.WasSuccessful;
             }
 
+            // close sub-panels
             scalePourManager.gameObject.SetActive(false);
             stirManager.gameObject.SetActive(false);
 
+            // show result + count ONCE
             if (success)
             {
                 slot.ShowTick();
                 successCount++;
             }
-            else 
+            else
             {
                 slot.ShowCross();
-            } 
-
+            }
             slot.SetFill(1f);
 
             yield return new WaitForSeconds(0.25f);
+            
         }
 
+        OnAllStepsFinished();
         _running = false;
         onAllStepsFinished?.Invoke();
     }
 
     public void OnAllStepsFinished()
     {
+        Debug.Log("[Crafting] successCount=" + successCount);
+        Debug.Log("[Crafting] activeRecipeLength=" + activeRecipe.steps.Length);
         var resultCandyGrade = GameManager.Instance.DetermineRank(successCount / activeRecipe.steps.Length);
         craftingResultUI.SetResult(resultCandyGrade, activeRecipe);
         craftingResultUI.gameObject.SetActive(true);

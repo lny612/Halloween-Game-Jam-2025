@@ -33,7 +33,8 @@ public class ScalePourManager : MonoBehaviour
     public float autoStopWhenAtTargetWithin = 0f; // e.g., 0.5
 
     // --------- Runtime state ---------
-    private string _ingredient = "";
+    private string _ingredientName = "";
+    private IngredientSubtype _ingredient = IngredientSubtype.None;
     private float _target = 0f;
     private string _unit = "ml";
     private float _tolerance = 0f;
@@ -53,8 +54,9 @@ public class ScalePourManager : MonoBehaviour
     public bool IsArmed => _armed;
 
     // Called by the draggable each drag frame
-    public void OnShakeUpdate(float shakeSpeed, bool overCauldron)
+    public void OnShakeUpdate(float shakeSpeed, bool overCauldron, IngredientSubtype ingredientSubtype)
     {
+        if (ingredientSubtype != _ingredient) return;
         if (!_armed || IsComplete) return;
         _currentShakeSpeed = shakeSpeed;
         _overCauldron = overCauldron;
@@ -63,7 +65,8 @@ public class ScalePourManager : MonoBehaviour
     /// <summary> Seed this step from the recipe definition (target, unit, tolerance, etc.). </summary>
     public void InitializeCurrentRecipeStep(AddIngredientStep currentRecipeStep)
     {
-        _ingredient = currentRecipeStep.ingredientName;
+        _ingredientName = currentRecipeStep.ingredientName;
+        _ingredient = currentRecipeStep.ingredientSubType;
         _target = currentRecipeStep.targetAmount;
         _unit = currentRecipeStep.unit;
         _tolerance = Mathf.Abs(currentRecipeStep.tolerance);
@@ -73,7 +76,7 @@ public class ScalePourManager : MonoBehaviour
         WasSuccessful = false;
         _currentAmount = 0f;
 
-        if (title) title.text = $"Add {_ingredient}";
+        if (title) title.text = $"Add {_ingredientName}";
         if (amountText) amountText.text = $"0/{_target} {_unit}";
         UpdateUI();
     }
@@ -161,7 +164,7 @@ public class ScalePourManager : MonoBehaviour
         }
     }
 
-    private void CompleteByTolerance()
+    public void CompleteByTolerance()
     {
         float error = Mathf.Abs(_currentAmount - _target);
         WasSuccessful = error <= _tolerance;
@@ -193,7 +196,7 @@ public class ScalePourManager : MonoBehaviour
                                   : new Color(1f, 0.85f, 0.45f, 1f);
         }
 
-        if (title && !string.IsNullOrEmpty(_ingredient))
-            title.text = $"Add {_ingredient}";
+        if (title && !string.IsNullOrEmpty(_ingredientName))
+            title.text = $"Add {_ingredientName}";
     }
 }

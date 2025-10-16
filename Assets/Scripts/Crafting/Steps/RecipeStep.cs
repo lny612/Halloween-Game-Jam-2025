@@ -9,6 +9,3 @@ public abstract class RecipeStep : ScriptableObject
     [Tooltip("Seconds allowed for this step")]
     public float timeLimit = 10f;
 }
-
-public enum IngredientType { Water, Sugar, Essence }
-public enum StepType { Stir, Add, Wait }

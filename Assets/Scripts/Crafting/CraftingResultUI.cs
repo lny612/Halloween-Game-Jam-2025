@@ -1,16 +1,17 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingResultUI : MonoBehaviour
 {
     public TextMeshProUGUI candyGrade;
     public TextMeshProUGUI candyName;
-    public Sprite candyImage;
+    public Image candyImage;
 
-    public void SetResult(GameManager.CandyGrade resultCandyGrade, RecipeDefinition recipeDefinition)
+    public void SetResult(CandyGrade resultCandyGrade, RecipeDefinition recipeDefinition)
     {
         candyGrade.text = resultCandyGrade.ToString();
         candyName.text = recipeDefinition.recipeName;
-        candyImage = recipeDefinition.recipeImage;
+        candyImage.sprite = recipeDefinition.recipeImage;
     }
 }

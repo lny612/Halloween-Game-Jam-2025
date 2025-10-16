@@ -15,10 +15,14 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
     public ParticleSystem pourParticles;
 
     [Header("Shaking")]
+    
     public float pixelsPerSecondForUnitSpeed = 500f;
     public float minShakeSpeed = 0.15f;
     public float maxShakeSpeed = 3f;
     [Range(0f, 1f)] public float speedLerp = 0.25f;
+
+    [Header("Ingredient Information")]
+    public IngredientSubtype ingredientSubtype;
 
     // runtime
     private RectTransform _rt;
@@ -102,7 +106,7 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         // gauge update + log
         if (scalePourManager)
         {
-            scalePourManager.OnShakeUpdate(_filteredVSpeed, true);
+            scalePourManager.OnShakeUpdate(_filteredVSpeed, true, ingredientSubtype);
             Debug.Log($"[Shaker] speed={_filteredVSpeed:0.00} → gauge tick");
         }
 
@@ -116,7 +120,7 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
 
         _filteredVSpeed = 0f;
         SetParticleEmission(0f);
-        if (scalePourManager) scalePourManager.OnShakeUpdate(0f, false);
+        if (scalePourManager) scalePourManager.OnShakeUpdate(0f, false, ingredientSubtype);
 
         if (cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
         bottleRT.anchoredPosition = _startAnchoredPos;

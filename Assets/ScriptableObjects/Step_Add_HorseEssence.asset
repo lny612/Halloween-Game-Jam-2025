@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   timeLimit: 10
   ingredientName: Horse Essence
-  ingredientType: 1
+  ingredientSubType: 11
   targetAmount: 50
   unit: g
   tolerance: 0.5
