@@ -20,6 +20,7 @@ public class CraftingManager : MonoBehaviour
     public StirManager stirManager;
     public ScalePourManager scalePourManager;
     public CraftingResultUI craftingResultUI;
+    public CauldronBoilMinigame cauldronBoilMinigame;
 
     [Header("Events")]
     public UnityEvent onAllStepsFinished;
@@ -194,7 +195,9 @@ public class CraftingManager : MonoBehaviour
     {
         Debug.Log("[Crafting] successCount=" + successCount);
         Debug.Log("[Crafting] activeRecipeLength=" + activeRecipe.steps.Length);
-        var resultCandyGrade = GameManager.Instance.DetermineRank(successCount / activeRecipe.steps.Length);
+        cauldronBoilMinigame.StopBoiling();
+        GameManager.Instance.SetRecipePerformance(successCount / activeRecipe.steps.Length);
+        var resultCandyGrade = GameManager.Instance.DetermineRank();
         craftingResultUI.SetResult(resultCandyGrade, activeRecipe);
         craftingResultUI.gameObject.SetActive(true);
     }

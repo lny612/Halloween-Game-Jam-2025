@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     private EvalResult evalResult;
     private int _roundNumber = 1;
     private int _currentRound = 0;
-    public List<CandyGrade> resultCandyGrades;
+    private List<CandyGrade> resultCandyGrades;
+    private float _recipePerformance;
+    private float _boilingPerformance;
 
 
     void Awake()
@@ -118,33 +120,43 @@ public class GameManager : MonoBehaviour
         return currentChild;
     }
 
-    public CandyGrade DetermineRank(float successRatio)
+    public CandyGrade DetermineRank()
     {
-        if (successRatio >= 1.0f)
-        {
-            resultCandyGrades.Add(CandyGrade.Divine);
-            return CandyGrade.Divine;
-        }
-        else if (successRatio >= 0.75f)
-        {
-            resultCandyGrades.Add(CandyGrade.Deluxe);
-            return CandyGrade.Deluxe;
-        }
-        else if (successRatio >= 0.5f)
-        {
-            resultCandyGrades.Add(CandyGrade.Sweet);
-            return CandyGrade.Sweet;
-        }
+        // Normalize "bad time": 0..1 of session spent at zero quality
+        float zeroFrac = Mathf.Clamp01(_boilingPerformance);
 
-        else if (successRatio >= 0.25f)
-        {
-            resultCandyGrades.Add(CandyGrade.Sticky);
-            return CandyGrade.Sticky;
-        }
-        else
-        {
-            resultCandyGrades.Add(CandyGrade.Burnt);
-            return CandyGrade.Burnt;
-        }
+        // Penalty curve (tweakables):
+        // - maxPenalty: max % reduction applied to successRatio if zeroFrac == 1
+        // - curve: <1 makes small zero time matter more, >1 makes it matter less
+        //const float maxPenalty = 0.35f; // up to -35% to success score
+        //const float curve = 0.75f;      // slightly front-load penalty for early mistakes
+
+        //float penalty = Mathf.Lerp(0f, maxPenalty, Mathf.Pow(zeroFrac, curve));
+        float penalty = 0;
+        float adjusted = Mathf.Clamp01(_recipePerformance * (1f - penalty));
+
+        // Same thresholds as before, but using adjusted score
+        CandyGrade grade;
+        if (adjusted >= 1.0f) grade = CandyGrade.Divine;
+        else if (adjusted >= 0.75f) grade = CandyGrade.Deluxe;
+        else if (adjusted >= 0.5f) grade = CandyGrade.Sweet;
+        else if (adjusted >= 0.25f) grade = CandyGrade.Sticky;
+        else grade = CandyGrade.Burnt;
+
+        resultCandyGrades.Add(grade);
+
+        Debug.Log($"[CandyGrade] success={_recipePerformance:0.00}, zeroFrac={zeroFrac:0.00}, adjusted={adjusted:0.00} → {grade}");
+
+        return grade;
+    }
+
+    public void SetRecipePerformance(float successRatio)
+    {
+        _recipePerformance = successRatio;
+    }
+
+    public void SetBoilingPerformance(float successRatio)
+    {
+        _boilingPerformance = successRatio;
     }
 }

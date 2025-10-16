@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -62,6 +64,10 @@ public class CauldronBoilMinigame : MonoBehaviour
     float elapsed;
     bool boiling;
 
+    // Total time quality stayed at zero
+    public float zeroQualityTime;
+    const float EPS = 1e-5f;
+
     RectTransform _markerRT;
     RectTransform _zoneRT;
 
@@ -90,7 +96,11 @@ public class CauldronBoilMinigame : MonoBehaviour
         boiling = true;
     }
 
-    public void StopBoiling() => boiling = false;
+    public void StopBoiling()
+    {
+        boiling = false;
+        GameManager.Instance.SetBoilingPerformance(zeroQualityTime / elapsed);
+    }
 
     void Update()
     {
@@ -130,16 +140,11 @@ public class CauldronBoilMinigame : MonoBehaviour
         quality = Mathf.Clamp01(quality + rate * dt);
         if (qualityMeter != null) qualityMeter.value = quality;
 
-        // 4) End conditions
-        if (quality >= 1f)
+        
+        if (quality <= EPS)
         {
-            boiling = false;
-            onCandyPerfect?.Invoke();
-        }
-        else if (timeLimit > 0f && elapsed >= timeLimit)
-        {
-            boiling = false;
-            onCandyBurned?.Invoke();
+            zeroQualityTime += dt;
+             Debug.Log($"[Boil] ZeroQualityTime = {zeroQualityTime:0.00}s");
         }
 
         // 5) Visual update
@@ -195,12 +200,5 @@ public class CauldronBoilMinigame : MonoBehaviour
     {
         zoneVolatility = Mathf.Clamp01(volatility01);
         zoneRangeFraction = Mathf.Clamp01(range01);
-    }
-
-    public void ForceFail()
-    {
-        if (!boiling) return;
-        boiling = false;
-        onCandyBurned?.Invoke();
     }
 }
