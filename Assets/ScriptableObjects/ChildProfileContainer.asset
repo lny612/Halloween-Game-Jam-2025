@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: ChildProfileContainer
   m_EditorClassIdentifier: Assembly-CSharp::ChildProfileContainer
   childProfileList:
-  - childName: a
-    greeting: a
-    desire: a
-    insecurity: a
-    farewell: a
+  - childName: Brandon
+    greeting: "Trick or treat\u2026 I, uh\u2014heard your candy grants wishes. Do
+      you think it could make her notice me\u2026?"
+    desire: "If only Britney\u2019d just look at me the way she looks at Wilson\u2026"
+    insecurity: "I\u2019m not athletic, not fast \u2014 and Britney\u2019s all about
+      the sporty guys. "
+    farewell: "Thanks\u2026 I don\u2019t know if this\u2019ll really work, but\u2026
+      I guess it\u2019s worth a shot, right?"
+    matchingCandy: 0

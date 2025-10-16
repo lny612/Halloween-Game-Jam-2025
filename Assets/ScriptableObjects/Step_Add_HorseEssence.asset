@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945acf70f4825ad479b8e77b4842aea6, type: 3}
   m_Name: Step_Add_HorseEssence
   m_EditorClassIdentifier: 
-  instruction: Add 50g of Horse Essence
-  icon: {fileID: 0}
+  instruction: Add 50g of Gallop Spirit Essence
+  icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
   timeLimit: 10
-  ingredientName: Horse Essence
+  ingredientName: Gallop Spirit Essence
   ingredientSubType: 11
   targetAmount: 50
   unit: g
-  tolerance: 0.5
+  tolerance: 2

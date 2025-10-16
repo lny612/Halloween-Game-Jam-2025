@@ -10,12 +10,8 @@ public class EndingUI : MonoBehaviour
     public TextMeshProUGUI commentText;
     public Image endingImage;
     public EndingDataContainer endingDataContainer;
-    private List<EndingScripts> endingScriptsList;
+    private List<EndingScripts> endingScriptsList = new List<EndingScripts>();
 
-    public void Start()
-    {
-        endingScriptsList = endingDataContainer.endingList;
-    }
     public void InitializeEndingUI()
     {
         var craftResults = GameManager.Instance.GetCraftResults();
@@ -37,7 +33,7 @@ public class EndingUI : MonoBehaviour
 
     public EndingScripts GetWantedCandyEnding(CandyName searchingCandyName)
     {
-        foreach (var ending in endingScriptsList)
+        foreach (var ending in endingDataContainer.endingList)
         {
             if (ending.candyName == searchingCandyName)
             {

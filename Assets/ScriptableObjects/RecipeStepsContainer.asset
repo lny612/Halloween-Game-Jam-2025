@@ -14,8 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeList:
   - recipeName: Horse Leg Candy
+    candyName: 0
+    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
     descriptionText: A candy that grants the speed of a horse.
-    recipeText: Boil, add water, stir, add sugar, stir, essence...
+    recipeText: '1. Add 200ml Moonlit Dew
+
+      2. Add 100g Crystalized Carrot Sugar
+
+      3.
+      Stir 5 times
+
+      4. Add 100g Crystalized Carrot Sugar
+
+      5. Stir 5 times'
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}

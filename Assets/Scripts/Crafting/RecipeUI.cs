@@ -8,6 +8,7 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Name;
     [SerializeField] private TextMeshProUGUI Description;
     [SerializeField] private TextMeshProUGUI RecipeSteps;
+    [SerializeField] private Image CandyImage;
     [SerializeField] private Button backButton;
     [SerializeField] private Button nextButton;
     [SerializeField] private Button startCraftButton;
@@ -25,6 +26,7 @@ public class RecipeUI : MonoBehaviour
         Name.text = currentRecipe.recipeName;
         Description.text = currentRecipe.descriptionText;
         RecipeSteps.text = currentRecipe.recipeText;
+        CandyImage.sprite = currentRecipe.recipeImage;
     }
 
     public void OnNextButtonPressed()

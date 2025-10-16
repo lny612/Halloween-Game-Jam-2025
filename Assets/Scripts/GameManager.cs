@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     private LoopState state;
     private ChildProfile currentChild;
     private RecipeDefinition _currentRecipe;
-    private int _roundNumber = 5;
+    private int _roundNumber = 1;
     private int _currentRound = 0;
-    private List<CraftResult> craftResults;
+    private List<CraftResult> craftResults = new List<CraftResult>();
     private float _recipePerformance;
     private float _boilingPerformance;
 

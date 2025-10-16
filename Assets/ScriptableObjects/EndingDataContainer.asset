@@ -14,11 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endingList:
   - candyName: 0
-    correctHeadline: a
-    correctEndingText: a
-    correctComment: a
-    correctImage: {fileID: 0}
-    wrongHeadline: a
-    wrongEndingText: a
-    wrongComment: a
-    wrongImage: {fileID: 0}
+    correctHeadline: Local Student Breaks School Sprint Record!
+    correctEndingText: Witnesses at Crestwood High were stunned when an unassuming
+      student, previously known for avoiding gym class, blazed through the track
+      like a lightning bolt. Sources report Britney, the spring fling queen, was
+      the first to cheer at the finish line.
+    correctComment: Hah. Kid gets the girl, wins the race, and everyone claps.
+    correctImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+    wrongHeadline: "Mysterious \u2018Horse Boy\u2019 Spotted Galloping Through Crestwood
+      Streets"
+    wrongEndingText: "esidents were left in shock as a teenage boy with the legs
+      of a stallion was seen sprinting through town before vanishing into the woods.
+      Eyewitnesses say he was shouting something about \u201CBritney\u201D."
+    wrongComment: "Still\u2026 at least he got to run, didn\u2019t he?"
+    wrongImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
