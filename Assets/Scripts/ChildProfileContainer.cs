@@ -14,5 +14,6 @@ public class ChildProfile
     [TextArea] public string desire;        // “Wants to confess to Tiffany”
     [TextArea] public string insecurity;    // “Not athletic like Brandon”
     [TextArea] public string farewell;    // “Not athletic like Brandon”
+    public CandyName matchingCandy;
     
 }

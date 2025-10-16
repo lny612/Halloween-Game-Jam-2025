@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class CraftingManager : MonoBehaviour
 {
     [Header("Data")]
-    public RecipeDefinition activeRecipe;
+    private RecipeDefinition activeRecipe;
 
     [Header("References")]
     [Tooltip("Parent with HorizontalLayoutGroup that will hold one StepSlotUI per step")]
@@ -197,7 +197,7 @@ public class CraftingManager : MonoBehaviour
         Debug.Log("[Crafting] activeRecipeLength=" + activeRecipe.steps.Length);
         cauldronBoilMinigame.StopBoiling();
         GameManager.Instance.SetRecipePerformance(successCount / activeRecipe.steps.Length);
-        var resultCandyGrade = GameManager.Instance.DetermineRank();
+        var resultCandyGrade = GameManager.Instance.DetermineRank(activeRecipe.candyName);
         craftingResultUI.SetResult(resultCandyGrade, activeRecipe);
         craftingResultUI.gameObject.SetActive(true);
     }

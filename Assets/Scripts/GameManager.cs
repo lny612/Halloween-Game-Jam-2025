@@ -7,20 +7,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] private ChildProfileContainer childProfileContainer;
     [SerializeField] List<ChildProfile> visitedChild;
-    //[SerializeField] CraftingManager crafting;
-    //[SerializeField] Evaluator evaluator;
 
     [Header("Private variables")]
     private List<ChildProfile> childQueue;
-    private int childIndex = 0;
     private LoopState state;
     private ChildProfile currentChild;
     private RecipeDefinition _currentRecipe;
-    //CraftResult craftResult;
-    private EvalResult evalResult;
-    private int _roundNumber = 1;
+    private int _roundNumber = 5;
     private int _currentRound = 0;
-    private List<CandyGrade> resultCandyGrades;
+    private List<CraftResult> craftResults;
     private float _recipePerformance;
     private float _boilingPerformance;
 
@@ -120,7 +115,7 @@ public class GameManager : MonoBehaviour
         return currentChild;
     }
 
-    public CandyGrade DetermineRank()
+    public CandyGrade DetermineRank(CandyName candyName)
     {
         // Normalize "bad time": 0..1 of session spent at zero quality
         float zeroFrac = Mathf.Clamp01(_boilingPerformance);
@@ -143,11 +138,22 @@ public class GameManager : MonoBehaviour
         else if (adjusted >= 0.25f) grade = CandyGrade.Sticky;
         else grade = CandyGrade.Burnt;
 
-        resultCandyGrades.Add(grade);
+        CraftResult result = new CraftResult
+        {
+            candyName = candyName,
+            candyGrade = grade,
+            isMatching = IsCandyMatching(candyName)
+        };
+        craftResults.Add(result);
 
         Debug.Log($"[CandyGrade] success={_recipePerformance:0.00}, zeroFrac={zeroFrac:0.00}, adjusted={adjusted:0.00} → {grade}");
 
         return grade;
+    }
+
+    public bool IsCandyMatching(CandyName candyName)
+    {
+        return candyName == currentChild.matchingCandy;
     }
 
     public void SetRecipePerformance(float successRatio)
@@ -158,5 +164,10 @@ public class GameManager : MonoBehaviour
     public void SetBoilingPerformance(float successRatio)
     {
         _boilingPerformance = successRatio;
+    }
+
+    public List<CraftResult> GetCraftResults()
+    {
+        return craftResults;
     }
 }

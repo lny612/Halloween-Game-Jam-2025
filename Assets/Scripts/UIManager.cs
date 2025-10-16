@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Prefabs")]
     [SerializeField] private ChildUIUpdate childUI;
-    [SerializeField] private RecipeUI RecipeUI;
+    [SerializeField] private RecipeUI recipeUI;
+    [SerializeField] private EndingUI endingUI;
 
     [Header("Buttons")]
     [SerializeField] private Button ProceedToExamineButton;
@@ -88,7 +89,7 @@ public class UIManager : MonoBehaviour
     public void DisplayRecipe()
     {
         RecipePanel.SetActive(true);
-        RecipeUI.Initialize();
+        recipeUI.Initialize();
     }
 
     public void StartCraft()
@@ -105,6 +106,7 @@ public class UIManager : MonoBehaviour
     public void ShowEnding()
     {
         EndingPanel.SetActive(true);
+        endingUI.InitializeEndingUI();
     }
 
 }

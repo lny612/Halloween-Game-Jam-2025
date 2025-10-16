@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RecipeDataContainer", menuName = "Recipe/Recipe")]
@@ -11,6 +10,7 @@ public class RecipeDataContainer : ScriptableObject
 public class RecipeDefinition
 {
     public string recipeName;
+    public CandyName candyName;
     public Sprite recipeImage;
     [TextArea] public string descriptionText;
     [TextArea] public string recipeText;
