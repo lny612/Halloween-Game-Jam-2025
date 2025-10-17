@@ -37,6 +37,8 @@ public class StreamingDialogue : MonoBehaviour
     [Tooltip("Play a blip every N visible characters (0 = off).")]
     [SerializeField] private int blipEveryNChars = 2;
 
+
+    public event System.Action OnTypeComplete;
     private Coroutine _run;
     private bool _lineComplete;
     private bool _isPlaying;
@@ -147,6 +149,8 @@ public class StreamingDialogue : MonoBehaviour
         // Line complete
         _lineComplete = true;
         textUI.text = _buffer.ToString();
+
+        if (OnTypeComplete != null) OnTypeComplete.Invoke();
     }
 
     private IEnumerator WaitForAdvance()

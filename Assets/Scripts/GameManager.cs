@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] private ChildProfileContainer childProfileContainer;
     [SerializeField] List<ChildProfile> visitedChild;
+    [SerializeField] SpiritSightController spiritSightController;
 
     [Header("Private variables")]
     private List<ChildProfile> childQueue;
@@ -59,11 +60,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case LoopState.Examine:
-
                 UIManager.Instance.ShowVisitor();
                 break;
 
             case LoopState.SelectRecipe:
+                spiritSightController.ForceDisableSpiritSight();
                 UIManager.Instance.DisplayRecipe();
                 break;
 
