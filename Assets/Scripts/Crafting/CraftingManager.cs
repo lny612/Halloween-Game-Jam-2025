@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,8 +20,6 @@ public class CraftingManager : MonoBehaviour
     public CraftingResultUI craftingResultUI;
     public CauldronBoilMinigame cauldronBoilMinigame;
 
-    [Header("Events")]
-    public UnityEvent onAllStepsFinished;
 
     [Header("Conveyor Movement")]
     [Tooltip("Units per second to move the conveyor left while crafting runs.")]
@@ -188,7 +184,6 @@ public class CraftingManager : MonoBehaviour
 
         OnAllStepsFinished();
         _running = false;
-        onAllStepsFinished?.Invoke();
     }
 
     public void OnAllStepsFinished()

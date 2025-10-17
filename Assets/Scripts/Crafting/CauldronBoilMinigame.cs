@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -47,10 +45,6 @@ public class CauldronBoilMinigame : MonoBehaviour
 
     [Header("Input")]
     public KeyCode heatKey = KeyCode.Space;
-
-    [Header("Events")]
-    public UnityEvent onCandyPerfect;
-    public UnityEvent onCandyBurned;
 
     // Internal state
     float laneHeight;
