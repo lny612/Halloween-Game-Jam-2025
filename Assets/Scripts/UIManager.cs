@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button ProceedToResultButton;
     [SerializeField] private Button ProceedToArrivalButton;
 
+    [Header("Scripts")]
+    [SerializeField] private KnockBubble knockBubble;
+
 
     public static UIManager Instance { get; private set; }
     private bool isExaminePressed;
@@ -50,10 +53,9 @@ public class UIManager : MonoBehaviour
 
     public void ShowDoor()
     {
-        // TODO: show arrival panel and play animation
-        // temp
-        // TODO: door must be opened when there's a show door animation - trick or treat text display - player opens the door
+        // TODO: show arrival panel and play knocking animation
         ArrivalPanel.SetActive(true);
+        knockBubble.Play();
     }
 
     public void CloseAllPanels()
