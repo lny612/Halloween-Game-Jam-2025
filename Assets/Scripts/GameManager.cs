@@ -150,6 +150,7 @@ public class GameManager : MonoBehaviour
         return grade;
     }
 
+    #region getter
     public bool IsCandyMatching(CandyName candyName)
     {
         return candyName == currentChild.matchingCandy;
@@ -169,4 +170,5 @@ public class GameManager : MonoBehaviour
     {
         return craftResults;
     }
+    #endregion getter
 }

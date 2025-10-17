@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject EndingPanel;
 
     [Header("Prefabs")]
-    [SerializeField] private ChildUIUpdate childUI;
+    [SerializeField] private ChildUI childUI;
     [SerializeField] private RecipeUI recipeUI;
     [SerializeField] private EndingUI endingUI;
 
@@ -64,24 +64,17 @@ public class UIManager : MonoBehaviour
         CraftingPanel.SetActive(false);
         ResultPanel.SetActive(false);
     }
-    public void OnExamineButtonPressed()
-    {
-        isExaminePressed = !isExaminePressed;
 
-        if (isExaminePressed)
-        {
-            childUI.OnNormal();
-        }
-        else
-        {
-            childUI.OnExamined();
-        }
+    public void EnableProceedToRecipeButton()
+    {
+        ProceedToRecipeButton.interactable = true;
     }
 
     public void ShowVisitor()
     {
         ExaminationPanel.SetActive(true);
         childUI.InitializeChild();
+        ProceedToRecipeButton.interactable = false;
     }
 
     public void DisplayRecipe()
