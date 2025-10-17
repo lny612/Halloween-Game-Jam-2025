@@ -14,7 +14,7 @@ public class ScalePourManager : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI title;         // "Add Iris Sugar"
     public TextMeshProUGUI amountText;    // "87/100 g"
-    public Image amountFill;              // horizontal fill bar (0..1), optional
+    //public Image amountFill;              // horizontal fill bar (0..1), optional
 
     [Header("Pour Model")]
     [Tooltip("Base ml/g per second at shake speed = 1.0.")]
@@ -185,7 +185,7 @@ public class ScalePourManager : MonoBehaviour
             amountText.color = ok ? new Color(0.6f, 1f, 0.6f) : Color.white;
         }
 
-        if (amountFill)
+        /*if (amountFill)
         {
             float normalized = Mathf.Clamp01(_currentAmount / Mathf.Max(1f, _target));
             amountFill.type = Image.Type.Filled;
@@ -194,7 +194,7 @@ public class ScalePourManager : MonoBehaviour
             amountFill.fillAmount = normalized;
             amountFill.color = ok ? new Color(0.6f, 1f, 0.6f, 1f)
                                   : new Color(1f, 0.85f, 0.45f, 1f);
-        }
+        }*/
 
         if (title && !string.IsNullOrEmpty(_ingredientName))
             title.text = $"Add {_ingredientName}";

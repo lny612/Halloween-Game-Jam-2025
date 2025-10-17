@@ -22,12 +22,6 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [Tooltip("Optional: fill image for the per-stir gauge (0..1).")]
     public Image gaugeFill;
 
-    [Tooltip("Prompt text, e.g., 'Stir 5 times'")]
-    public TMP_Text prompt;
-
-    [Tooltip("Progress text, e.g., '2/5'")]
-    public TMP_Text progressText;
-
     [Header("Stir Tuning")]
     [Tooltip("How many stacks make ONE 'stir' (20 = every 20 stacks counts as 1).")]
     public int stacksPerStir = 20;
@@ -68,8 +62,6 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         WasSuccessful = false;
         _startTime = Time.time;
 
-        if (prompt) prompt.text = $"Stir {_targetStirs} times";
-        UpdateTexts();
         UpdateGauge();
 
         // optional: center rod at start
@@ -115,7 +107,6 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 _currentStacks -= stacksPerStir;
                 _currentStirs++;
-                UpdateTexts();
 
                 if (_currentStirs >= _targetStirs)
                 {
@@ -163,12 +154,6 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void ForceFinish(bool success)
     {
         Complete(success);
-    }
-
-    private void UpdateTexts()
-    {
-        if (progressText)
-            progressText.text = $"{_currentStirs}/{_targetStirs}";
     }
 
     private void UpdateGauge()

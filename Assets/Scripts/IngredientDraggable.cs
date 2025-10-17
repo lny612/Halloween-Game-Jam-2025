@@ -41,7 +41,27 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         if (!bottleRT) bottleRT = _rt;
         if (!canvas) canvas = GetComponentInParent<Canvas>();
         _startAnchoredPos = bottleRT.anchoredPosition;
-        if (pourParticles) SetParticleEmission(0f);
+        InstantiatePourParticles();
+    }
+
+    private void InstantiatePourParticles()
+    {
+        if (pourParticles != null)
+        {
+            // Calculate position relative to the bottle (in local space)
+            Vector3 topOfBottleLocalPos = new Vector3(0f, bottleRT.rect.height * 0.5f, 0f);
+
+            // Instantiate as a child of the bottle
+            pourParticles = Instantiate(pourParticles, bottleRT);
+
+            // Set local position so it's exactly on top of the bottle
+            pourParticles.transform.localPosition = topOfBottleLocalPos;
+            pourParticles.transform.localRotation = Quaternion.identity;
+            pourParticles.transform.localScale = Vector3.one;
+
+            // Disable emission at start
+            SetParticleEmission(0f);
+        }
     }
 
     public void SetShakerMode(bool enabled, RectTransform cauldron = null, object _ = null)

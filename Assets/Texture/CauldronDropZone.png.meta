@@ -1,0 +1,2626 @@
+fileFormatVersion: 2
+guid: 3296b3aee8ad19149afa54fd17702720
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6461435418243878546
+    second: CauldronDropZone_0
+  - first:
+      213: -8819520924845738583
+    second: CauldronDropZone_1
+  - first:
+      213: -8310435479399646694
+    second: CauldronDropZone_2
+  - first:
+      213: -6656185678079465240
+    second: CauldronDropZone_3
+  - first:
+      213: -1616970727083300860
+    second: CauldronDropZone_4
+  - first:
+      213: 1204518952304995868
+    second: CauldronDropZone_5
+  - first:
+      213: 269974126254049309
+    second: CauldronDropZone_6
+  - first:
+      213: 1525132070303971510
+    second: CauldronDropZone_7
+  - first:
+      213: 8874864425083742346
+    second: CauldronDropZone_8
+  - first:
+      213: -2338197057021797474
+    second: CauldronDropZone_9
+  - first:
+      213: 3055965312549936410
+    second: CauldronDropZone_10
+  - first:
+      213: -2369817878251251244
+    second: CauldronDropZone_11
+  - first:
+      213: 2662834008812894869
+    second: CauldronDropZone_12
+  - first:
+      213: 2771743419466876112
+    second: CauldronDropZone_13
+  - first:
+      213: -50330217494778485
+    second: CauldronDropZone_14
+  - first:
+      213: -4158913734599742848
+    second: CauldronDropZone_15
+  - first:
+      213: 4353884994630332226
+    second: CauldronDropZone_16
+  - first:
+      213: -1549962833761608232
+    second: CauldronDropZone_17
+  - first:
+      213: 415931347068098290
+    second: CauldronDropZone_18
+  - first:
+      213: -3726109997283787991
+    second: CauldronDropZone_19
+  - first:
+      213: 7028055429751014441
+    second: CauldronDropZone_20
+  - first:
+      213: -5845614146576499183
+    second: CauldronDropZone_21
+  - first:
+      213: -7212594575451511894
+    second: CauldronDropZone_22
+  - first:
+      213: -9073719919981584185
+    second: CauldronDropZone_23
+  - first:
+      213: 7478644510562467168
+    second: CauldronDropZone_24
+  - first:
+      213: -3954450020932552606
+    second: CauldronDropZone_25
+  - first:
+      213: 2162979793270599732
+    second: CauldronDropZone_26
+  - first:
+      213: 7749836671412302317
+    second: CauldronDropZone_27
+  - first:
+      213: -5105450994695108709
+    second: CauldronDropZone_28
+  - first:
+      213: -1132807378531924684
+    second: CauldronDropZone_29
+  - first:
+      213: 8415342347588733452
+    second: CauldronDropZone_30
+  - first:
+      213: 3720657658948637098
+    second: CauldronDropZone_31
+  - first:
+      213: -7465482423449095214
+    second: CauldronDropZone_32
+  - first:
+      213: -5827110649842121654
+    second: CauldronDropZone_33
+  - first:
+      213: -854263557930928068
+    second: CauldronDropZone_34
+  - first:
+      213: 1979790050576752834
+    second: CauldronDropZone_35
+  - first:
+      213: 6485828256054722062
+    second: CauldronDropZone_36
+  - first:
+      213: -6255923289488347483
+    second: CauldronDropZone_37
+  - first:
+      213: 7973108528715330616
+    second: CauldronDropZone_38
+  - first:
+      213: -7459294387950409247
+    second: CauldronDropZone_39
+  - first:
+      213: 4526129078358811800
+    second: CauldronDropZone_40
+  - first:
+      213: 415354991844208465
+    second: CauldronDropZone_41
+  - first:
+      213: -3996582939082400455
+    second: CauldronDropZone_42
+  - first:
+      213: 6872562745815804281
+    second: CauldronDropZone_43
+  - first:
+      213: 3394724313428620141
+    second: CauldronDropZone_44
+  - first:
+      213: 641628708738526795
+    second: CauldronDropZone_45
+  - first:
+      213: 9025847043541959476
+    second: CauldronDropZone_46
+  - first:
+      213: -1167021121390518718
+    second: CauldronDropZone_47
+  - first:
+      213: 3971753197099524261
+    second: CauldronDropZone_48
+  - first:
+      213: -2113401424221708302
+    second: CauldronDropZone_49
+  - first:
+      213: 1390109807042732659
+    second: CauldronDropZone_50
+  - first:
+      213: 3755951047455012357
+    second: CauldronDropZone_51
+  - first:
+      213: 1672476862036470844
+    second: CauldronDropZone_52
+  - first:
+      213: 2957625492037256188
+    second: CauldronDropZone_53
+  - first:
+      213: 7073281105652102111
+    second: CauldronDropZone_54
+  - first:
+      213: 6240546658596975830
+    second: CauldronDropZone_55
+  - first:
+      213: 5300735143032394366
+    second: CauldronDropZone_56
+  - first:
+      213: 4847303550959740694
+    second: CauldronDropZone_57
+  - first:
+      213: -4434773753075892905
+    second: CauldronDropZone_58
+  - first:
+      213: 3016381738918526701
+    second: CauldronDropZone_59
+  - first:
+      213: -1023604412366522695
+    second: CauldronDropZone_60
+  - first:
+      213: -1059770356096506844
+    second: CauldronDropZone_61
+  - first:
+      213: 6476054005780213026
+    second: CauldronDropZone_62
+  - first:
+      213: -7944698316109240781
+    second: CauldronDropZone_63
+  - first:
+      213: 244298463864306293
+    second: CauldronDropZone_64
+  - first:
+      213: -232802581178005777
+    second: CauldronDropZone_65
+  - first:
+      213: -3544661485468040887
+    second: CauldronDropZone_66
+  - first:
+      213: -7021729485211633416
+    second: CauldronDropZone_67
+  - first:
+      213: -1555881773404058701
+    second: CauldronDropZone_68
+  - first:
+      213: 7265820426168944443
+    second: CauldronDropZone_69
+  - first:
+      213: -3007690527604906679
+    second: CauldronDropZone_70
+  - first:
+      213: -5767972956618379072
+    second: CauldronDropZone_71
+  - first:
+      213: -2256758359642562041
+    second: CauldronDropZone_72
+  - first:
+      213: -1256799305456140767
+    second: CauldronDropZone_73
+  - first:
+      213: -6586970726378333799
+    second: CauldronDropZone_74
+  - first:
+      213: -4497944594348999197
+    second: CauldronDropZone_75
+  - first:
+      213: 1497345560132103320
+    second: CauldronDropZone_76
+  - first:
+      213: 8029547396559469027
+    second: CauldronDropZone_77
+  - first:
+      213: -8743527643304022111
+    second: CauldronDropZone_78
+  - first:
+      213: 3064487719607674254
+    second: CauldronDropZone_79
+  - first:
+      213: -1392536561014475731
+    second: CauldronDropZone_80
+  - first:
+      213: 5239812773623152450
+    second: CauldronDropZone_81
+  - first:
+      213: 4200634039469219359
+    second: CauldronDropZone_82
+  - first:
+      213: -3999647965634236064
+    second: CauldronDropZone_83
+  - first:
+      213: 9133853403475194645
+    second: CauldronDropZone_84
+  - first:
+      213: 8226321454996571400
+    second: CauldronDropZone_85
+  - first:
+      213: -3970073106659525561
+    second: CauldronDropZone_86
+  - first:
+      213: -2720230111110368766
+    second: CauldronDropZone_87
+  - first:
+      213: -6505731740624139117
+    second: CauldronDropZone_88
+  - first:
+      213: 7656365559027063935
+    second: CauldronDropZone_89
+  - first:
+      213: 134064212700816143
+    second: CauldronDropZone_90
+  - first:
+      213: -3909512673785727541
+    second: CauldronDropZone_91
+  - first:
+      213: 5926862160533769170
+    second: CauldronDropZone_92
+  - first:
+      213: 4897592319515309585
+    second: CauldronDropZone_93
+  - first:
+      213: -881153841470940493
+    second: CauldronDropZone_94
+  - first:
+      213: 3726721553500349650
+    second: CauldronDropZone_95
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CauldronDropZone_0
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3712
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e613274a8be5456a0800000000000000
+      internalID: -6461435418243878546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_1
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 3712
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5f1795274ca9580800000000000000
+      internalID: -8819520924845738583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ab49946f66bac80800000000000000
+      internalID: -8310435479399646694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_3
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8e70b446a70a3a0800000000000000
+      internalID: -6656185678079465240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_4
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408aef7d0bd5f89e0800000000000000
+      internalID: -1616970727083300860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_5
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1e6d55fa9f47b010800000000000000
+      internalID: 1204518952304995868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_6
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d184be599042fb300800000000000000
+      internalID: 269974126254049309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_7
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b83606998b5a2510800000000000000
+      internalID: 1525132070303971510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_8
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a882ede6c2ad92b70800000000000000
+      internalID: 8874864425083742346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_9
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b1a593a2e0d8fd0800000000000000
+      internalID: -2338197057021797474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_10
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1d5474b248f86a20800000000000000
+      internalID: 3055965312549936410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_11
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9d6701237bc1fd0800000000000000
+      internalID: -2369817878251251244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_12
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59a3f173c6944f420800000000000000
+      internalID: 2662834008812894869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_13
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d489d564f5377620800000000000000
+      internalID: 2771743419466876112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_14
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8d61c01fe03d4ff0800000000000000
+      internalID: -50330217494778485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_15
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08a60b54ef19846c0800000000000000
+      internalID: -4158913734599742848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_16
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24f28d1b55b1c6c30800000000000000
+      internalID: 4353884994630332226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_17
+      rect:
+        serializedVersion: 2
+        x: 2493
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ddd496c30d6d7ae0800000000000000
+      internalID: -1549962833761608232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_18
+      rect:
+        serializedVersion: 2
+        x: 2633
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f691f04b5fa5c500800000000000000
+      internalID: 415931347068098290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_19
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b3ed103b23a4cc0800000000000000
+      internalID: -3726109997283787991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_20
+      rect:
+        serializedVersion: 2
+        x: 2938
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92480185d2ba88160800000000000000
+      internalID: 7028055429751014441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_21
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e3f43b7e430eea0800000000000000
+      internalID: -5845614146576499183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_22
+      rect:
+        serializedVersion: 2
+        x: 3243
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3ad459277b7eb90800000000000000
+      internalID: -7212594575451511894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_23
+      rect:
+        serializedVersion: 2
+        x: 3407
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0ac12becba31280800000000000000
+      internalID: -9073719919981584185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_24
+      rect:
+        serializedVersion: 2
+        x: 3548
+        y: 3665
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06d308d0f8b79c760800000000000000
+      internalID: 7478644510562467168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_25
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 3665
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268774458a8fe19c0800000000000000
+      internalID: -3954450020932552606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_26
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3548
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 430fd3a79a2740e10800000000000000
+      internalID: 2162979793270599732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_27
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 3548
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de173da6463fc8b60800000000000000
+      internalID: 7749836671412302317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_28
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3407
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b978803ce5bc529b0800000000000000
+      internalID: -5105450994695108709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_29
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 3407
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435c9abe0b57740f0800000000000000
+      internalID: -1132807378531924684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_30
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3243
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a045b574d49c470800000000000000
+      internalID: 8415342347588733452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_31
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 3243
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa1587c8d6e62a330800000000000000
+      internalID: 3720657658948637098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_32
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3103
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3f4692a47456890800000000000000
+      internalID: -7465482423449095214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_33
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 3103
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44c341ccb1f12fa0800000000000000
+      internalID: -5827110649842121654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_34
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2938
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3837f4f1db0524f0800000000000000
+      internalID: -854263557930928068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_35
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2938
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c0ea76cf80a97b10800000000000000
+      internalID: 1979790050576752834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_36
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2798
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e355c7f6a420a50800000000000000
+      internalID: 6485828256054722062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_37
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2798
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ae24fbd9ee7e29a0800000000000000
+      internalID: -6255923289488347483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_38
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2633
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834f6b9a6fb26ae60800000000000000
+      internalID: 7973108528715330616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_39
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2633
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9a62376434b7890800000000000000
+      internalID: -7459294387950409247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_40
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2493
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 894a4239a6a00de30800000000000000
+      internalID: 4526129078358811800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_41
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2493
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f2f881a23a3c500800000000000000
+      internalID: 415354991844208465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_42
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2328
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d5b90edf84988c0800000000000000
+      internalID: -3996582939082400455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_43
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2328
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9792fe8a76f306f50800000000000000
+      internalID: 6872562745815804281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_44
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2188
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d637b4ce6cb7c1f20800000000000000
+      internalID: 3394724313428620141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_45
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2188
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e6d0e39e587e800800000000000000
+      internalID: 641628708738526795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_46
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 2023
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 433045ba010424d70800000000000000
+      internalID: 9025847043541959476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_47
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 2023
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ed3262978edcfe0800000000000000
+      internalID: -1167021121390518718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_48
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1883
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a0a3a05d708e1730800000000000000
+      internalID: 3971753197099524261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_49
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 1883
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffd5791a90bba2e0800000000000000
+      internalID: -2113401424221708302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_50
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1718
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372a19f1189aa4310800000000000000
+      internalID: 1390109807042732659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_51
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 1718
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506ff49e391df1430800000000000000
+      internalID: 3755951047455012357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_52
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1578
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c6eb848d4d53710800000000000000
+      internalID: 1672476862036470844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_53
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 1578
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3458ff6b89b0920800000000000000
+      internalID: 2957625492037256188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_54
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1414
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd330e290b7592260800000000000000
+      internalID: 7073281105652102111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_55
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 1414
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d47ce54f10ea9650800000000000000
+      internalID: 6240546658596975830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_56
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1273
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7210e0378eff8940800000000000000
+      internalID: 5300735143032394366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_57
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 1273
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617e171c5e4154340800000000000000
+      internalID: 4847303550959740694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_58
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 1109
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75d7fac94c48472c0800000000000000
+      internalID: -4434773753075892905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_59
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 1109
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deeb637c5375cd920800000000000000
+      internalID: 3016381738918526701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_60
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 968
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b6fe52d53d6bc1f0800000000000000
+      internalID: -1023604412366522695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_61
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 968
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424e06dd970fa41f0800000000000000
+      internalID: -1059770356096506844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_62
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 804
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22d66c08ec09fd950800000000000000
+      internalID: 6476054005780213026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_63
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 804
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3362aac69f2ceb190800000000000000
+      internalID: -7944698316109240781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_64
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 664
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a3ec5982ce36300800000000000000
+      internalID: 244298463864306293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_65
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 664
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6471e294be4ccf0800000000000000
+      internalID: -232802581178005777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_66
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 499
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9414badc825decec0800000000000000
+      internalID: -3544661485468040887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_67
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 499
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f8f2156c3ecd8e90800000000000000
+      internalID: -7021729485211633416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_68
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 359
+        width: 25
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb0fbf35c5686ae0800000000000000
+      internalID: -1555881773404058701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_69
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 359
+        width: 26
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b37c39f7e2165d460800000000000000
+      internalID: 7265820426168944443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_70
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9456dcb86698246d0800000000000000
+      internalID: -3007690527604906679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_71
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c0b3bee72b04ffa0800000000000000
+      internalID: -5767972956618379072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_72
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 702ac9d8a326ea0e0800000000000000
+      internalID: -2256758359642562041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_73
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12e3454c0b3fe8ee0800000000000000
+      internalID: -1256799305456140767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_74
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 999925c06016694a0800000000000000
+      internalID: -6586970726378333799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_75
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ed707af8371491c0800000000000000
+      internalID: -4497944594348999197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_76
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89caea98ad3a7c410800000000000000
+      internalID: 1497345560132103320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_77
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e9f61790deae6f60800000000000000
+      internalID: 8029547396559469027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_78
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af2e010fefb8a680800000000000000
+      internalID: -8743527643304022111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_79
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8523c9385f378a20800000000000000
+      internalID: 3064487719607674254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_80
+      rect:
+        serializedVersion: 2
+        x: 1718
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24fcff2067bcace0800000000000000
+      internalID: -1392536561014475731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_81
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24fbc55b4fd87b840800000000000000
+      internalID: 5239812773623152450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_82
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1e1af92766ab4a30800000000000000
+      internalID: 4200634039469219359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_83
+      rect:
+        serializedVersion: 2
+        x: 2188
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061f1c5cd556e78c0800000000000000
+      internalID: -3999647965634236064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_84
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 513b1a8f647f1ce70800000000000000
+      internalID: 9133853403475194645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_85
+      rect:
+        serializedVersion: 2
+        x: 2493
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805ce3547c3c92270800000000000000
+      internalID: 8226321454996571400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_86
+      rect:
+        serializedVersion: 2
+        x: 2633
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74c3a393b8777e8c0800000000000000
+      internalID: -3970073106659525561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_87
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 202f1f7502dcf3ad0800000000000000
+      internalID: -2720230111110368766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_88
+      rect:
+        serializedVersion: 2
+        x: 2938
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c4d14637ff6b5a0800000000000000
+      internalID: -6505731740624139117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_89
+      rect:
+        serializedVersion: 2
+        x: 3103
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7cd75829efd04a60800000000000000
+      internalID: 7656365559027063935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_90
+      rect:
+        serializedVersion: 2
+        x: 3243
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03ef1fe0ba4cd100800000000000000
+      internalID: 134064212700816143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_91
+      rect:
+        serializedVersion: 2
+        x: 3407
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc53d1acfee9eb9c0800000000000000
+      internalID: -3909512673785727541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_92
+      rect:
+        serializedVersion: 2
+        x: 3548
+        y: 308
+        width: 93
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dbc15fabb1704250800000000000000
+      internalID: 5926862160533769170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_93
+      rect:
+        serializedVersion: 2
+        x: 3712
+        y: 308
+        width: 94
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 116346b144eb7f340800000000000000
+      internalID: 4897592319515309585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_94
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 194
+        width: 25
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ba57aeef3385c3f0800000000000000
+      internalID: -881153841470940493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CauldronDropZone_95
+      rect:
+        serializedVersion: 2
+        x: 3646
+        y: 194
+        width: 26
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d42e250289f7b330800000000000000
+      internalID: 3726721553500349650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      CauldronDropZone_0: -6461435418243878546
+      CauldronDropZone_1: -8819520924845738583
+      CauldronDropZone_10: 3055965312549936410
+      CauldronDropZone_11: -2369817878251251244
+      CauldronDropZone_12: 2662834008812894869
+      CauldronDropZone_13: 2771743419466876112
+      CauldronDropZone_14: -50330217494778485
+      CauldronDropZone_15: -4158913734599742848
+      CauldronDropZone_16: 4353884994630332226
+      CauldronDropZone_17: -1549962833761608232
+      CauldronDropZone_18: 415931347068098290
+      CauldronDropZone_19: -3726109997283787991
+      CauldronDropZone_2: -8310435479399646694
+      CauldronDropZone_20: 7028055429751014441
+      CauldronDropZone_21: -5845614146576499183
+      CauldronDropZone_22: -7212594575451511894
+      CauldronDropZone_23: -9073719919981584185
+      CauldronDropZone_24: 7478644510562467168
+      CauldronDropZone_25: -3954450020932552606
+      CauldronDropZone_26: 2162979793270599732
+      CauldronDropZone_27: 7749836671412302317
+      CauldronDropZone_28: -5105450994695108709
+      CauldronDropZone_29: -1132807378531924684
+      CauldronDropZone_3: -6656185678079465240
+      CauldronDropZone_30: 8415342347588733452
+      CauldronDropZone_31: 3720657658948637098
+      CauldronDropZone_32: -7465482423449095214
+      CauldronDropZone_33: -5827110649842121654
+      CauldronDropZone_34: -854263557930928068
+      CauldronDropZone_35: 1979790050576752834
+      CauldronDropZone_36: 6485828256054722062
+      CauldronDropZone_37: -6255923289488347483
+      CauldronDropZone_38: 7973108528715330616
+      CauldronDropZone_39: -7459294387950409247
+      CauldronDropZone_4: -1616970727083300860
+      CauldronDropZone_40: 4526129078358811800
+      CauldronDropZone_41: 415354991844208465
+      CauldronDropZone_42: -3996582939082400455
+      CauldronDropZone_43: 6872562745815804281
+      CauldronDropZone_44: 3394724313428620141
+      CauldronDropZone_45: 641628708738526795
+      CauldronDropZone_46: 9025847043541959476
+      CauldronDropZone_47: -1167021121390518718
+      CauldronDropZone_48: 3971753197099524261
+      CauldronDropZone_49: -2113401424221708302
+      CauldronDropZone_5: 1204518952304995868
+      CauldronDropZone_50: 1390109807042732659
+      CauldronDropZone_51: 3755951047455012357
+      CauldronDropZone_52: 1672476862036470844
+      CauldronDropZone_53: 2957625492037256188
+      CauldronDropZone_54: 7073281105652102111
+      CauldronDropZone_55: 6240546658596975830
+      CauldronDropZone_56: 5300735143032394366
+      CauldronDropZone_57: 4847303550959740694
+      CauldronDropZone_58: -4434773753075892905
+      CauldronDropZone_59: 3016381738918526701
+      CauldronDropZone_6: 269974126254049309
+      CauldronDropZone_60: -1023604412366522695
+      CauldronDropZone_61: -1059770356096506844
+      CauldronDropZone_62: 6476054005780213026
+      CauldronDropZone_63: -7944698316109240781
+      CauldronDropZone_64: 244298463864306293
+      CauldronDropZone_65: -232802581178005777
+      CauldronDropZone_66: -3544661485468040887
+      CauldronDropZone_67: -7021729485211633416
+      CauldronDropZone_68: -1555881773404058701
+      CauldronDropZone_69: 7265820426168944443
+      CauldronDropZone_7: 1525132070303971510
+      CauldronDropZone_70: -3007690527604906679
+      CauldronDropZone_71: -5767972956618379072
+      CauldronDropZone_72: -2256758359642562041
+      CauldronDropZone_73: -1256799305456140767
+      CauldronDropZone_74: -6586970726378333799
+      CauldronDropZone_75: -4497944594348999197
+      CauldronDropZone_76: 1497345560132103320
+      CauldronDropZone_77: 8029547396559469027
+      CauldronDropZone_78: -8743527643304022111
+      CauldronDropZone_79: 3064487719607674254
+      CauldronDropZone_8: 8874864425083742346
+      CauldronDropZone_80: -1392536561014475731
+      CauldronDropZone_81: 5239812773623152450
+      CauldronDropZone_82: 4200634039469219359
+      CauldronDropZone_83: -3999647965634236064
+      CauldronDropZone_84: 9133853403475194645
+      CauldronDropZone_85: 8226321454996571400
+      CauldronDropZone_86: -3970073106659525561
+      CauldronDropZone_87: -2720230111110368766
+      CauldronDropZone_88: -6505731740624139117
+      CauldronDropZone_89: 7656365559027063935
+      CauldronDropZone_9: -2338197057021797474
+      CauldronDropZone_90: 134064212700816143
+      CauldronDropZone_91: -3909512673785727541
+      CauldronDropZone_92: 5926862160533769170
+      CauldronDropZone_93: 4897592319515309585
+      CauldronDropZone_94: -881153841470940493
+      CauldronDropZone_95: 3726721553500349650
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
