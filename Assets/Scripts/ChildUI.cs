@@ -11,6 +11,7 @@ public class ChildUI : MonoBehaviour
     [SerializeField] private GameObject _speechBubble;
     [SerializeField] private GameObject _desireBubble;
     [SerializeField] private GameObject _insecurityBubble;
+    [SerializeField] private Image _childImage;
 
     [SerializeField] private GameObject DesireParticle;
     [SerializeField] private GameObject InsecurityParticle;
@@ -32,7 +33,7 @@ public class ChildUI : MonoBehaviour
         if (!_speechStreamer && _speechText)
             _speechStreamer = _speechText.GetComponent<StreamingDialogue>();
     }
-
+    
     public void InitializeChild()
     {
         currentChild = GameManager.Instance.GetCurrentChild();
@@ -53,6 +54,7 @@ public class ChildUI : MonoBehaviour
         _speechText.text = currentChild.greeting;
         _desireText.text = currentChild.desire;
         _insecurityText.text = currentChild.insecurity;
+        _childImage.sprite = currentChild.childImage;
 
         // gate the Inspect button until streaming finishes
         if (_inspectButton) _inspectButton.interactable = false;

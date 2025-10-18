@@ -15,5 +15,6 @@ public class ChildProfile
     [TextArea] public string insecurity;    // “Not athletic like Brandon”
     [TextArea] public string farewell;    // “Not athletic like Brandon”
     public CandyName matchingCandy;
+    public Sprite childImage;
     
 }

@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject EndingPanel;
 
     [Header("Prefabs")]
-    [SerializeField] private ChildUI childUI;
+    [SerializeField] private ChildUI childUI_arrival;
+    [SerializeField] private ChildUI_Result childUI_result;
     [SerializeField] private RecipeUI recipeUI;
     [SerializeField] private EndingUI endingUI;
 
@@ -75,7 +76,7 @@ public class UIManager : MonoBehaviour
     public void ShowVisitor()
     {
         ExaminationPanel.SetActive(true);
-        childUI.InitializeChild();
+        childUI_arrival.InitializeChild();
         ProceedToRecipeButton.interactable = false;
     }
 
@@ -94,6 +95,8 @@ public class UIManager : MonoBehaviour
     public void ShowResult()
     {
         ResultPanel.SetActive(true);
+        childUI_result.InitializeResultUI();
+
     }
 
     public void ShowEnding()

@@ -47,10 +47,10 @@ public class GameManager : MonoBehaviour
             case LoopState.Arrival:
                 if (_currentRound < _roundNumber)
                 {
-                    _currentRound++;
                     visitedChild.Add(childQueue[_currentRound]);
                     currentChild = childQueue[_currentRound];
                     UIManager.Instance.ShowDoor();
+                    _currentRound++;
                 }
                 else
                 {

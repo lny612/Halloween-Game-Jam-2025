@@ -34,7 +34,7 @@ public class RecipeUI : MonoBehaviour
         RecipeSteps.text = "";
         for (int i = 0; i < currentRecipe.steps.Length; i++)
         {
-            RecipeSteps.text += (i + 1).ToString() + ". " + currentRecipe.steps[i].instruction + "\n\n";
+            RecipeSteps.text += (i + 1).ToString() + ". " + currentRecipe.steps[i].instruction + "\n";
         }
     }
 
@@ -43,13 +43,16 @@ public class RecipeUI : MonoBehaviour
         if (currentPage < recipeDataContainer.recipeList.Count - 1)
         {
             currentPage++;
+            backButton.interactable = true;
             SetInformation(currentPage);
         }
 
         else if (currentPage == recipeDataContainer.recipeList.Count - 1)
         {
+            backButton.interactable = true;
             nextButton.interactable = false;
         }
+
         else
         {
             backButton.interactable = true;
@@ -62,6 +65,7 @@ public class RecipeUI : MonoBehaviour
         if (currentPage > 0)
         {
             currentPage--;
+            backButton.interactable = true;
             SetInformation(currentPage);
         }
 

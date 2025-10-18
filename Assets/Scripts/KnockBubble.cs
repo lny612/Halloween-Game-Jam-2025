@@ -26,13 +26,12 @@ public class KnockBubble : MonoBehaviour
     {
         StopAllCoroutines();
         transform.position = doorPos.position;
+        gameObject.SetActive(true);
         StartCoroutine(FlashSequence());
     }
 
     IEnumerator FlashSequence()
     {
-        gameObject.SetActive(true);
-
         for (int i = 0; i < repeat; i++)
         {
             if (knockClip && sfx) sfx.PlayOneShot(knockClip);
