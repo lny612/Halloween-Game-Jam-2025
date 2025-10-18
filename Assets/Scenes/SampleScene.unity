@@ -1468,7 +1468,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 7
 --- !u!1 &138650183
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Moonlit Dew
+  m_text: 'Aurora Mist
 
 '
   m_isRightToLeft: 0
@@ -2530,7 +2530,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Courage
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2796,7 +2798,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 4
 --- !u!1 &391457564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,7 +3001,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 2
 --- !u!1 &430487953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,7 +3308,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 14
 --- !u!1 &512551705
 GameObject:
   m_ObjectHideFlags: 0
@@ -3364,7 +3366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sugar 3
+  m_text: 'Lagless Sugar
 
 '
   m_isRightToLeft: 0
@@ -8763,7 +8765,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 16
 --- !u!1 &576176432
 GameObject:
   m_ObjectHideFlags: 0
@@ -8821,7 +8823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Water 2
+  m_text: 'Cloud Drip
 
 '
   m_isRightToLeft: 0
@@ -9459,7 +9461,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 20
 --- !u!1 &659323585
 GameObject:
   m_ObjectHideFlags: 0
@@ -9517,7 +9519,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Verdant
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10019,7 +10023,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 5
 --- !u!1 &681426080
 GameObject:
   m_ObjectHideFlags: 0
@@ -10077,7 +10081,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Water 5
+  m_text: 'Sunpetal Nectar
 
 '
   m_isRightToLeft: 0
@@ -10215,7 +10219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Water 4
+  m_text: 'Moonlit Dew
 
 '
   m_isRightToLeft: 0
@@ -10889,7 +10893,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 15
 --- !u!1 &850228681
 GameObject:
   m_ObjectHideFlags: 0
@@ -11023,8 +11027,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Essence 2
-
+  m_text: 'Clarity
 
 '
   m_isRightToLeft: 0
@@ -11217,7 +11220,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 8
 --- !u!1 &879083073
 GameObject:
   m_ObjectHideFlags: 0
@@ -11466,7 +11469,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 17
 --- !u!1 &894669133
 GameObject:
   m_ObjectHideFlags: 0
@@ -11623,7 +11626,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Tranquil
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12074,7 +12079,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Focus
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12799,7 +12806,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sugar 2
+  m_text: 'Heartstring Sugar
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13604,7 +13613,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gallop Spirit Essence
+  m_text: 'Charm Essence
+
 
 '
   m_isRightToLeft: 0
@@ -13878,7 +13888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sugar 4
+  m_text: 'Moonmelt Sugar
 
 '
   m_isRightToLeft: 0
@@ -14016,7 +14026,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sugar 5
+  m_text: 'Starlight Sugar
 
 '
   m_isRightToLeft: 0
@@ -14720,7 +14730,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Quickfire
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14856,7 +14868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Water 3
+  m_text: 'Dragon Tear
 
 '
   m_isRightToLeft: 0
@@ -16874,7 +16886,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Gallop
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17049,7 +17063,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Slumber
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18639,7 +18655,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 3
 --- !u!1 &1875254801
 GameObject:
   m_ObjectHideFlags: 0
@@ -18965,7 +18981,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 19
 --- !u!1 &1898392870
 GameObject:
   m_ObjectHideFlags: 0
@@ -19023,7 +19039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Carrot Sugar
+  m_text: 'Frostglass Sugar
 
 '
   m_isRightToLeft: 0
@@ -19216,7 +19232,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 10
 --- !u!1 &1917597765
 GameObject:
   m_ObjectHideFlags: 0
@@ -19872,7 +19888,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 9
 --- !u!1 &2027020770
 GameObject:
   m_ObjectHideFlags: 0
@@ -20335,7 +20351,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 13
 --- !u!1 &2057847238
 GameObject:
   m_ObjectHideFlags: 0
@@ -20524,7 +20540,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 12
 --- !u!1 &2072832266
 GameObject:
   m_ObjectHideFlags: 0
@@ -20582,7 +20598,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Essence
+  m_text: 'Transparency
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21053,7 +21071,7 @@ MonoBehaviour:
   minShakeSpeed: 0.15
   maxShakeSpeed: 3
   speedLerp: 0.25
-  ingredientSubtype: 1
+  ingredientSubtype: 18
 --- !u!1 &2147027817
 GameObject:
   m_ObjectHideFlags: 0
