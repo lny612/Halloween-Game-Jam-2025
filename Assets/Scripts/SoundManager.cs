@@ -1,12 +1,25 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum Sfx
 {
+    //general
     ButtonClick = 0,
+
+    //Arrival
+    DoorCreak,
+    Knock,
+
+    //Crafting
+    StepFail,
+    StepSuccess,
+    Stirring,
     PourWater,
     PourSugar,
     PourEssence,
+    CandyDone,
+
 }
 
 public enum Bgm
@@ -210,5 +223,10 @@ public class SoundManager : MonoBehaviour
                 src.loop = false;
             }
         }
+    }
+
+    public void OnButtonPress()
+    {
+        PlaySfx(Sfx.ButtonClick);
     }
 }

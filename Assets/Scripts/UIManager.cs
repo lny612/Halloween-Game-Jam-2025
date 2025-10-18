@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour
     {
         // TODO: show arrival panel and play knocking animation
         ArrivalPanel.SetActive(true);
+        SoundManager.Instance.PlaySfx(Sfx.Knock);
         knockBubble.Play();
     }
 

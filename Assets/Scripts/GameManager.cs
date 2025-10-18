@@ -90,6 +90,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGameState(LoopState newState)
     {
+        if(newState.Equals(LoopState.Examine))
+        {
+            SoundManager.Instance.PlaySfx(Sfx.DoorCreak);
+        }
         state = newState;
         Advance();
     }
