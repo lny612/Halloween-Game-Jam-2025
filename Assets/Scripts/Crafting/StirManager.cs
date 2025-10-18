@@ -49,6 +49,9 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public bool IsComplete { get; private set; }
     public bool WasSuccessful { get; private set; }
 
+    [SerializeField] private bool useLoopedStirSfx = true; // toggleable
+    [SerializeField] private float loopFadeOut = 0.06f;    // tiny fade on stop
+
     // --- Public API ---
     public void Begin(int requiredStirs, float _minIntervalIgnored, float timeLimit)
     {
@@ -95,6 +98,10 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 stirZone, eventData.position, _uiCam, out var localNow))
             return;
 
+        // Play SFX
+        if (useLoopedStirSfx)
+            SoundManager.Instance.StartLoopSfx(Sfx.Stirring, 0.9f);
+
         // Horizontal movement (abs dx) adds stacks
         float dx = Mathf.Abs(localNow.x - _lastPointerLocal.x);
         if (dx > 0f)
@@ -128,6 +135,8 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         if (eventData.button != (PointerEventData.InputButton)stirMouseButton) return;
+        if (useLoopedStirSfx)
+            SoundManager.Instance.StopLoopSfx(Sfx.Stirring, loopFadeOut);
         _isDragging = false;
     }
 
@@ -145,6 +154,9 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     // --- Helpers ---
     private void Complete(bool success)
     {
+        if (useLoopedStirSfx)
+            SoundManager.Instance.StopLoopSfx(Sfx.Stirring, loopFadeOut);
+
         IsComplete = true;
         WasSuccessful = success;
         _isDragging = false;

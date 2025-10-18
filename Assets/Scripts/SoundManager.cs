@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public enum Sfx
     DoorCreak,
     Knock,
 
+    //Recipe
+    BookFlip,
+    StartCraft,
+
     //Crafting
     StepFail,
     StepSuccess,
@@ -18,7 +23,9 @@ public enum Sfx
     PourWater,
     PourSugar,
     PourEssence,
+    WaterBoil,
     CandyDone,
+    TimeTicking
 
 }
 
@@ -39,7 +46,7 @@ public class SoundManager : MonoBehaviour
     [Header("Clips")]
     [SerializeField] private AudioClip[] bgmClips;
     [SerializeField] private AudioClip[] sfxClips;
-
+    
     [Header("Players")]
     private AudioSource bgmPlayer;
     private AudioSource[] sfxPlayers;
@@ -53,6 +60,11 @@ public class SoundManager : MonoBehaviour
     private Coroutine bgmFadeRoutine;
     private Bgm currentBgm;
     private int nextSfxIndex;
+
+    [SerializeField] private Sfx boilingSfxEnum = Sfx.WaterBoil; // assign your actual boiling clip enum
+    private AudioSource ambienceLoopPlayer;
+
+    private readonly Dictionary<Sfx, AudioSource> _loopPlayers = new();
 
     private void Awake()
     {
@@ -76,6 +88,12 @@ public class SoundManager : MonoBehaviour
         bgmPlayer.loop = true;
         bgmPlayer.playOnAwake = false;
         bgmPlayer.volume = bgmVolume;
+
+        // ambience loop source
+        ambienceLoopPlayer = gameObject.AddComponent<AudioSource>();
+        ambienceLoopPlayer.playOnAwake = false;
+        ambienceLoopPlayer.loop = true;
+        ambienceLoopPlayer.volume = 0.9f;
 
         // SFX pool as children
         sfxPlayers = new AudioSource[sfxChannels];
@@ -229,4 +247,78 @@ public class SoundManager : MonoBehaviour
     {
         PlaySfx(Sfx.ButtonClick);
     }
+
+    public void StartBoilingLoop(float volume = 1.5f)
+    {
+        var clip = (int)boilingSfxEnum < sfxClips.Length ? sfxClips[(int)boilingSfxEnum] : null;
+        if (!clip) { Debug.LogWarning("[SoundManager] Boiling SFX clip missing"); return; }
+
+        ambienceLoopPlayer.clip = clip;
+        ambienceLoopPlayer.volume = Mathf.Clamp01(volume);
+        if (!ambienceLoopPlayer.isPlaying) ambienceLoopPlayer.Play();
+    }
+
+    public void StopBoilingLoop()
+    {
+        if (ambienceLoopPlayer.isPlaying) ambienceLoopPlayer.Stop();
+    }
+
+    public void StartLoopSfx(Sfx sfx, float volume = 1f)
+    {
+        if (_loopPlayers.ContainsKey(sfx) && _loopPlayers[sfx] && _loopPlayers[sfx].isPlaying)
+            return;
+
+        var clip = (int)sfx < sfxClips.Length ? sfxClips[(int)sfx] : null;
+        if (!clip)
+        {
+            Debug.LogWarning($"[SoundManager] Missing loop SFX clip for {sfx}");
+            return;
+        }
+
+        var go = new GameObject($"Loop_{sfx}");
+        go.transform.SetParent(transform, false);
+        var src = go.AddComponent<AudioSource>();
+        src.playOnAwake = false;
+        src.loop = true;
+        src.volume = Mathf.Clamp01(volume);
+        src.clip = clip;
+        src.Play();
+
+        _loopPlayers[sfx] = src;
+    }
+
+    public void StopLoopSfx(Sfx sfx, float fadeTime = 0f)
+    {
+        if (!_loopPlayers.TryGetValue(sfx, out var src) || !src) return;
+
+        if (fadeTime <= 0f)
+        {
+            src.Stop();
+            Destroy(src.gameObject);
+            _loopPlayers.Remove(sfx);
+        }
+        else
+        {
+            StartCoroutine(FadeAndDestroyLoop(src, sfx, fadeTime));
+        }
+    }
+
+    private IEnumerator FadeAndDestroyLoop(AudioSource src, Sfx sfx, float time)
+    {
+        float t = 0f;
+        float start = src.volume;
+        while (t < time && src)
+        {
+            t += Time.unscaledDeltaTime;
+            if (src) src.volume = Mathf.Lerp(start, 0f, t / time);
+            yield return null;
+        }
+        if (src)
+        {
+            src.Stop();
+            Destroy(src.gameObject);
+        }
+        _loopPlayers.Remove(sfx);
+    }
+
 }

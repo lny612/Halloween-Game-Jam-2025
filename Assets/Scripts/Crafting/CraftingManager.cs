@@ -58,6 +58,8 @@ public class CraftingManager : MonoBehaviour
 
     public void BeginRecipe(RecipeDefinition recipe)
     {
+
+        SoundManager.Instance.StartBoilingLoop();
         if (recipe == null)
         {
             Debug.LogError("CraftingManager: No recipe!");
@@ -121,6 +123,8 @@ public class CraftingManager : MonoBehaviour
                     break;
             }
 
+            SoundManager.Instance.StartLoopSfx(Sfx.TimeTicking, 0.9f);
+
             // run timer
             while (elapsed < step.timeLimit)
             {
@@ -141,6 +145,8 @@ public class CraftingManager : MonoBehaviour
 
                 yield return null;
             }
+
+            SoundManager.Instance.StopLoopSfx(Sfx.TimeTicking, 0.08f);
 
             // time ended → finalize appropriately
             if (step.stepType == StepType.Add)
@@ -169,11 +175,13 @@ public class CraftingManager : MonoBehaviour
             // show result + count ONCE
             if (success)
             {
+                SoundManager.Instance.PlaySfx(Sfx.StepSuccess);
                 slot.ShowTick();
                 successCount++;
             }
             else
             {
+                SoundManager.Instance.PlaySfx(Sfx.StepFail);
                 slot.ShowCross();
             }
             slot.SetFill(1f);
@@ -188,6 +196,7 @@ public class CraftingManager : MonoBehaviour
 
     public void OnAllStepsFinished()
     {
+        SoundManager.Instance.StopBoilingLoop();
         Debug.Log("[Crafting] successCount=" + successCount);
         Debug.Log("[Crafting] activeRecipeLength=" + activeRecipe.steps.Length);
         cauldronBoilMinigame.StopBoiling();
