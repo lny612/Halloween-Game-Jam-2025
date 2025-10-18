@@ -28,3 +28,45 @@ MonoBehaviour:
       Eyewitnesses say he was shouting something about \u201CBritney\u201D."
     wrongComment: "Still\u2026 at least he got to run, didn\u2019t he?"
     wrongImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+  - candyName: 1
+    correctHeadline: Student Aces Test; Pencil Smokes From Speed
+    correctEndingText: Priya finished early, checked twice, and doodled victory stars.
+      The teacher needed a fan for the scantron.
+    correctComment: 'Brain: decluttered and sparkly.'
+    correctImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+    wrongHeadline: Girl Answers In Ancient Runes; Teacher Googles Frantically
+    wrongEndingText: " Priya wrote perfectly\u2026 in a language from nowhere. The
+      curve shattered and so did reality a little."
+    wrongComment: Next time, less cosmic notation.
+    wrongImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+  - candyName: 0
+    correctHeadline: New Kid Hosts Lunch Table Like A Pro
+    correctEndingText: Hana waved people in and the table multiplied laughs. The
+      squeak retired permanently.
+    correctComment: Courage pairs well with snacks.
+    correctImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+    wrongHeadline: Child Roars At PTA; Mic Explodes Slightly
+    wrongEndingText: Hana overdid it and challenged a bulletin board to combat. The
+      board lost.
+    wrongComment: "We\u2019ll turn the bravery dial down next time."
+    wrongImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+  - candyName: 3
+    correctHeadline: Kid Sleeps Like A Boulder; Wins Game With Smooth Brain
+    correctEndingText: Theo dreamed of calm oceans and woke up unstoppable. The pillow
+      requested a rematch.
+    correctComment: Rest is the loudest buff.
+    correctImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+    wrongHeadline: Local Child Naps Through Saturday; Time Zones Confused
+    wrongEndingText: Theo slept so well he lapped Sunday by accident. Monday applauded.
+    wrongComment: Powerful snooze, slightly illegal.
+    wrongImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+  - candyName: 4
+    correctHeadline: Local Girl Revives Entire School Garden
+    correctEndingText: Ava sneezed and everything blossomed; students had to mow
+      twice a day.
+    correctComment: 'Green thumb: achieved, overclocked.'
+    correctImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}
+    wrongHeadline: Vines Overtake Bedroom; Plant Asks For Wi-Fi
+    wrongEndingText: "Ava\u2019s room became a jungle with strong opinions on music."
+    wrongComment: "Next time we\u2019ll skip the fertilizer solo."
+    wrongImage: {fileID: 8417895607168769866, guid: d8b32d4a4b5e6dd47bdfb765beeda05f, type: 3}

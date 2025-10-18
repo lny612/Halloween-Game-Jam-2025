@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,12 +14,10 @@ public class GameManager : MonoBehaviour
     private LoopState state;
     private ChildProfile currentChild;
     private RecipeDefinition _currentRecipe;
-    private int _roundNumber = 1;
+    private int _roundNumber = 5;
     private int _currentRound = 0;
     private List<CraftResult> craftResults = new List<CraftResult>();
-    private float _recipePerformance;
-    private float _boilingPerformance;
-
+    private int _scoreCounter = 0;
 
     void Awake()
     {
@@ -49,7 +48,8 @@ public class GameManager : MonoBehaviour
                 if (_currentRound < _roundNumber)
                 {
                     _currentRound++;
-                    RandomlySelectChild();
+                    visitedChild.Add(childQueue[_currentRound]);
+                    currentChild = childQueue[_currentRound];
                     UIManager.Instance.ShowDoor();
                 }
                 else
@@ -88,18 +88,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void RandomlySelectChild()
-    {
-        int randomIndex = Random.Range(0, childQueue.Count);
-        while (visitedChild.Contains(childQueue[randomIndex]))
-        {
-            randomIndex = Random.Range(0, childQueue.Count);
-        }
-
-        visitedChild.Add(childQueue[randomIndex]);
-        currentChild = childQueue[randomIndex];
-    }
-
     public void ChangeGameState(LoopState newState)
     {
         state = newState;
@@ -117,25 +105,12 @@ public class GameManager : MonoBehaviour
 
     public CandyGrade DetermineRank(CandyName candyName)
     {
-        // Normalize "bad time": 0..1 of session spent at zero quality
-        float zeroFrac = Mathf.Clamp01(_boilingPerformance);
-
-        // Penalty curve (tweakables):
-        // - maxPenalty: max % reduction applied to successRatio if zeroFrac == 1
-        // - curve: <1 makes small zero time matter more, >1 makes it matter less
-        //const float maxPenalty = 0.35f; // up to -35% to success score
-        //const float curve = 0.75f;      // slightly front-load penalty for early mistakes
-
-        //float penalty = Mathf.Lerp(0f, maxPenalty, Mathf.Pow(zeroFrac, curve));
-        float penalty = 0;
-        float adjusted = Mathf.Clamp01(_recipePerformance * (1f - penalty));
-
         // Same thresholds as before, but using adjusted score
         CandyGrade grade;
-        if (adjusted >= 1.0f) grade = CandyGrade.Divine;
-        else if (adjusted >= 0.75f) grade = CandyGrade.Deluxe;
-        else if (adjusted >= 0.5f) grade = CandyGrade.Sweet;
-        else if (adjusted >= 0.25f) grade = CandyGrade.Sticky;
+        if (_scoreCounter == 10) grade = CandyGrade.Divine;
+        else if (_scoreCounter >= 8) grade = CandyGrade.Deluxe;
+        else if (_scoreCounter >= 5) grade = CandyGrade.Sweet;
+        else if (_scoreCounter >= 2) grade = CandyGrade.Sticky;
         else grade = CandyGrade.Burnt;
 
         CraftResult result = new CraftResult
@@ -145,8 +120,6 @@ public class GameManager : MonoBehaviour
             isMatching = IsCandyMatching(candyName)
         };
         craftResults.Add(result);
-
-        Debug.Log($"[CandyGrade] success={_recipePerformance:0.00}, zeroFrac={zeroFrac:0.00}, adjusted={adjusted:0.00} → {grade}");
 
         return grade;
     }
@@ -159,12 +132,21 @@ public class GameManager : MonoBehaviour
 
     public void SetRecipePerformance(float successRatio)
     {
-        _recipePerformance = successRatio;
+        if (successRatio >= 1f) _scoreCounter += 5;
+        else if (successRatio >= 0.75f) _scoreCounter += 4;
+        else if (successRatio >= 0.5f) _scoreCounter += 3;
+        else if (successRatio >= 0.25f) _scoreCounter += 2;
+        else _scoreCounter += 1;
     }
 
     public void SetBoilingPerformance(float successRatio)
     {
-        _boilingPerformance = successRatio;
+        if (successRatio >= 1f) _scoreCounter += 1;
+        else if(successRatio >= 0.75f) _scoreCounter += 2;
+        else if (successRatio >= 0.5f) _scoreCounter += 3;
+        else if (successRatio >= 0.25f) _scoreCounter += 4;
+        else _scoreCounter += 5;
+
     }
 
     public List<CraftResult> GetCraftResults()

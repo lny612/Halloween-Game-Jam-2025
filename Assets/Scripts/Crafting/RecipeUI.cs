@@ -25,8 +25,17 @@ public class RecipeUI : MonoBehaviour
         var currentRecipe = recipeDataContainer.recipeList[page];
         Name.text = currentRecipe.recipeName;
         Description.text = currentRecipe.descriptionText;
-        RecipeSteps.text = currentRecipe.recipeText;
+        SetRecipeText(currentRecipe);
         CandyImage.sprite = currentRecipe.recipeImage;
+    }
+
+    private void SetRecipeText(RecipeDefinition currentRecipe)
+    {
+        RecipeSteps.text = "";
+        for (int i = 0; i < currentRecipe.steps.Length; i++)
+        {
+            RecipeSteps.text += (i + 1).ToString() + ". " + currentRecipe.steps[i].instruction + "\n\n";
+        }
     }
 
     public void OnNextButtonPressed()

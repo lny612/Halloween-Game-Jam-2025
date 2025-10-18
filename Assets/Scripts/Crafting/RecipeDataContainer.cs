@@ -13,7 +13,6 @@ public class RecipeDefinition
     public CandyName candyName;
     public Sprite recipeImage;
     [TextArea] public string descriptionText;
-    [TextArea] public string recipeText;
     public RecipeStep[] steps;     // ordered steps
 }
 

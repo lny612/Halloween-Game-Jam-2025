@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 945acf70f4825ad479b8e77b4842aea6, type: 3}
-  m_Name: Step_Add_Water
+  m_Name: Step_Add_Sugar_Moonmelt
   m_EditorClassIdentifier: 
-  instruction: Add 200ml of Moonlit Dew
+  instruction: Add 100g of Moonmelt Sugar
   icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
   timeLimit: 10
-  ingredientName: Moonlit Dew
-  ingredientSubType: 1
-  targetAmount: 200
-  unit: ml
+  ingredientName: Moonmelt Sugar
+  ingredientSubType: 9
+  targetAmount: 110
+  unit: g
   tolerance: 10
