@@ -248,7 +248,12 @@ public class SoundManager : MonoBehaviour
         PlaySfx(Sfx.ButtonClick);
     }
 
-    public void StartBoilingLoop(float volume = 1.5f)
+    public void OnRecipeNextPress()
+    {
+        PlaySfx(Sfx.BookFlip);
+    }
+
+    public void StartBoilingLoop(float volume = 1f)
     {
         var clip = (int)boilingSfxEnum < sfxClips.Length ? sfxClips[(int)boilingSfxEnum] : null;
         if (!clip) { Debug.LogWarning("[SoundManager] Boiling SFX clip missing"); return; }
