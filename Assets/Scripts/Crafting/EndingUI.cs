@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,11 @@ public class EndingUI : MonoBehaviour
     public TextMeshProUGUI headlineText;
     public TextMeshProUGUI endingResultText;
     public TextMeshProUGUI commentText;
-    public Image endingImage;
     public EndingDataContainer endingDataContainer;
     private List<EndingScripts> endingScriptsList = new List<EndingScripts>();
+
+    public GameObject goodMark;
+    public GameObject badMark;
 
     public void InitializeEndingUI()
     {
@@ -49,7 +52,6 @@ public class EndingUI : MonoBehaviour
         headlineText.text = headline;
         endingResultText.text = endingResult;
         commentText.text = comment;
-        endingImage.sprite = image;
     }
 
 }

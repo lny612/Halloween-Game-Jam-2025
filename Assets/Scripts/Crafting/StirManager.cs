@@ -175,8 +175,6 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         // Gauge shows the *current sub-stir progress* (0..1 of stacksPerStir)
         float t = (_targetStirs <= 0) ? 0f : Mathf.Clamp01(_currentStacks / Mathf.Max(1, stacksPerStir));
         gaugeFill.type = Image.Type.Filled;
-        gaugeFill.fillMethod = Image.FillMethod.Horizontal;
-        gaugeFill.fillOrigin = (int)Image.OriginHorizontal.Left;
         gaugeFill.fillAmount = t;
 
         // Optional color cue: green when sub-gauge is nearly a full stir

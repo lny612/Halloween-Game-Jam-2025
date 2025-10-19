@@ -21,6 +21,9 @@ public class CraftingManager : MonoBehaviour
     public CraftingResultUI craftingResultUI;
     public CauldronBoilMinigame cauldronBoilMinigame;
 
+    [Header("Prefab")]
+    public GameObject fireParticlePrefab;
+    public GameObject smokeParticlePrefab;
 
     [Header("Conveyor Movement")]
     [Tooltip("Units per second to move the conveyor left while crafting runs.")]
@@ -59,8 +62,13 @@ public class CraftingManager : MonoBehaviour
 
     public void BeginRecipe(RecipeDefinition recipe)
     {
+        //turn on and off particles
+        fireParticlePrefab.SetActive(true);
+        smokeParticlePrefab.SetActive(true);
 
+        //sound
         SoundManager.Instance.StartBoilingLoop();
+
         if (recipe == null)
         {
             Debug.LogError("CraftingManager: No recipe!");
@@ -208,6 +216,8 @@ public class CraftingManager : MonoBehaviour
 
     public void OnAllStepsFinished()
     {
+        smokeParticlePrefab.SetActive(false);
+        fireParticlePrefab.SetActive(false);
         SoundManager.Instance.StopBoilingLoop();
         Debug.Log("[Crafting] successCount=" + successCount);
         Debug.Log("[Crafting] activeRecipeLength=" + activeRecipe.steps.Length);
