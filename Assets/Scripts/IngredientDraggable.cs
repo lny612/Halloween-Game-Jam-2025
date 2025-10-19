@@ -13,9 +13,9 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
     public RectTransform bottleRT;
     public RectTransform cauldronZone;
     public ParticleSystem pourParticles;
+    public RectTransform dragLayer; // ← assign a top-level overlay under the same Canvas
 
     [Header("Shaking")]
-    
     public float pixelsPerSecondForUnitSpeed = 500f;
     public float minShakeSpeed = 0.15f;
     public float maxShakeSpeed = 3f;
@@ -32,7 +32,16 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
     private float _lastTime;
     private float _filteredVSpeed;
     private Vector2 _startAnchoredPos;
+    private bool _startPosCaptured;
     private Vector2 localNow;
+
+    // layout-safe restore
+    private Transform _origParent;
+    private int _origSiblingIndex;
+    private LayoutElement _layoutElement;
+
+    // drag offset to keep cursor and object aligned
+    private Vector2 _dragOffset;
 
     void Awake()
     {
@@ -40,26 +49,33 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         _group = GetComponent<CanvasGroup>() ?? gameObject.AddComponent<CanvasGroup>();
         if (!bottleRT) bottleRT = _rt;
         if (!canvas) canvas = GetComponentInParent<Canvas>();
-        _startAnchoredPos = bottleRT.anchoredPosition;
+        if (!dragLayer) dragLayer = canvas.transform as RectTransform; // fallback
+
         InstantiatePourParticles();
+    }
+
+    void Start()
+    {
+        // Capture start position AFTER first layout pass
+        StartCoroutine(CaptureStartPosNextFrame());
+    }
+
+    System.Collections.IEnumerator CaptureStartPosNextFrame()
+    {
+        yield return null; // wait one frame so HorizontalLayoutGroup has positioned things
+        _startAnchoredPos = bottleRT.anchoredPosition;
+        _startPosCaptured = true;
     }
 
     private void InstantiatePourParticles()
     {
         if (pourParticles != null)
         {
-            // Calculate position relative to the bottle (in local space)
             Vector3 topOfBottleLocalPos = new Vector3(0f, bottleRT.rect.height * 0.5f, 0f);
-
-            // Instantiate as a child of the bottle
             pourParticles = Instantiate(pourParticles, bottleRT);
-
-            // Set local position so it's exactly on top of the bottle
             pourParticles.transform.localPosition = topOfBottleLocalPos;
             pourParticles.transform.localRotation = Quaternion.identity;
             pourParticles.transform.localScale = Vector3.one;
-
-            // Disable emission at start
             SetParticleEmission(0f);
         }
     }
@@ -78,26 +94,53 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         _uiCam = eventData.pressEventCamera;
         _group.blocksRaycasts = false;
 
-        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                bottleRT.parent as RectTransform, eventData.position, _uiCam, out _lastLocalPos))
-            return;
+        // Ensure we have the true starting position (layout settled)
+        if (!_startPosCaptured)
+        {
+            _startAnchoredPos = bottleRT.anchoredPosition;
+            _startPosCaptured = true;
+        }
 
         _lastTime = Time.unscaledTime;
         _filteredVSpeed = 0f;
 
+        // Layout opt-out + store original hierarchy
+        _layoutElement = GetComponent<LayoutElement>() ?? gameObject.AddComponent<LayoutElement>();
+        _layoutElement.ignoreLayout = true;
+
+        _origParent = bottleRT.parent;
+        _origSiblingIndex = bottleRT.GetSiblingIndex();
+
+        // Reparent to DragLayer first so all future pointer->local conversions use the new parent
+        bottleRT.SetParent(dragLayer, true);      // keep world pos while dragging freely
+        bottleRT.SetAsLastSibling();              // render on top within DragLayer
+
+        // Ensure on-canvas plane (for Screen Space - Camera / World Space)
+        var lp = bottleRT.localPosition; lp.z = 0f; bottleRT.localPosition = lp;
+
+        // Compute pointer in DragLayer's local space
+        RectTransform dragParent = bottleRT.parent as RectTransform;
+        if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                dragParent, eventData.position, _uiCam, out _lastLocalPos))
+            return;
+
+        // Capture initial click-to-pivot offset so the bottle doesn't jump under the cursor
+        _dragOffset = bottleRT.anchoredPosition - _lastLocalPos;
+
         if (pourParticles) pourParticles.Play(true);
-        Debug.Log("[Draggable] BeginDrag");
+        // Debug.Log("[Draggable] BeginDrag");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // pointer → local
+        // Always convert using the CURRENT parent (dragLayer) after reparenting
+        RectTransform dragParent = bottleRT.parent as RectTransform;
         if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                bottleRT.parent as RectTransform, eventData.position, _uiCam, out localNow))
+                dragParent, eventData.position, _uiCam, out localNow))
             return;
 
-        // move UI
-        bottleRT.anchoredPosition = localNow;
+        // Apply the preserved offset so the cursor stays exactly where you grabbed
+        bottleRT.anchoredPosition = localNow + _dragOffset;
 
         // arm/disarm by UI overlap
         bool overlap = RectOverlaps(bottleRT, cauldronZone, _uiCam);
@@ -111,23 +154,18 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     private void StartShakerMode()
     {
-        // vertical speed in px/s
         float dt = Mathf.Max(0.0001f, Time.unscaledTime - _lastTime);
         float vSpeedPxPerSec = Mathf.Abs(localNow.y - _lastLocalPos.y) / dt;
 
-        // normalize + smooth
         float normSpeed = vSpeedPxPerSec / Mathf.Max(1f, pixelsPerSecondForUnitSpeed);
         _filteredVSpeed = Mathf.Lerp(_filteredVSpeed, normSpeed, speedLerp);
 
-        // particles rate + tilt
         float emitStrength = (_filteredVSpeed >= minShakeSpeed) ? Mathf.Clamp(_filteredVSpeed, 0f, maxShakeSpeed) : 0f;
         SetParticleEmission(emitStrength);
 
-        // gauge update + log
         if (scalePourManager)
         {
             scalePourManager.OnShakeUpdate(_filteredVSpeed, true, ingredientSubtype);
-            Debug.Log($"[Shaker] speed={_filteredVSpeed:0.00} → gauge tick");
         }
 
         _lastLocalPos = localNow;
@@ -143,9 +181,24 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         if (scalePourManager) scalePourManager.OnShakeUpdate(0f, false, ingredientSubtype);
 
         if (cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
-        bottleRT.anchoredPosition = _startAnchoredPos;
 
-        Debug.Log("[Draggable] EndDrag");
+        // Restore parent/sibling and layout participation
+        bottleRT.SetParent(_origParent as RectTransform, true);
+        bottleRT.SetSiblingIndex(_origSiblingIndex);
+
+        if (_layoutElement) _layoutElement.ignoreLayout = false;
+
+        // Force a layout rebuild to avoid a “half frame” snap
+        var parentRT = _origParent as RectTransform;
+        if (parentRT) LayoutRebuilder.ForceRebuildLayoutImmediate(parentRT);
+
+        // Now set the anchored position to the known start (after layout rebuild)
+        if (_startPosCaptured) bottleRT.anchoredPosition = _startAnchoredPos;
+
+        // Optional: small tilt reset
+        var rot = bottleRT.localEulerAngles; rot.z = 0f; bottleRT.localEulerAngles = rot;
+
+        // Debug.Log("[Draggable] EndDrag");
     }
 
     // --- helpers ---

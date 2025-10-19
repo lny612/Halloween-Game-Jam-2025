@@ -167,7 +167,7 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         Complete(success);
     }
-
+    
     private void UpdateGauge()
     {
         if (!gaugeFill) return;

@@ -12,7 +12,8 @@ public class CraftingManager : MonoBehaviour
     [Tooltip("Parent with HorizontalLayoutGroup that will hold one StepSlotUI per step")]
     public Transform conveyorParent;
     [Tooltip("Prefab with StepSlotUI component")]
-    public StepSlotUI stepSlotPrefab;
+    public GameObject stepSlotPrefab_Stir;
+    public GameObject stepSlotPrefab_Add;
 
     [Header("Controllers")]
     public StirManager stirManager;
@@ -79,9 +80,20 @@ public class CraftingManager : MonoBehaviour
         // Build conveyor UI
         foreach (var step in activeRecipe.steps)
         {
+            GameObject stepSlotPrefab;
+            if(step.stepType == StepType.Stir)
+            {
+                stepSlotPrefab = stepSlotPrefab_Stir;
+            }
+            else
+            {
+                stepSlotPrefab = stepSlotPrefab_Add;
+            }
+
             var slot = Instantiate(stepSlotPrefab, conveyorParent);
-            slot.Setup(step.icon, step.instruction, step.timeLimit);
-            _slots.Add(slot);
+            var stepSlotUI = slot.GetComponent<StepSlotUI>();
+            stepSlotUI.Setup(step.icon, step.instruction, step.timeLimit);
+            _slots.Add(stepSlotUI);
         }
 
         // Close Result UI

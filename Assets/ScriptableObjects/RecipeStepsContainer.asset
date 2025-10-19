@@ -15,7 +15,7 @@ MonoBehaviour:
   recipeList:
   - recipeName: Horse Leg Candy
     candyName: 0
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
+    recipeImage: {fileID: -5639760992274690257, guid: 492ec39e52918594282d1e189fb14e84, type: 3}
     descriptionText: A candy that grants the speed of a horse.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
@@ -27,7 +27,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Top-Score Toffee
     candyName: 1
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
+    recipeImage: {fileID: -3921728524004054797, guid: 1f0168b078f333a4da63741e2a752a61, type: 3}
     descriptionText: Sticks facts to your neurons without the goo.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
@@ -37,33 +37,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Brave-Heart Bonbon
-    candyName: 2
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
-    descriptionText: Bottled warm bravery with minty spark.
-    steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Dream-On Lullaby
-    candyName: 3
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
-    descriptionText: A hush wrapped in sugar and soft night.
-    steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Bloom Bite
-    candyName: 4
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
+    candyName: 2
+    recipeImage: {fileID: -4902587147101681732, guid: 1e8ad30d0d13bad418dd696d3181eb5c, type: 3}
     descriptionText: Sugary seed of sympathy with plants.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
@@ -73,9 +49,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Bloom Bite
+  - recipeName: Amore Flare Bonbon
     candyName: 4
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
+    recipeImage: {fileID: -2324826010515534987, guid: 9cc231bcf6a19c1409552f40ba519ce2, type: 3}
     descriptionText: "A shimmering candy that warms the heart and makes words sound
       a little softer. Its sweetness lingers like a crush you can\u2019t quite shake."
     steps:
@@ -86,9 +62,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Bloom Bite
+  - recipeName: Pixel Reflex Crunch
     candyName: 4
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
+    recipeImage: {fileID: 4620394988996644024, guid: ceffa63742fd0b644ad5867ffecf2d69, type: 3}
     descriptionText: "A spark-charged candy that jolts your reflexes to god-tier
       speed. You\u2019ll dodge, tap, and blink before thought catches up."
     steps:
@@ -99,36 +75,11 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Bloom Bite
+  - recipeName: Trans Twist Nougat
     candyName: 4
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
+    recipeImage: {fileID: -1606384026604408176, guid: bc422b42a32ee09449c95de4b78fa033, type: 3}
     descriptionText: Melts into soft spirals of thought, drifting the mind far away
       from reality.
-    steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Bloom Bite
-    candyName: 4
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
-    descriptionText: A fizzy crystal that turns you see-through for a few minutes.
-      One pop, and even your shadow forgets you exist.
-    steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-  - recipeName: Bloom Bite
-    candyName: 4
-    recipeImage: {fileID: -2757008047180432429, guid: 84e24ee9a65950d48a19f5e74df8eaaa, type: 3}
-    descriptionText: Sugary seed of sympathy with plants.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
