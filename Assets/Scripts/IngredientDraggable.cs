@@ -128,7 +128,6 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         _dragOffset = bottleRT.anchoredPosition - _lastLocalPos;
 
         if (pourParticles) pourParticles.Play(true);
-        // Debug.Log("[Draggable] BeginDrag");
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -142,12 +141,15 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         // Apply the preserved offset so the cursor stays exactly where you grabbed
         bottleRT.anchoredPosition = localNow + _dragOffset;
 
-        // arm/disarm by UI overlap
-        bool overlap = RectOverlaps(bottleRT, cauldronZone, _uiCam);
-        if (overlap && !cauldronDropZone.isArmed()) cauldronDropZone.Arm(this);
-        else if (!overlap && cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
+        // Cross-canvas safe overlap (fixes gauge not increasing)
+        bool overlap = RectOverlapsCrossCanvas(bottleRT, cauldronZone);
+        if (cauldronDropZone != null)
+        {
+            if (overlap && !cauldronDropZone.isArmed()) cauldronDropZone.Arm(this);
+            else if (!overlap && cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
+        }
 
-        if (!cauldronDropZone.isArmed()) return;
+        if (!overlap) return;
 
         StartShakerMode();
     }
@@ -180,7 +182,7 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
         SetParticleEmission(0f);
         if (scalePourManager) scalePourManager.OnShakeUpdate(0f, false, ingredientSubtype);
 
-        if (cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
+        if (cauldronDropZone != null && cauldronDropZone.isArmed()) cauldronDropZone.Disarm();
 
         // Restore parent/sibling and layout participation
         bottleRT.SetParent(_origParent as RectTransform, true);
@@ -197,27 +199,46 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
 
         // Optional: small tilt reset
         var rot = bottleRT.localEulerAngles; rot.z = 0f; bottleRT.localEulerAngles = rot;
-
-        // Debug.Log("[Draggable] EndDrag");
     }
 
     // --- helpers ---
-    private static bool RectOverlaps(RectTransform a, RectTransform b, Camera cam)
+
+    // NEW: cross-canvas overlap (each rect uses its own canvas camera)
+    private static bool RectOverlapsCrossCanvas(RectTransform a, RectTransform b)
     {
         if (!a || !b) return false;
-        Vector3[] ac = new Vector3[4]; Vector3[] bc = new Vector3[4];
-        a.GetWorldCorners(ac); b.GetWorldCorners(bc);
 
-        var aMin = RectTransformUtility.WorldToScreenPoint(cam, ac[0]);
-        var aMax = RectTransformUtility.WorldToScreenPoint(cam, ac[2]);
-        var bMin = RectTransformUtility.WorldToScreenPoint(cam, bc[0]);
-        var bMax = RectTransformUtility.WorldToScreenPoint(cam, bc[2]);
+        Camera camA = GetCanvasCamera(a);
+        Camera camB = GetCanvasCamera(b);
 
-        Rect ra = Rect.MinMaxRect(Mathf.Min(aMin.x, aMax.x), Mathf.Min(aMin.y, aMax.y),
-                                  Mathf.Max(aMin.x, aMax.x), Mathf.Max(aMin.y, aMax.y));
-        Rect rb = Rect.MinMaxRect(Mathf.Min(bMin.x, bMax.x), Mathf.Min(bMin.y, bMax.y),
-                                  Mathf.Max(bMin.x, bMax.x), Mathf.Max(bMin.y, bMax.y));
+        Vector3[] ac = new Vector3[4];
+        Vector3[] bc = new Vector3[4];
+        a.GetWorldCorners(ac);
+        b.GetWorldCorners(bc);
+
+        Vector2 aMin = RectTransformUtility.WorldToScreenPoint(camA, ac[0]);
+        Vector2 aMax = RectTransformUtility.WorldToScreenPoint(camA, ac[2]);
+        Vector2 bMin = RectTransformUtility.WorldToScreenPoint(camB, bc[0]);
+        Vector2 bMax = RectTransformUtility.WorldToScreenPoint(camB, bc[2]);
+
+        Rect ra = Rect.MinMaxRect(
+            Mathf.Min(aMin.x, aMax.x), Mathf.Min(aMin.y, aMax.y),
+            Mathf.Max(aMin.x, aMax.x), Mathf.Max(aMin.y, aMax.y)
+        );
+        Rect rb = Rect.MinMaxRect(
+            Mathf.Min(bMin.x, bMax.x), Mathf.Min(bMin.y, bMax.y),
+            Mathf.Max(bMin.x, bMax.x), Mathf.Max(bMin.y, bMax.y)
+        );
+
         return ra.Overlaps(rb);
+    }
+
+    private static Camera GetCanvasCamera(RectTransform rt)
+    {
+        var cv = rt.GetComponentInParent<Canvas>();
+        if (cv == null) return null;
+        if (cv.renderMode == RenderMode.ScreenSpaceOverlay) return null; // overlay uses null
+        return cv.worldCamera != null ? cv.worldCamera : Camera.main;
     }
 
     private void SetParticleEmission(float strength)

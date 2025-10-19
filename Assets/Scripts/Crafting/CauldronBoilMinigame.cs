@@ -25,7 +25,7 @@ public class CauldronBoilMinigame : MonoBehaviour
     public Slider qualityMeter;
 
     [Header("Heat Marker (feel)")]
-    public float markerHeight = 120f;
+    public float markerHeight = 120f;              // kept for backwards-compat, ignored when preserveOriginalSizes is ON
     public float heatRiseAcceleration = 1400f;
     public float coolingGravity = 1200f;
     public float maxTemperatureVelocity = 900f;
@@ -36,7 +36,7 @@ public class CauldronBoilMinigame : MonoBehaviour
     public float zoneVolatility = 0.9f;
     [Range(0f, 1f)] public float zoneRangeFraction = 0.55f;
     public Vector2 zoneRetargetInterval = new Vector2(0.6f, 1.8f);
-    public float zoneHeight = 70f;
+    public float zoneHeight = 70f;                 // kept for backwards-compat, ignored when preserveOriginalSizes is ON
 
     [Header("Quality Scoring")]
     public float qualityGainRate = 0.45f;
@@ -45,6 +45,10 @@ public class CauldronBoilMinigame : MonoBehaviour
 
     [Header("Input")]
     public KeyCode heatKey = KeyCode.Space;
+
+    [Header("Visual Size Lock")]
+    [Tooltip("If ON, keep the original prefab sizes of heat marker and ideal zone (don’t change width/height at runtime).")]
+    public bool preserveOriginalSizes = true;      // NEW
 
     // Internal state
     float laneHeight;
@@ -65,6 +69,10 @@ public class CauldronBoilMinigame : MonoBehaviour
     RectTransform _markerRT;
     RectTransform _zoneRT;
 
+    // Cached half-heights used for physics & overlap (never write to sizeDelta when preserveOriginalSizes is ON)
+    float _markerHalf;  // NEW
+    float _zoneHalf;    // NEW
+
     void Awake()
     {
         _markerRT = heatMarker;
@@ -76,8 +84,24 @@ public class CauldronBoilMinigame : MonoBehaviour
     public void StartBoiling()
     {
         laneHeight = temperatureLane.rect.height;
+
+        // Decide which sizes to use this run
+        if (preserveOriginalSizes)
+        {
+            // Use the prefab / scene sizes as-is
+            _markerHalf = (_markerRT ? _markerRT.rect.height : markerHeight) * 0.5f;  // NEW
+            _zoneHalf = (_zoneRT ? _zoneRT.rect.height : zoneHeight) * 0.5f;  // NEW
+        }
+        else
+        {
+            // Use the configurable fields (legacy behavior)
+            _markerHalf = markerHeight * 0.5f;  // NEW
+            _zoneHalf = zoneHeight * 0.5f;  // NEW
+        }
+
         markerY = laneHeight * 0.15f;
         markerVelocity = 0f;
+
         zoneY = laneHeight * Random.Range(0.3f, 0.7f);
         zoneTargetY = zoneY;
 
@@ -93,7 +117,7 @@ public class CauldronBoilMinigame : MonoBehaviour
     public void StopBoiling()
     {
         boiling = false;
-        GameManager.Instance.SetBoilingPerformance(zeroQualityTime / elapsed);
+        GameManager.Instance.SetBoilingPerformance(zeroQualityTime / Mathf.Max(EPS, elapsed));
     }
 
     void Update()
@@ -107,13 +131,16 @@ public class CauldronBoilMinigame : MonoBehaviour
         bool heating = (Input.GetKey(heatKey));
         float accel = heating ? heatRiseAcceleration : -coolingGravity;
         markerVelocity += accel * dt;
-        markerVelocity = Mathf.Lerp(markerVelocity,
+        markerVelocity = Mathf.Lerp(
+            markerVelocity,
             Mathf.Clamp(markerVelocity, -maxTemperatureVelocity, maxTemperatureVelocity),
-            1f - velocityDamping);
+            1f - velocityDamping
+        );
 
         markerY += markerVelocity * dt;
 
-        float halfMarker = markerHeight * 0.5f;
+        // Clamp using cached half sizes (no runtime size changes)
+        float halfMarker = _markerHalf; // NEW
         markerY = Mathf.Clamp(markerY, halfMarker, laneHeight - halfMarker);
         if (markerY == halfMarker && markerVelocity < 0) markerVelocity = 0;
         if (markerY == laneHeight - halfMarker && markerVelocity > 0) markerVelocity = 0;
@@ -125,20 +152,19 @@ public class CauldronBoilMinigame : MonoBehaviour
         float lerpSpeed = Mathf.Lerp(2f, 7.5f, zoneVolatility);
         zoneY = Mathf.Lerp(zoneY, zoneTargetY, 1f - Mathf.Exp(-lerpSpeed * dt));
 
-        float halfZone = zoneHeight * 0.5f;
+        float halfZone = _zoneHalf; // NEW
         zoneY = Mathf.Clamp(zoneY, halfZone, laneHeight - halfZone);
 
         // 3) Quality accumulation
-        bool inIdealRange = CheckOverlap(markerY, markerHeight, zoneY, zoneHeight);
+        bool inIdealRange = CheckOverlap(markerY, _markerHalf * 2f, zoneY, _zoneHalf * 2f); // NEW (pass heights)
         float rate = inIdealRange ? qualityGainRate : -qualityLossRate;
         quality = Mathf.Clamp01(quality + rate * dt);
         if (qualityMeter != null) qualityMeter.value = quality;
 
-        
         if (quality <= EPS)
         {
             zeroQualityTime += dt;
-             Debug.Log($"[Boil] ZeroQualityTime = {zeroQualityTime:0.00}s");
+            // Debug.Log($"[Boil] ZeroQualityTime = {zeroQualityTime:0.00}s");
         }
 
         // 5) Visual update
@@ -153,7 +179,7 @@ public class CauldronBoilMinigame : MonoBehaviour
         float mid = laneHeight * 0.5f;
         float amp = laneHeight * zoneRangeFraction * 0.5f;
         float spike = Random.Range(-amp, amp);
-        zoneTargetY = Mathf.Clamp(mid + spike, zoneHeight * 0.5f, laneHeight - zoneHeight * 0.5f);
+        zoneTargetY = Mathf.Clamp(mid + spike, _zoneHalf, laneHeight - _zoneHalf); // NEW
     }
 
     bool CheckOverlap(float markerCenter, float markerSize, float zoneCenter, float zoneSize)
@@ -167,15 +193,20 @@ public class CauldronBoilMinigame : MonoBehaviour
 
     void UpdateVisualsImmediate()
     {
+        // Only move; do NOT change size when preserveOriginalSizes is ON.
+        // (We never change size anyway now—sizes are cached once in StartBoiling)
         if (_markerRT != null)
         {
             Vector2 p = _markerRT.anchoredPosition;
             p.y = markerY - (laneHeight * 0.5f);
             _markerRT.anchoredPosition = p;
 
-            Vector2 sz = _markerRT.sizeDelta;
-            sz.y = markerHeight;
-            _markerRT.sizeDelta = sz;
+            if (!preserveOriginalSizes)
+            {
+                Vector2 sz = _markerRT.sizeDelta;
+                sz.y = _markerHalf * 2f;       // legacy behavior if you REALLY want runtime sizing
+                _markerRT.sizeDelta = sz;
+            }
         }
 
         if (_zoneRT != null)
@@ -184,9 +215,12 @@ public class CauldronBoilMinigame : MonoBehaviour
             z.y = zoneY - (laneHeight * 0.5f);
             _zoneRT.anchoredPosition = z;
 
-            Vector2 zs = _zoneRT.sizeDelta;
-            zs.y = zoneHeight;
-            _zoneRT.sizeDelta = zs;
+            if (!preserveOriginalSizes)
+            {
+                Vector2 zs = _zoneRT.sizeDelta;
+                zs.y = _zoneHalf * 2f;         // legacy behavior if you REALLY want runtime sizing
+                _zoneRT.sizeDelta = zs;
+            }
         }
     }
 
