@@ -27,7 +27,7 @@ public class TutorialCutscene : MonoBehaviour
     [TextArea]
     [SerializeField]
     private string wizardLine =
-        "I should go check out the door.";
+        "Guess I should get the door.";
 
     [Header("Timings")]
     [SerializeField] private float preKnockDelay = 0.05f;     // wait after anchor finishes typing

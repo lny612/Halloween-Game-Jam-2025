@@ -19,6 +19,7 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
     public float pixelsPerSecondForUnitSpeed = 500f;
     public float minShakeSpeed = 0.15f;
     public float maxShakeSpeed = 3f;
+    public float pourRate = 200f;
     [Range(0f, 1f)] public float speedLerp = 0.25f;
 
     [Header("Ingredient Information")]
@@ -245,7 +246,7 @@ public class IngredientDraggable : MonoBehaviour, IBeginDragHandler, IDragHandle
     {
         if (!pourParticles) return;
         var em = pourParticles.emission;
-        float rate = Mathf.Lerp(0f, 200f, Mathf.Clamp01(strength / Mathf.Max(0.001f, maxShakeSpeed)));
+        float rate = Mathf.Lerp(0f, pourRate, Mathf.Clamp01(strength / Mathf.Max(0.001f, maxShakeSpeed)));
         em.rateOverTime = rate;
 
         var rot = bottleRT.localEulerAngles;

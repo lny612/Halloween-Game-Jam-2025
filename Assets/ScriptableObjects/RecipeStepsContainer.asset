@@ -32,47 +32,46 @@ MonoBehaviour:
     descriptionText: A brain-buzzing caramel that locks every fact in place. Eat
       one, and anything you study stays crystal-clear in your memory for a full day.
     steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: aa83d8b6252864a43ad17b1bdd0122dc, type: 2}
+    - {fileID: 11400000, guid: 3dd483789111d28428a48e15d610cc84, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
+    - {fileID: 11400000, guid: 3dd483789111d28428a48e15d610cc84, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
     - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
     - {fileID: 11400000, guid: ab917f8e9635b0847b8718597b1e1bda, type: 2}
     - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
     - {fileID: 11400000, guid: cc88fa0f1dd0db745890b4462c718965, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
   - recipeName: Bloom Bite
     candyName: 2
     recipeImage: {fileID: -4902587147101681732, guid: 1e8ad30d0d13bad418dd696d3181eb5c, type: 3}
     descriptionText: A dewy crystal of sweetness that breathes life into soil. One
       nibble, and nearby plants bloom and grow strong in mere seconds.
     steps:
-    - {fileID: 11400000, guid: d8291c8da6014c140a79addac23c6cdf, type: 2}
-    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 544507397fc9c2c4796992c35e0dfe17, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
+    - {fileID: 11400000, guid: 0f66c9aaf4484f04fae90e00dd6c5a62, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
+    - {fileID: 11400000, guid: 306a3f8e9653f0c4ebe2a1a573055dfe, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
+    - {fileID: 11400000, guid: b460996313880394cb2baf6d82b33351, type: 2}
+    - {fileID: 11400000, guid: 544507397fc9c2c4796992c35e0dfe17, type: 2}
     - {fileID: 11400000, guid: d0c3137c84c12b64da725a0d464bc310, type: 2}
-    - {fileID: 11400000, guid: d8291c8da6014c140a79addac23c6cdf, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
-    - {fileID: 11400000, guid: d8291c8da6014c140a79addac23c6cdf, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
     - {fileID: 11400000, guid: d0c3137c84c12b64da725a0d464bc310, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
   - recipeName: Amore Flare Bonbon
-    candyName: 4
+    candyName: 3
     recipeImage: {fileID: -2324826010515534987, guid: 9cc231bcf6a19c1409552f40ba519ce2, type: 3}
     descriptionText: "A shimmering candy that warms the heart and makes words sound
       a little softer. Its sweetness lingers like a crush you can\u2019t quite shake."
     steps:
     - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
-    - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
+    - {fileID: 11400000, guid: e00c9cb640c974b449422a960dea0ebe, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 8d0fcafb81f03994d9367d42d7d654a9, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
+    - {fileID: 11400000, guid: ae6c2e58e980ed046bb5219fdd933f51, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Pixel Reflex Crunch
     candyName: 4
@@ -80,30 +79,31 @@ MonoBehaviour:
     descriptionText: "A spark-charged candy that jolts your reflexes to god-tier
       speed. You\u2019ll dodge, tap, and blink before thought catches up."
     steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: aa83d8b6252864a43ad17b1bdd0122dc, type: 2}
+    - {fileID: 11400000, guid: 3dd483789111d28428a48e15d610cc84, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
+    - {fileID: 11400000, guid: 3dd483789111d28428a48e15d610cc84, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
     - {fileID: 11400000, guid: ab917f8e9635b0847b8718597b1e1bda, type: 2}
     - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: cc88fa0f1dd0db745890b4462c718965, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
   - recipeName: Trans Twist Nougat
-    candyName: 4
+    candyName: 5
     recipeImage: {fileID: -1606384026604408176, guid: bc422b42a32ee09449c95de4b78fa033, type: 3}
     descriptionText: Melts into soft spirals of thought, drifting the mind far away
       from reality.
     steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
-    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
+    - {fileID: 11400000, guid: d2c8d0c708c1dc64182fce620cfdeb54, type: 2}
+    - {fileID: 11400000, guid: b460996313880394cb2baf6d82b33351, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
+    - {fileID: 11400000, guid: b460996313880394cb2baf6d82b33351, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
+    - {fileID: 11400000, guid: 811d7b9dbbb8e664ea51fecb8c130c74, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
     - {fileID: 11400000, guid: a880486660348ca48bade6770b08dbd3, type: 2}
-    - {fileID: 11400000, guid: 8d0fcafb81f03994d9367d42d7d654a9, type: 2}
+    - {fileID: 11400000, guid: 7c223402eeea2c543b938846e1593eac, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}
     - {fileID: 11400000, guid: d0c3137c84c12b64da725a0d464bc310, type: 2}
-    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
+    - {fileID: 11400000, guid: 87ac79371e4910745ae1618bfb736009, type: 2}

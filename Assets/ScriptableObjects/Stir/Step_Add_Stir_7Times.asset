@@ -12,14 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2296e672ac53f347950d55db8a994e5, type: 3}
   m_Name: Step_Add_Stir_7Times
   m_EditorClassIdentifier: 
-  instruction: Stir 5 times
+  instruction: Stir 7 times
   icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
   timeLimit: 10
-  ingredientName: Horse Sugar
-  ingredientType: 1
-  targetAmount: 100
-  unit: g
-  pourRatePerSecond: 100
-  tolerance: 5
-  stirRequiredCount: 5
+  stirRequiredCount: 7
   stirMinInterval: 0.15

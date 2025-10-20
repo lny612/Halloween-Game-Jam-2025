@@ -637,7 +637,7 @@ MonoBehaviour:
   startBannerController: {fileID: 1943557076}
   fireParticlePrefab: {fileID: 1823211429}
   smokeParticlePrefab: {fileID: 1057303575}
-  conveyorMoveSpeed: 80
+  conveyorMoveSpeed: 60
 --- !u!4 &14047794
 Transform:
   m_ObjectHideFlags: 0
@@ -1051,8 +1051,9 @@ MonoBehaviour:
   pourParticles: {fileID: 5454172741259862844, guid: 09a9ced5aa4c6ef4a9d5afd49a061471, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.05
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 4
 --- !u!225 &88126452
@@ -1251,8 +1252,9 @@ MonoBehaviour:
   pourParticles: {fileID: 5454172741259862844, guid: 1f4bffc9c5390864facb1f6ed0e8be3a, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.05
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 5
 --- !u!1 &138650183
@@ -1719,7 +1721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &248827093
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1727,17 +1729,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248827092}
-  m_LocalRotation: {x: -0, y: -0, z: -0.3402149, w: 0.94034773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1183011364}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -39.78}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -248, y: 150}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 14, y: -299}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &248827094
 MonoBehaviour:
@@ -2348,7 +2350,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: I should go check out the door
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8c4f9a83f38c6d41ad340908077cc5d, type: 2}
   m_sharedMaterial: {fileID: 7977390643975669996, guid: f8c4f9a83f38c6d41ad340908077cc5d, type: 2}
@@ -2797,8 +2801,9 @@ MonoBehaviour:
   pourParticles: {fileID: 8093108662634866757, guid: a00ac0488ca595640be52ca6933306c7, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.05
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 2
 --- !u!1 &430487953
@@ -8479,8 +8484,9 @@ MonoBehaviour:
   pourParticles: {fileID: 4280625867690377135, guid: 924dc6e67bcfc2e4b9f07591b0b5fb8a, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.01
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 10
 --- !u!1 &573027615
@@ -10719,7 +10725,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &806652078
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11108,8 +11114,9 @@ MonoBehaviour:
   pourParticles: {fileID: 5454172741259862844, guid: 0e48e93bb2d0bdf44a20e879659391dd, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.05
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 6
 --- !u!1 &879083073
@@ -11357,8 +11364,9 @@ MonoBehaviour:
   pourParticles: {fileID: 4280625867690377135, guid: 0b929febe7047fd4b806c7a7f04efe48, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.01
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 11
 --- !u!1 &894669133
@@ -11651,8 +11659,9 @@ MonoBehaviour:
   pourParticles: {fileID: 8093108662634866757, guid: 0eb16bbaca0e6504e80f7a226ac49eed, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.05
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 1
 --- !u!225 &933141334
@@ -11856,7 +11865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996132469}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12816,7 +12825,7 @@ GameObject:
   - component: {fileID: 1183011366}
   - component: {fileID: 1183011365}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Arm Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12867,7 +12876,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -14414,7 +14423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1409323406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14466,16 +14475,18 @@ MonoBehaviour:
   nextButton: {fileID: 1183011365}
   helperArrowImage: {fileID: 248827092}
   defaultHeadline: Nothing to report!
-  defaultEndingText: ................................
+  defaultEndingText: '...............
+
+'
   defaultComment: "It seems like I failed to grant the {0} child\u2019s wish."
-  defaultImage: {fileID: -2932140119243797861, guid: 7ebd76f8c98531e45be2a085a11b26d3, type: 3}
+  defaultImage: {fileID: -6352861319732180914, guid: 8e21128e1f1991547b0d31fc12ef2ca2, type: 3}
   fewHoursLaterPanel: {fileID: 1334730256}
   fewHoursDuration: 3
   tvOnDuration: 0.32
   tvOvershoot: 1.06
   tvFlashTime: 0.06
   tvFlashAlpha: 0.9
-  newsTicker: {fileID: 0}
+  newsTicker: {fileID: 706209964}
 --- !u!114 &1409323408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15266,8 +15277,9 @@ MonoBehaviour:
   pourParticles: {fileID: 4280625867690377135, guid: 5ea926e60072b2b449fd165826815cb6, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.01
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 7
 --- !u!225 &1491902930
@@ -15836,8 +15848,8 @@ MonoBehaviour:
   stirZone: {fileID: 1795043224}
   rodHandle: {fileID: 1333197437}
   gaugeFill: {fileID: 1467221468}
-  stacksPerStir: 20
-  pixelsPerStack: 12
+  stacksPerStir: 100
+  pixelsPerStack: 5
   StirStackLeftText: {fileID: 138650185}
   clampHandleToZone: 1
   stirMouseButton: 0
@@ -17986,8 +17998,9 @@ MonoBehaviour:
   pourParticles: {fileID: 8093108662634866757, guid: 16e88701c2cbbde48bb5ab7fec15d0ad, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.05
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 3
 --- !u!1 &1875254801
@@ -18976,8 +18989,9 @@ MonoBehaviour:
   pourParticles: {fileID: 4280625867690377135, guid: cf33ebc752c923748aa09e5dd7b9c203, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.01
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 9
 --- !u!1 &2070208634
@@ -19089,8 +19103,9 @@ MonoBehaviour:
   pourParticles: {fileID: 4280625867690377135, guid: f3ea08e7001a0484db275aec4e27d746, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.01
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 8
 --- !u!1 &2073579816
@@ -19588,8 +19603,9 @@ MonoBehaviour:
   pourParticles: {fileID: 4280625867690377135, guid: ea2742cbca9ac6247b854ebeb71fee9f, type: 3}
   dragLayer: {fileID: 389355805}
   pixelsPerSecondForUnitSpeed: 500
-  minShakeSpeed: 0.15
-  maxShakeSpeed: 3
+  minShakeSpeed: 0.01
+  maxShakeSpeed: 9
+  pourRate: 200
   speedLerp: 0.25
   ingredientSubtype: 12
 --- !u!1 &2147027817
