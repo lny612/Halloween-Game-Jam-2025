@@ -236,6 +236,7 @@ public class CraftingManager : MonoBehaviour
         cauldronBoilMinigame.StopBoiling();
         GameManager.Instance.SetRecipePerformance(successCount / activeRecipe.steps.Length);
         var resultCandyGrade = GameManager.Instance.DetermineRank(activeRecipe.candyName);
+        craftingResultUI.gameObject.SetActive(true);
         craftingResultUI.SetResult(resultCandyGrade, activeRecipe);
     }
 }

@@ -20,7 +20,6 @@ public class CraftingResultUI : MonoBehaviour
         candyName.text = recipeDefinition.recipeName;
         candyImage.sprite = recipeDefinition.recipeImage;
         SetFrame(resultCandyGrade);
-        this.gameObject.SetActive(true);
         sparkleEffect.gameObject.SetActive(true);
         SoundManager.Instance.PlaySfx(Sfx.CandyDone);
         sparkleEffect.Play();
