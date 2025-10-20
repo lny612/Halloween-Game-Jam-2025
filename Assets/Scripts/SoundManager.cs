@@ -24,7 +24,8 @@ public enum Sfx
     PourEssence,
     WaterBoil,
     CandyDone,
-    TimeTicking
+    TimeTicking,
+    BurnAlert
 
 }
 

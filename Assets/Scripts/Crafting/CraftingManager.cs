@@ -20,6 +20,7 @@ public class CraftingManager : MonoBehaviour
     public ScalePourManager scalePourManager;
     public CraftingResultUI craftingResultUI;
     public CauldronBoilMinigame cauldronBoilMinigame;
+    public StartBannerController startBannerController;
 
     [Header("Prefab")]
     public GameObject fireParticlePrefab;
@@ -62,18 +63,15 @@ public class CraftingManager : MonoBehaviour
 
     public void BeginRecipe(RecipeDefinition recipe)
     {
-        //turn on and off particles
-        fireParticlePrefab.SetActive(true);
-        smokeParticlePrefab.SetActive(true);
-
-        //sound
-        SoundManager.Instance.StartBoilingLoop();
-
         if (recipe == null)
         {
             Debug.LogError("CraftingManager: No recipe!");
             return;
         }
+
+        // Make sure nothing "boiling" runs during the START banner
+        if (cauldronBoilMinigame != null)
+            cauldronBoilMinigame.gameObject.SetActive(false);
 
         // Reset position
         if (conveyorParent != null)
@@ -88,15 +86,9 @@ public class CraftingManager : MonoBehaviour
         // Build conveyor UI
         foreach (var step in activeRecipe.steps)
         {
-            GameObject stepSlotPrefab;
-            if(step.stepType == StepType.Stir)
-            {
-                stepSlotPrefab = stepSlotPrefab_Stir;
-            }
-            else
-            {
-                stepSlotPrefab = stepSlotPrefab_Add;
-            }
+            GameObject stepSlotPrefab = (step.stepType == StepType.Stir)
+                ? stepSlotPrefab_Stir
+                : stepSlotPrefab_Add;
 
             var slot = Instantiate(stepSlotPrefab, conveyorParent);
             var stepSlotUI = slot.GetComponent<StepSlotUI>();
@@ -107,11 +99,31 @@ public class CraftingManager : MonoBehaviour
         // Close Result UI
         craftingResultUI.gameObject.SetActive(false);
 
-        // Run sequence
-        if (!_running) StartCoroutine(RunRecipe());
+        // Start banner → THEN start boiling + crafting
+        if (!_running)
+        {
+            startBannerController.Play(() =>
+            {
+                // Only after the START animation ends:
+                fireParticlePrefab.SetActive(true);
+                smokeParticlePrefab.SetActive(true);
 
+                // sound
+                SoundManager.Instance.StartBoilingLoop();
+
+                // enable + start minigame (if you have an explicit start call, do it here)
+                if (cauldronBoilMinigame != null)
+                {
+                    cauldronBoilMinigame.gameObject.SetActive(true);
+                    // If your minigame uses an explicit start method, uncomment:
+                    // cauldronBoilMinigame.StartBoiling();
+                }
+
+                // now actually run crafting
+                StartCoroutine(RunRecipe());
+            });
+        }
     }
-
     private IEnumerator RunRecipe()
     {
         _running = true;

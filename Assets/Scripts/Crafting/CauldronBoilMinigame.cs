@@ -1,17 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-/// <summary>
-/// Candy-making boiling minigame (Stardew-style).
-/// - Hold the key to heat the cauldron; release to cool (gravity-like fall).
-/// - Keep the heat marker inside the moving ideal temperature zone.
-/// - Stay inside to build candy quality; leave it and quality drains.
-/// - Win when quality reaches 1.
-/// </summary>
 public class CauldronBoilMinigame : MonoBehaviour
 {
     [Header("UI References")]
+    public Image AlertImage;
     [Tooltip("Vertical lane representing the cauldron temperature scale.")]
     public RectTransform temperatureLane;
 
@@ -50,6 +43,11 @@ public class CauldronBoilMinigame : MonoBehaviour
     [Tooltip("If ON, keep the original prefab sizes of heat marker and ideal zone (don’t change width/height at runtime).")]
     public bool preserveOriginalSizes = true;      // NEW
 
+    [Header("Zero-Quality Alert")] // NEW
+    public float alertFlickerHz = 8f;              // fast flicker
+    [Range(0f, 1f)] public float alertMinAlpha = 0.2f;
+    [Range(0f, 1f)] public float alertMaxAlpha = 1f;
+
     // Internal state
     float laneHeight;
     float markerY;
@@ -73,13 +71,26 @@ public class CauldronBoilMinigame : MonoBehaviour
     float _markerHalf;  // NEW
     float _zoneHalf;    // NEW
 
+    // Alert internals (NEW)
+    Coroutine _alertRoutine;
+    bool _alertActive;
+
     void Awake()
     {
         _markerRT = heatMarker;
         _zoneRT = idealZone;
     }
 
-    void OnEnable() => StartBoiling();
+    void OnEnable()
+    {
+        StopAlert(0f);      // NEW: ensure clean state
+        StartBoiling();
+    }
+
+    void OnDisable()
+    {
+        StopAlert(0f);      // NEW: stop visuals/audio if disabled
+    }
 
     public void StartBoiling()
     {
@@ -90,13 +101,13 @@ public class CauldronBoilMinigame : MonoBehaviour
         {
             // Use the prefab / scene sizes as-is
             _markerHalf = (_markerRT ? _markerRT.rect.height : markerHeight) * 0.5f;  // NEW
-            _zoneHalf = (_zoneRT ? _zoneRT.rect.height : zoneHeight) * 0.5f;  // NEW
+            _zoneHalf = (_zoneRT ? _zoneRT.rect.height : zoneHeight) * 0.5f;          // NEW
         }
         else
         {
             // Use the configurable fields (legacy behavior)
             _markerHalf = markerHeight * 0.5f;  // NEW
-            _zoneHalf = zoneHeight * 0.5f;  // NEW
+            _zoneHalf = zoneHeight * 0.5f;      // NEW
         }
 
         markerY = laneHeight * 0.15f;
@@ -107,7 +118,14 @@ public class CauldronBoilMinigame : MonoBehaviour
 
         quality = 0f;
         elapsed = 0f;
+        zeroQualityTime = 0f;   // NEW: reset this each run
         qualityMeter?.SetValueWithoutNotify(0f);
+
+        // start with alert hidden
+        if (AlertImage != null)
+        {
+            var c = AlertImage.color; c.a = 0f; AlertImage.color = c;
+        }
 
         ScheduleNextZoneShift();
         UpdateVisualsImmediate();
@@ -116,6 +134,7 @@ public class CauldronBoilMinigame : MonoBehaviour
 
     public void StopBoiling()
     {
+        StopAlert(0.08f);   // NEW: stop alert w/ tiny fade
         boiling = false;
         GameManager.Instance.SetBoilingPerformance(zeroQualityTime / Mathf.Max(EPS, elapsed));
     }
@@ -161,10 +180,16 @@ public class CauldronBoilMinigame : MonoBehaviour
         quality = Mathf.Clamp01(quality + rate * dt);
         if (qualityMeter != null) qualityMeter.value = quality;
 
-        if (quality <= EPS)
+        // Alerting logic (NEW)
+        bool shouldAlert = (quality <= EPS);
+        if (shouldAlert)
         {
             zeroQualityTime += dt;
-            // Debug.Log($"[Boil] ZeroQualityTime = {zeroQualityTime:0.00}s");
+            StartAlert();
+        }
+        else
+        {
+            StopAlert(0.12f);
         }
 
         // 5) Visual update
@@ -228,5 +253,59 @@ public class CauldronBoilMinigame : MonoBehaviour
     {
         zoneVolatility = Mathf.Clamp01(volatility01);
         zoneRangeFraction = Mathf.Clamp01(range01);
+    }
+
+    // ------------------------
+    // Alert helpers (NEW)
+    // ------------------------
+    void StartAlert()
+    {
+        if (_alertActive) return;
+        _alertActive = true;
+
+        if (AlertImage != null && _alertRoutine == null)
+            _alertRoutine = StartCoroutine(AlertFlickerRoutine());
+
+        SoundManager.Instance.StartLoopSfx(Sfx.BurnAlert, 0.7f);
+    }
+
+    void StopAlert(float fadeOut = 0.12f)
+    {
+        if (!_alertActive) return;
+        _alertActive = false;
+
+        if (_alertRoutine != null)
+        {
+            StopCoroutine(_alertRoutine);
+            _alertRoutine = null;
+        }
+
+        if (AlertImage != null)
+        {
+            var c = AlertImage.color;
+            c.a = 0f;
+            AlertImage.color = c;
+        }
+
+        SoundManager.Instance.StopLoopSfx(Sfx.BurnAlert, fadeOut);
+    }
+
+    System.Collections.IEnumerator AlertFlickerRoutine()
+    {
+        float t = 0f;
+        while (_alertActive)
+        {
+            t += Time.unscaledDeltaTime;
+            float phase = 0.5f * (1f + Mathf.Sin(t * 2f * Mathf.PI * Mathf.Max(0.01f, alertFlickerHz))); // 0..1
+            float a = Mathf.Lerp(alertMinAlpha, alertMaxAlpha, phase);
+
+            if (AlertImage != null)
+            {
+                var c = AlertImage.color;
+                c.a = a;
+                AlertImage.color = c;
+            }
+            yield return null;
+        }
     }
 }

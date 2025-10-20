@@ -29,6 +29,8 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     [Tooltip("How many pixels of horizontal drag = 1 stack. Lower = easier, Higher = harder.")]
     public float pixelsPerStack = 12f;
 
+    public TextMeshProUGUI StirStackLeftText;
+
     [Tooltip("Clamp the rodHandle position to the stirZone rect.")]
     public bool clampHandleToZone = true;
 
@@ -64,6 +66,7 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         IsComplete = false;
         WasSuccessful = false;
         _startTime = Time.time;
+        StirStackLeftText.text = requiredStirs.ToString();
 
         UpdateGauge();
 
@@ -114,6 +117,8 @@ public class StirManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             {
                 _currentStacks -= stacksPerStir;
                 _currentStirs++;
+
+                StirStackLeftText.text = Mathf.Max(0, _targetStirs - _currentStirs).ToString();
 
                 if (_currentStirs >= _targetStirs)
                 {
