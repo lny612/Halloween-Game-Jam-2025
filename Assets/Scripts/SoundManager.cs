@@ -31,7 +31,8 @@ public enum Sfx
     CraftingDone,
 
     //ending
-    RemoteControl
+    RemoteControl,
+    NewsStart
 
 }
 
@@ -113,7 +114,6 @@ public class SoundManager : MonoBehaviour
             sfxPlayers[i] = src;
         }
 
-        PlayBGM(Bgm.Title);
     }
 
     // --- BGM ---
