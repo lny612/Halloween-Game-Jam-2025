@@ -24,18 +24,21 @@ MonoBehaviour:
     matchingCandy: 0
     childImage: {fileID: -3250557891185971475, guid: 84ee965021e30d0418b9e827ae821dcc, type: 3}
   - childName: Priya
-    greeting: "Trick or treat\u2026 can this make my brain hold still for exams?"
-    desire: "I just\u2026 want to talk without my voice doing that weird squeaky
-      thing."
-    insecurity: My thoughts ping-pong like haunted marbles.
-    farewell: "Thanks\u2026 maybe next time I\u2019ll actually say something instead
-      of just nodding like a weirdo."
+    greeting: "Trick or treat\u2026 think your candy could keep my brain from melting
+      before exams?"
+    desire: "If I could just hold onto what I study the night before\u2026 maybe
+      I\u2019d actually remember something."
+    insecurity: "My thoughts bounce around like ghosts at a rave\u2014never where
+      they should be."
+    farewell: "Thanks\u2026 maybe this time, the answers will stay in my head longer
+      than my pencils do."
     matchingCandy: 1
     childImage: {fileID: 5102609895025814679, guid: c1dee229d0f6be24aba25d45ae1c0e5b, type: 3}
   - childName: Ava
-    greeting: Trick or treat! Can I stop killing plants?
-    desire: I just want a flower to live longer than a week.
-    insecurity: My thumb is anti-green.
+    greeting: "Trick or treat! Uh\u2014can this help me keep a plant alive for once?"
+    desire: I just want my windowsill to stop looking like a tiny graveyard of pots.
+    insecurity: I swear I follow all the guides, but every leaf runs away from me
+      anyway.
     farewell: "Thanks\u2026 maybe this time, the cactus won\u2019t file for relocation."
-    matchingCandy: 4
+    matchingCandy: 2
     childImage: {fileID: 1027070681457607853, guid: 0f87877bc1ef0824ab8b749a238c53c0, type: 3}

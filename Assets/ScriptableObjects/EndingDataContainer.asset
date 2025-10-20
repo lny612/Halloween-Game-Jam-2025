@@ -15,37 +15,42 @@ MonoBehaviour:
   endingList:
   - candyName: 0
     correctHeadline: Local Student Breaks School Sprint Record!
-    correctEndingText: Witnesses at Crestwood High were stunned when an unassuming
-      student, previously known for avoiding gym class, blazed through the track
-      like a lightning bolt. Sources report Britney, the spring fling queen, was
-      the first to cheer at the finish line.
+    correctEndingText: Witnesses at Crestwood High were stunned when a student once
+      famous for dodging gym class blazed down the track like lightning. Britney,
+      the spring fling queen, was first to cheer at the finish line.
     correctComment: Hah. Kid gets the girl, wins the race, and everyone claps.
     correctImage: {fileID: -7862227948810037379, guid: 3ec4d87c7e6a6334b981be17e0755b76, type: 3}
     wrongHeadline: "Mysterious \u2018Horse Boy\u2019 Spotted Galloping Through Crestwood
       Streets"
-    wrongEndingText: "Residents were left in shock as a teenage boy with the legs
-      of a stallion was seen sprinting through town before vanishing into the woods.
-      Eyewitnesses say he was shouting something about \u201CBritney\u201D."
+    wrongEndingText: "Residents were stunned when a teen with the legs of a stallion
+      was seen sprinting through town before vanishing into the woods. Witnesses
+      say he was shouting something about \u2018Britney."
     wrongComment: "Still\u2026 at least he got to run, didn\u2019t he?"
     wrongImage: {fileID: -4288641510789964588, guid: cfdbb839c5be75a42be07b1badb21677, type: 3}
   - candyName: 1
     correctHeadline: Student Aces Test; Pencil Smokes From Speed
-    correctEndingText: Priya finished early, checked twice, and doodled victory stars.
-      The teacher needed a fan for the scantron.
+    correctEndingText: "In today\u2019s surprising classroom report \u2014 Priya
+      finished her exam early, double-checked her answers. Sources say the teacher
+      needed a fan just to cool off the scantron."
     correctComment: 'Brain: decluttered and sparkly.'
     correctImage: {fileID: 3557914867013400328, guid: e5603d2c38d46324e9ca29726ed4094a, type: 3}
     wrongHeadline: Girl Answers In Ancient Runes; Teacher Googles Frantically
-    wrongEndingText: " Priya wrote perfectly\u2026 in a language from nowhere. The
-      curve shattered and so did reality a little."
+    wrongEndingText: "In a story baffling both teachers and linguists, Priya reportedly
+      aced her exam \u2014 but in a language no one could identify. The grading curve
+      collapsed, and some say reality bent just a little in the process."
     wrongComment: Next time, less cosmic notation.
     wrongImage: {fileID: -4288641510789964588, guid: cfdbb839c5be75a42be07b1badb21677, type: 3}
   - candyName: 2
     correctHeadline: Local Girl Revives Entire School Garden
-    correctEndingText: Ava sneezed and everything blossomed; students had to mow
-      twice a day.
+    correctEndingText: "In other news, a sneeze from student Ava turned the entire
+      campus into a jungle overnight. Witnesses report flowers erupting from every
+      corner \u2014 forcing groundskeepers to mow twice a day just to keep up."
     correctComment: 'Green thumb: achieved, overclocked.'
     correctImage: {fileID: -6154504674532238536, guid: 76c7ee2832e63934c925b2cd86052be1, type: 3}
     wrongHeadline: Vines Overtake Bedroom; Plant Asks For Wi-Fi
-    wrongEndingText: "Ava\u2019s room became a jungle with strong opinions on music."
-    wrongComment: "Next time we\u2019ll skip the fertilizer solo."
+    wrongEndingText: "In today\u2019s lighter news \u2014 Ava\u2019s bedroom has
+      reportedly transformed into a full-blown jungle, complete with vines, blossoms,
+      and plants that seem to have very strong opinions on her music choices."
+    wrongComment: "Heh\u2026 maybe I went a little heavy on the \u2018grow fast\u2019
+      part."
     wrongImage: {fileID: -4288641510789964588, guid: cfdbb839c5be75a42be07b1badb21677, type: 3}

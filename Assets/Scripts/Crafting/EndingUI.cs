@@ -55,6 +55,9 @@ public class EndingUI : MonoBehaviour
     private bool _tvIsOn = false;
     private Vector3 _tvOriginalScale = Vector3.one;
 
+    [Header("Headline Ticker")]
+    [SerializeField] private NewsTicker newsTicker;
+
     public void Awake()
     {
         nextButton.onClick.AddListener(OnNextPressed);
@@ -175,7 +178,12 @@ public class EndingUI : MonoBehaviour
     public void SetEndingUI(string headline, string endingResult, string comment, Sprite image, bool isTrueEnding)
     {
         // Headline and image set immediately
-        headlineText.text = headline;
+        // Headline: feed the ticker if present, otherwise just set the text
+        if (newsTicker != null)
+            newsTicker.SetHeadline(headline);
+        else
+            headlineText.text = headline;
+
         AnchorImage.sprite = image;
 
         // Marks shown only after comment fully streams
