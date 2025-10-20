@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Top_Score_Toffee_0: -3921728524004054797
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

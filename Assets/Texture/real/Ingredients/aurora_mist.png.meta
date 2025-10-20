@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      aurora_mist_0: 24623555151597652
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

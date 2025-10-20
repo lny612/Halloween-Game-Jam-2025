@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tranquil_essence_0: 4334891907340614075
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      trans_twist_nougat_0: -1606384026604408176
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

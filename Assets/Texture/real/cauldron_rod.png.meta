@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cauldron_rod_0: 6667064093440448179
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      starlight_sugar_outline_0: -2877600406967554756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

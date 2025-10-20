@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sunpetal_nectar_0: -2447702211425206228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

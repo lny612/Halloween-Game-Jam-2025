@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      news Anchor image_0: -2932140119243797861
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

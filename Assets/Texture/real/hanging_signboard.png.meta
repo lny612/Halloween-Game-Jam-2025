@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hanging_signboard_0: 9074880265649398564
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

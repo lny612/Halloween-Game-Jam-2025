@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      moonlit_dew_0: 7148054137409899106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

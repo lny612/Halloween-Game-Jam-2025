@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dark tv Room_0: -9071570980174734336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

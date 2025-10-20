@@ -10021,7 +10021,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c5e2a73ad4706440f93bf05df0b465fe, type: 3}
   sfxClips:
   - {fileID: 8300000, guid: 5d4e71df2b6734beb9024a1bf5c9ab42, type: 3}
-  - {fileID: 8300000, guid: ac088592488c7d04cbb188b1d5955a07, type: 3}
+  - {fileID: 8300000, guid: b34742615537a0543b7171ca939f63c6, type: 3}
   - {fileID: 8300000, guid: 03c4bb7d1ad86194cbbde24ef8fdd3a2, type: 3}
   - {fileID: 8300000, guid: 2e7d52a4438958f488a01a91d9bfe400, type: 3}
   - {fileID: 8300000, guid: 5a6141b9db56c43358df31f4fb2cc84e, type: 3}
@@ -14624,7 +14624,6 @@ MonoBehaviour:
   tvOvershoot: 1.06
   tvFlashTime: 0.06
   tvFlashAlpha: 0.9
-  newsTicker: {fileID: 706209964}
 --- !u!114 &1409323408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17483,12 +17482,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      HorseLegCandy_0: -5639760992274690257
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

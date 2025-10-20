@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      start_craft_icon_0: 7252447465198319319
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

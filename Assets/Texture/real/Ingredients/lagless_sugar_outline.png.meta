@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      lagless_sugar_outline_0: -5297986709085566218
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

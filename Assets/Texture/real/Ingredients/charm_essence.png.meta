@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      charm_essence_0: 354563051300389727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

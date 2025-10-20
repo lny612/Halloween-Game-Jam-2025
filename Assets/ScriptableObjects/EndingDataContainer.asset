@@ -22,9 +22,9 @@ MonoBehaviour:
     correctImage: {fileID: -7862227948810037379, guid: 3ec4d87c7e6a6334b981be17e0755b76, type: 3}
     wrongHeadline: "Mysterious \u2018Horse Boy\u2019 Spotted Galloping Through Crestwood
       Streets"
-    wrongEndingText: "Residents were stunned when a teen with the legs of a stallion
+    wrongEndingText: Residents were stunned when a teen with the legs of a stallion
       was seen sprinting through town before vanishing into the woods. Witnesses
-      say he was shouting something about \u2018Britney."
+      say he was shouting something about "Britney".
     wrongComment: "Still\u2026 at least he got to run, didn\u2019t he?"
     wrongImage: {fileID: -4288641510789964588, guid: cfdbb839c5be75a42be07b1badb21677, type: 3}
   - candyName: 1

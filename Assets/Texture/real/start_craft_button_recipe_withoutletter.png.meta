@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      start_craft_button_recipe_withoutletter_0: 7671485338816518824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

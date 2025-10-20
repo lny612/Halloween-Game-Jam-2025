@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boil_danger_0: -8821874949847951299
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

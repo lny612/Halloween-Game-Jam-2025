@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      quickfire_essence_0: -4914689316564541372
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

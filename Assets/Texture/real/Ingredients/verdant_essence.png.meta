@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      verdant_essence_0: 4325196907037260824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

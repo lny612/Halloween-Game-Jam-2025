@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bloom_Bite_Candy_0: -4902587147101681732
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
