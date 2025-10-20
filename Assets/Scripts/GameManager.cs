@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] List<ChildProfile> visitedChild;
     [SerializeField] SpiritSightController spiritSightController;
     [SerializeField] TutorialCutscene tutorialCutscene;
+    public int _roundNumber = 1;
 
 
     [Header("Private variables")]
@@ -15,7 +16,6 @@ public class GameManager : MonoBehaviour
     private LoopState state;
     private ChildProfile currentChild;
     private RecipeDefinition _currentRecipe;
-    private int _roundNumber = 5;
     private int _currentRound = 0;
     private List<CraftResult> craftResults = new List<CraftResult>();
     private int _scoreCounter = 0;

@@ -237,6 +237,5 @@ public class CraftingManager : MonoBehaviour
         GameManager.Instance.SetRecipePerformance(successCount / activeRecipe.steps.Length);
         var resultCandyGrade = GameManager.Instance.DetermineRank(activeRecipe.candyName);
         craftingResultUI.SetResult(resultCandyGrade, activeRecipe);
-        craftingResultUI.gameObject.SetActive(true);
     }
 }

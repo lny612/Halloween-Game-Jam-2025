@@ -69,6 +69,7 @@ public class UIManager : MonoBehaviour
         RecipePanel.SetActive(false);
         CraftingPanel.SetActive(false);
         ResultPanel.SetActive(false);
+        EndingPanel.SetActive(false);
     }
 
     public void EnableProceedToRecipeButton()

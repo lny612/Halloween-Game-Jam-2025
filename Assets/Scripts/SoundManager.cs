@@ -25,7 +25,13 @@ public enum Sfx
     WaterBoil,
     CandyDone,
     TimeTicking,
-    BurnAlert
+    BurnAlert,
+
+    //result
+    CraftingDone,
+
+    //ending
+    RemoteControl
 
 }
 

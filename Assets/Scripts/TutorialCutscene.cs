@@ -60,6 +60,7 @@ public class TutorialCutscene : MonoBehaviour
 
         // 6) Switch to Arrival
         GameManager.Instance.ChangeGameState(LoopState.Arrival);
+
     }
 
     private IEnumerator WaitForTypeComplete(StreamingDialogue streamer)
