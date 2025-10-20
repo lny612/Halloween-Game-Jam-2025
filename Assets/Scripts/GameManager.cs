@@ -51,8 +51,6 @@ public class GameManager : MonoBehaviour
                 break;
 
             case LoopState.Arrival:
-
-                SoundManager.Instance.PlayBGM(Bgm.Title, true, 0.5f);
                 if (_currentRound < _roundNumber)
                 {
                     visitedChild.Add(childQueue[_currentRound]);

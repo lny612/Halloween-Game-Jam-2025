@@ -9,11 +9,12 @@ public class EndingUI : MonoBehaviour
     [Header("TV + UI")]
     public Image AnchorImage;                                   // The TV/anchor image (sprite shown in the TV)
     [SerializeField] private RectTransform anchorImageRect;     // For TV turn-on effect (auto-assigned from AnchorImage if left null)
-    [SerializeField] private GameObject anchorSpeechBubble;     // NEW: speech bubble (for endingResultText)
+    [SerializeField] private GameObject anchorSpeechBubble;     // speech bubble (for endingResultText)
     public TextMeshProUGUI headlineText;
     public TextMeshProUGUI endingResultText;
     public TextMeshProUGUI commentText;
     public GameObject commentBubble;
+    public GameObject thankYouText;
 
     [Header("Data")]
     public EndingDataContainer endingDataContainer;
@@ -34,7 +35,7 @@ public class EndingUI : MonoBehaviour
     public Sprite defaultImage;
 
     [Header("Intro Panel")]
-    [SerializeField] private GameObject fewHoursLaterPanel;  // NEW: shows for 3 seconds at very start
+    [SerializeField] private GameObject fewHoursLaterPanel;  // shows for 3 seconds at very start
     [SerializeField] private float fewHoursDuration = 3f;    // duration to show the panel
 
     [Header("TV Turn-On Effect")]
@@ -55,13 +56,11 @@ public class EndingUI : MonoBehaviour
     private bool _tvIsOn = false;
     private Vector3 _tvOriginalScale = Vector3.one;
 
-    [Header("Headline Ticker")]
-    [SerializeField] private NewsTicker newsTicker;
-
     public void Awake()
     {
         nextButton.onClick.AddListener(OnNextPressed);
     }
+
     public void InitializeEndingUI()
     {
         // Ensure rect assigned
@@ -69,6 +68,7 @@ public class EndingUI : MonoBehaviour
             anchorImageRect = AnchorImage.rectTransform;
 
         // Reset early UI state
+        if (thankYouText) thankYouText.SetActive(false);   // NEW: hide thank-you at start
         if (commentBubble) commentBubble.SetActive(false);
         if (anchorSpeechBubble) anchorSpeechBubble.SetActive(false);
         if (goodMark) goodMark.SetActive(false);
@@ -178,11 +178,7 @@ public class EndingUI : MonoBehaviour
     public void SetEndingUI(string headline, string endingResult, string comment, Sprite image, bool isTrueEnding)
     {
         // Headline and image set immediately
-        // Headline: feed the ticker if present, otherwise just set the text
-        if (newsTicker != null)
-            newsTicker.SetHeadline(headline);
-        else
-            headlineText.text = headline;
+        headlineText.text = headline;
 
         AnchorImage.sprite = image;
 
@@ -240,7 +236,7 @@ public class EndingUI : MonoBehaviour
             SoundManager.Instance.PlaySfx(Sfx.StepFail);
         }
 
-        // 4) Enable Next if there are more endings to show
+        // 4) Enable Next: keep it enabled even on the last page so the player can reach "thank you"
         if (_endingIndex < _numberOfEndings)
         {
             helperArrowImage?.SetActive(true);
@@ -248,7 +244,8 @@ public class EndingUI : MonoBehaviour
         }
         else
         {
-            nextButton.interactable = false;
+            helperArrowImage?.SetActive(false);
+            nextButton.interactable = true;   // <-- keep enabled on the last page
         }
     }
 
@@ -264,6 +261,20 @@ public class EndingUI : MonoBehaviour
 
     public void OnNextPressed()
     {
+        if (_endingIndex == _numberOfEndings)
+        {
+            // All endings shown → show thank you screen
+            if (anchorSpeechBubble) anchorSpeechBubble.SetActive(false);
+            if (commentBubble) commentBubble.SetActive(false);
+            if (helperArrowImage) helperArrowImage.SetActive(false);
+            if (AnchorImage) AnchorImage.gameObject.SetActive(false);
+            if (goodMark) goodMark.SetActive(false);
+            if (badMark) badMark.SetActive(false);
+            if (thankYouText) thankYouText.SetActive(true);
+            return;
+        }
+
+        // Otherwise, continue to next ending
         SoundManager.Instance.PlaySfx(Sfx.RemoteControl);
         helperArrowImage?.SetActive(false);
 

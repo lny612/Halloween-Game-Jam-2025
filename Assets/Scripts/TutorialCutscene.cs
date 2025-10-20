@@ -84,6 +84,8 @@ public class TutorialCutscene : MonoBehaviour
 
         // 8) Buffer, then transition
         yield return new WaitForSeconds(afterWizardDelay);
+
+        SoundManager.Instance.PlayBGM(Bgm.Title, true, 0.5f);
         GameManager.Instance.ChangeGameState(LoopState.Arrival);
     }
 
