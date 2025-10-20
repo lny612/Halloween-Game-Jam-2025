@@ -9,6 +9,7 @@ public class CraftingResultUI : MonoBehaviour
     public TextMeshProUGUI candyGrade;
     public TextMeshProUGUI candyName;
     public Image candyImage;
+    public Image candyFrame;
     public List<Sprite> gradeFrames = new List<Sprite>();
     public ParticleSystem sparkleEffect;
 
@@ -30,23 +31,23 @@ public class CraftingResultUI : MonoBehaviour
     {
         if (candyGrade == CandyGrade.Divine)
         {
-            candyImage.GetComponent<Image>().sprite = gradeFrames[4];
+            candyFrame.GetComponent<Image>().sprite = gradeFrames[4];
         }
         else if (candyGrade == CandyGrade.Deluxe)
         {
-            candyImage.GetComponent<Image>().sprite = gradeFrames[3];
+            candyFrame.GetComponent<Image>().sprite = gradeFrames[3];
         }
         else if (candyGrade == CandyGrade.Sweet)
         {
-            candyImage.GetComponent<Image>().sprite = gradeFrames[2];
+            candyFrame.GetComponent<Image>().sprite = gradeFrames[2];
         }
         else if (candyGrade == CandyGrade.Sticky)
         {
-            candyImage.GetComponent<Image>().sprite = gradeFrames[1];
+            candyFrame.GetComponent<Image>().sprite = gradeFrames[1];
         }
         else // Burnt
         {
-            candyImage.GetComponent<Image>().sprite = gradeFrames[0];
+            candyFrame.GetComponent<Image>().sprite = gradeFrames[0];
         }
     }
 }

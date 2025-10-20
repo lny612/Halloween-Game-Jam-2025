@@ -15368,6 +15368,7 @@ MonoBehaviour:
   candyGrade: {fileID: 217976611}
   candyName: {fileID: 1270620227}
   candyImage: {fileID: 7467270}
+  candyFrame: {fileID: 814189946}
   gradeFrames:
   - {fileID: 5483209777808798635, guid: f1b7fd12b51486d4da911a4508b71b1d, type: 3}
   - {fileID: 4345182141553431122, guid: 62e38419148ef0b4aaf699c334962afc, type: 3}
@@ -16372,6 +16373,7 @@ MonoBehaviour:
   visitedChild: []
   spiritSightController: {fileID: 452561003}
   tutorialCutscene: {fileID: 806652081}
+  _roundNumber: 1
 --- !u!4 &1681063858
 Transform:
   m_ObjectHideFlags: 0
