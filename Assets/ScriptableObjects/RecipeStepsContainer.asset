@@ -16,7 +16,8 @@ MonoBehaviour:
   - recipeName: Horse Leg Candy
     candyName: 0
     recipeImage: {fileID: -5639760992274690257, guid: 492ec39e52918594282d1e189fb14e84, type: 3}
-    descriptionText: A candy that grants the speed of a horse.
+    descriptionText: A wild mint confection pulsing with thunderous energy. Bite
+      down, and your legs surge with the raw speed of a galloping horse.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
@@ -28,26 +29,37 @@ MonoBehaviour:
   - recipeName: Top-Score Toffee
     candyName: 1
     recipeImage: {fileID: -3921728524004054797, guid: 1f0168b078f333a4da63741e2a752a61, type: 3}
-    descriptionText: Sticks facts to your neurons without the goo.
+    descriptionText: A brain-buzzing caramel that locks every fact in place. Eat
+      one, and anything you study stays crystal-clear in your memory for a full day.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
+    - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
+    - {fileID: 11400000, guid: ab917f8e9635b0847b8718597b1e1bda, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
+    - {fileID: 11400000, guid: cc88fa0f1dd0db745890b4462c718965, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Bloom Bite
     candyName: 2
     recipeImage: {fileID: -4902587147101681732, guid: 1e8ad30d0d13bad418dd696d3181eb5c, type: 3}
-    descriptionText: Sugary seed of sympathy with plants.
+    descriptionText: A dewy crystal of sweetness that breathes life into soil. One
+      nibble, and nearby plants bloom and grow strong in mere seconds.
     steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
+    - {fileID: 11400000, guid: d8291c8da6014c140a79addac23c6cdf, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
+    - {fileID: 11400000, guid: d0c3137c84c12b64da725a0d464bc310, type: 2}
+    - {fileID: 11400000, guid: d8291c8da6014c140a79addac23c6cdf, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
+    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
+    - {fileID: 11400000, guid: d8291c8da6014c140a79addac23c6cdf, type: 2}
+    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: d0c3137c84c12b64da725a0d464bc310, type: 2}
+    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Amore Flare Bonbon
     candyName: 4
@@ -55,12 +67,12 @@ MonoBehaviour:
     descriptionText: "A shimmering candy that warms the heart and makes words sound
       a little softer. Its sweetness lingers like a crush you can\u2019t quite shake."
     steps:
-    - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
+    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
+    - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
+    - {fileID: 11400000, guid: 8d0fcafb81f03994d9367d42d7d654a9, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
+    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Pixel Reflex Crunch
     candyName: 4
@@ -73,7 +85,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
     - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
+    - {fileID: 11400000, guid: ab917f8e9635b0847b8718597b1e1bda, type: 2}
+    - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
+    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: cc88fa0f1dd0db745890b4462c718965, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
   - recipeName: Trans Twist Nougat
     candyName: 4
@@ -82,9 +97,13 @@ MonoBehaviour:
       from reality.
     steps:
     - {fileID: 11400000, guid: 66e6a8c30b7e12b4780f94e257d00a6b, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
+    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 07528c2a1fc525949b77c6f5ecca6527, type: 2}
+    - {fileID: 11400000, guid: 40cc7792c7722e6429a5abab3588a47c, type: 2}
     - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
-    - {fileID: 11400000, guid: 8e8192f0fadce0b418082c5bd2dd4473, type: 2}
-    - {fileID: 11400000, guid: 9279224e0635b3c448df651ab4a387ca, type: 2}
+    - {fileID: 11400000, guid: 11d8df10e95392b4d9116fa37661e2ee, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
+    - {fileID: 11400000, guid: a880486660348ca48bade6770b08dbd3, type: 2}
+    - {fileID: 11400000, guid: 8d0fcafb81f03994d9367d42d7d654a9, type: 2}
+    - {fileID: 11400000, guid: d0c3137c84c12b64da725a0d464bc310, type: 2}
+    - {fileID: 11400000, guid: 55093019ee500ab4cb79dfb39b887dba, type: 2}
