@@ -55,6 +55,10 @@ public class EndingUI : MonoBehaviour
     private bool _tvIsOn = false;
     private Vector3 _tvOriginalScale = Vector3.one;
 
+    public void Awake()
+    {
+        nextButton.onClick.AddListener(OnNextPressed);
+    }
     public void InitializeEndingUI()
     {
         // Ensure rect assigned
@@ -252,6 +256,7 @@ public class EndingUI : MonoBehaviour
 
     public void OnNextPressed()
     {
+        SoundManager.Instance.PlaySfx(Sfx.RemoteControl);
         helperArrowImage?.SetActive(false);
 
         // TV must remain ON, speech bubble remains ON
