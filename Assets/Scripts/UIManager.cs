@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ChildUI_Result childUI_result;
     [SerializeField] private RecipeUI recipeUI;
     [SerializeField] private EndingUI endingUI;
+    [SerializeField] private RecipeTutorialBanner recipeTutorialBanner;
 
     [Header("Buttons")]
     [SerializeField] private Button ProceedToExamineButton;
@@ -29,7 +30,6 @@ public class UIManager : MonoBehaviour
 
 
     public static UIManager Instance { get; private set; }
-    private bool isExaminePressed;
 
     void Awake()
     {
@@ -84,6 +84,7 @@ public class UIManager : MonoBehaviour
     public void DisplayRecipe()
     {
         RecipePanel.SetActive(true);
+        recipeTutorialBanner.PlayBanner();
         recipeUI.Initialize();
     }
 
