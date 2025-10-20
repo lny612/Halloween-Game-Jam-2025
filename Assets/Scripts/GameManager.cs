@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ChildProfileContainer childProfileContainer;
     [SerializeField] List<ChildProfile> visitedChild;
     [SerializeField] SpiritSightController spiritSightController;
+    [SerializeField] TutorialCutscene tutorialCutscene;
+
 
     [Header("Private variables")]
     private List<ChildProfile> childQueue;
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        state = LoopState.Arrival;
+        state = LoopState.Tutorial;
         childQueue = childProfileContainer.childProfileList;
         Advance();
     }
@@ -43,6 +45,11 @@ public class GameManager : MonoBehaviour
 
         switch (state)
         {
+            case LoopState.Tutorial:
+                UIManager.Instance.ShowTutorial();
+                tutorialCutscene.PlayCutscene();
+                break;
+
             case LoopState.Arrival:
                 if (_currentRound < _roundNumber)
                 {

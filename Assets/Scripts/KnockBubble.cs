@@ -6,17 +6,15 @@ public class KnockBubble : MonoBehaviour
 {
     public CanvasGroup group;
     public TMP_Text label;
-    public AudioSource sfx;
-    public AudioClip knockClip;
     public Transform doorPos;
 
     [Header("Timing")]
-    public int repeat = 2;
+    public int repeat = 3;
     public float flashIn = 0.08f;
     public float hold = 0.12f;
     public float flashOut = 0.1f;
     public float gap = 0.15f;
-
+    public float initialDelay = 0.2f;
     void Awake()
     {
         group.alpha = 0f;
@@ -32,10 +30,10 @@ public class KnockBubble : MonoBehaviour
 
     IEnumerator FlashSequence()
     {
+        yield return new WaitForSeconds(initialDelay);
+
         for (int i = 0; i < repeat; i++)
         {
-            if (knockClip && sfx) sfx.PlayOneShot(knockClip);
-
             // fade in
             for (float t = 0; t < flashIn; t += Time.deltaTime)
             {

@@ -14,9 +14,15 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private Button startCraftButton;
     [SerializeField] private RecipeDataContainer recipeDataContainer;
 
+    [SerializeField] private GameObject inspectButtonHover;
+    [SerializeField] private GameObject craftCandyButtonHover;
+
+
     private int currentPage = 0;
     public void Initialize()
     {
+        inspectButtonHover.SetActive(false);
+        craftCandyButtonHover.SetActive(false);
         SetInformation(currentPage);
     }
 

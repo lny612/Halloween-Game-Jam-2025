@@ -1,4 +1,4 @@
-public enum LoopState { Arrival, Examine, SelectRecipe, Craft, Evaluate, Result, Ending }
+public enum LoopState { Tutorial, Arrival, Examine, SelectRecipe, Craft, Evaluate, Result, Ending }
 public enum CandyGrade { Burnt, Sticky, Sweet, Deluxe, Divine }
 public enum IngredientType { Water, Sugar, Essence }
 public enum StepType { Stir, Add, Wait }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("Panels")]
+    [SerializeField] private GameObject TutorialPanel;
     [SerializeField] private GameObject ArrivalPanel;
     [SerializeField] private GameObject ExaminationPanel;
     [SerializeField] private GameObject RecipePanel;
@@ -62,6 +63,7 @@ public class UIManager : MonoBehaviour
 
     public void CloseAllPanels()
     {
+        TutorialPanel.SetActive(false);
         ArrivalPanel.SetActive(false);
         ExaminationPanel.SetActive(false);
         RecipePanel.SetActive(false);
@@ -105,6 +107,11 @@ public class UIManager : MonoBehaviour
     {
         EndingPanel.SetActive(true);
         endingUI.InitializeEndingUI();
+    }
+
+    public void ShowTutorial()
+    {
+        TutorialPanel.SetActive(true);
     }
 
 }
