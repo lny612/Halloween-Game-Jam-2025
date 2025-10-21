@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instruction: Stir 5 times
   icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
-  timeLimit: 10
+  timeLimit: 6
   stirRequiredCount: 5
   stirMinInterval: 0.15

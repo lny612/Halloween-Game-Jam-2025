@@ -261,9 +261,14 @@ public class EndingUI : MonoBehaviour
 
     public void OnNextPressed()
     {
+        // Otherwise, continue to next ending
+        SoundManager.Instance.PlaySfx(Sfx.RemoteControl);
+        helperArrowImage?.SetActive(false);
+
         if (_endingIndex == _numberOfEndings)
         {
             // All endings shown → show thank you screen
+            if (helperArrowImage) helperArrowImage.SetActive(false);
             if (anchorSpeechBubble) anchorSpeechBubble.SetActive(false);
             if (commentBubble) commentBubble.SetActive(false);
             if (helperArrowImage) helperArrowImage.SetActive(false);
@@ -273,10 +278,6 @@ public class EndingUI : MonoBehaviour
             if (thankYouText) thankYouText.SetActive(true);
             return;
         }
-
-        // Otherwise, continue to next ending
-        SoundManager.Instance.PlaySfx(Sfx.RemoteControl);
-        helperArrowImage?.SetActive(false);
 
         // TV must remain ON, speech bubble remains ON
         if (!_tvIsOn)

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instruction: Add 300g of Lagless Sugar
   icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
-  timeLimit: 10
+  timeLimit: 12
   ingredientName: Lagless Sugar
   ingredientSubType: 5
   targetAmount: 300
   unit: g
-  tolerance: 15
+  tolerance: 10

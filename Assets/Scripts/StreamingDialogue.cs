@@ -1,9 +1,9 @@
-﻿// StreamingDialogue_NoCursor.cs
-// Same behavior as before, but with NO cursor glyph or blink.
+﻿// StreamingDialogue_NoCursor_Unskippable_SingleLine.cs
+// Streams a single line of dialogue with timing, punctuation pauses, and optional sound.
+// No skipping, no advancing — just type once and stop.
 
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -20,12 +20,6 @@ public class StreamingDialogue : MonoBehaviour
     [SerializeField] private KeyCode holdToSpeedUpKey = KeyCode.LeftShift;
     [SerializeField] private float speedUpMultiplier = 2.5f;
 
-    [Header("Skipping")]
-    [Tooltip("Press to instantly complete the current line; press again to advance.")]
-    [SerializeField] private KeyCode advanceKey = KeyCode.Space;
-    [Tooltip("Allow mouse button to act like advance key.")]
-    [SerializeField] private bool mouseAdvances = true;
-
     [Header("Punctuation Pauses (seconds)")]
     [SerializeField] private float commaPause = 0.08f;
     [SerializeField] private float periodPause = 0.18f;
@@ -37,12 +31,11 @@ public class StreamingDialogue : MonoBehaviour
     [Tooltip("Play a blip every N visible characters (0 = off).")]
     [SerializeField] private int blipEveryNChars = 2;
 
-
     public event System.Action OnTypeComplete;
+
     private Coroutine _run;
-    private bool _lineComplete;
     private bool _isPlaying;
-    private StringBuilder _buffer = new StringBuilder();
+    private readonly StringBuilder _buffer = new StringBuilder();
 
     void Reset()
     {
@@ -59,47 +52,28 @@ public class StreamingDialogue : MonoBehaviour
         if (_run != null) StopCoroutine(_run);
         _run = null;
         _isPlaying = false;
-        _lineComplete = false;
     }
 
+    /// <summary>
+    /// Starts streaming the given line of text.
+    /// </summary>
     public void PlayLine(string line, Action onFinished = null)
     {
-        PlayLines(new List<string> { line }, onFinished);
-    }
-
-    public void PlayLines(IList<string> lines, Action onFinished = null)
-    {
         StopAll();
-        _run = StartCoroutine(RunLines(lines, onFinished));
+        _run = StartCoroutine(TypeLine(line, onFinished));
     }
 
-    private IEnumerator RunLines(IList<string> lines, Action onFinished)
+    private IEnumerator TypeLine(string line, Action onFinished)
     {
         _isPlaying = true;
-
-        for (int i = 0; i < lines.Count; i++)
-        {
-            yield return StartCoroutine(TypeLine(lines[i]));
-            // Wait for advance to go to next line
-            yield return StartCoroutine(WaitForAdvance());
-        }
-
-        _isPlaying = false;
-        onFinished?.Invoke();
-    }
-
-    private IEnumerator TypeLine(string line)
-    {
-        _lineComplete = false;
         _buffer.Clear();
-
         textUI.text = "";
 
         int blipCounter = 0;
 
         for (int i = 0; i < line.Length; i++)
         {
-            // Handle TMP rich text tags instantly (do not type them one by one)
+            // Handle TMP rich text tags instantly
             if (line[i] == '<')
             {
                 int tagEnd = line.IndexOf('>', i);
@@ -114,15 +88,17 @@ public class StreamingDialogue : MonoBehaviour
 
             // Append next visible char
             _buffer.Append(line[i]);
-            blipCounter++;
-
             textUI.text = _buffer.ToString();
 
-            // Play blip
-            if (blipClip && blipSource && blipEveryNChars > 0 && blipCounter >= blipEveryNChars)
+            // Blip sound
+            if (blipClip && blipSource && blipEveryNChars > 0)
             {
-                blipCounter = 0;
-                blipSource.PlayOneShot(blipClip);
+                blipCounter++;
+                if (blipCounter >= blipEveryNChars)
+                {
+                    blipCounter = 0;
+                    blipSource.PlayOneShot(blipClip);
+                }
             }
 
             // Compute delay
@@ -136,42 +112,17 @@ public class StreamingDialogue : MonoBehaviour
             else if (c == '.') delay += periodPause;
             else if (c == '!' || c == '?' || c == ';' || c == ':' || c == '…') delay += longPause;
 
-            // If player presses advance, instantly complete the line
-            if (PressedAdvance())
+            // Wait per-frame so speedup can apply dynamically
+            float t = 0f;
+            while (t < delay)
             {
-                textUI.text = line;
-                break;
+                t += Time.deltaTime;
+                yield return null;
             }
-
-            yield return new WaitForSeconds(delay);
         }
 
-        // Line complete
-        _lineComplete = true;
-        textUI.text = _buffer.ToString();
-
-        if (OnTypeComplete != null) OnTypeComplete.Invoke();
-    }
-
-    private IEnumerator WaitForAdvance()
-    {
-        while (true)
-        {
-            if (PressedAdvance())
-            {
-                // If line was still streaming, the first press completed it.
-                // If it's already complete, the press advances to next line (exit).
-                if (_lineComplete) break;
-                _lineComplete = true;
-            }
-            yield return null;
-        }
-    }
-
-    private bool PressedAdvance()
-    {
-        bool key = Input.GetKeyDown(advanceKey);
-        bool mouse = mouseAdvances && Input.GetMouseButtonDown(0);
-        return key || mouse;
+        _isPlaying = false;
+        OnTypeComplete?.Invoke();
+        onFinished?.Invoke();
     }
 }

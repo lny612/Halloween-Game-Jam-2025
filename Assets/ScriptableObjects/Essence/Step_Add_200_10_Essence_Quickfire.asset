@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instruction: Add 200g of Quickfire Essence
   icon: {fileID: 1571363359237710767, guid: 03695a733ff3c1943975cc93da3a3503, type: 3}
-  timeLimit: 10
+  timeLimit: 12
   ingredientName: Quickfire Essence
   ingredientSubType: 10
   targetAmount: 200
